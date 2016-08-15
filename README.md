@@ -9,4 +9,4 @@ crow
 About
 =====
 
-I am Vim user, so many keys (```Insert```, ```Page Up```, etc) are places as command in Vim. 
+I am Vim user, so many keys (```Insert```, ```Page Up```, etc) are placed as commands in Vim. 
