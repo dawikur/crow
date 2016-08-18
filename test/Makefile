@@ -13,14 +13,14 @@ OBJ=$(SRC:%.cpp=%.o)
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -c -o $@
 
 all: $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o test
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o test.app
 
 run: all
-	./test
+	./test.app
 
 
 .PHONY: clean
 
 clean:
-	rm -f $(GTEST_DIR)/*.o */*.o *.o *~ tests
+	rm -f $(GTEST_DIR)/*.o */*.o *.o *~ test.app
 

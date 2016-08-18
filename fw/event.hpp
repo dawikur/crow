@@ -25,13 +25,14 @@ struct CompressedEvent {
   Data const data;
 };
 
-CompressedEvent Event::compress() {
-  return { row << 8 | col << 1 | wasPressed ? 1 : 0; };
+CompressedEvent Event::compress() const {
+  return {static_cast<Data>(row << 8 | col << 1 | wasPressed ? 1 : 0)};
 }
 
-Event CompressedEvent::expand() {
-  return { data >> 8, (data >> 1) & 0x7, data & 0x01 }
-  }
+Event CompressedEvent::expand() const {
+  return {static_cast<Index>(data >> 8),
+          static_cast<Index>((data >> 1) & 0x7),
+          static_cast<bool>(data & 0x01)};
 }
 
 }  // namespace Crow
