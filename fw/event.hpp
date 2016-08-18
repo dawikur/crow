@@ -11,7 +11,7 @@ struct Event;
 struct CompressedEvent;
 
 struct Event {
-  CompressedEvent compress() const;
+  inline CompressedEvent compress() const;
 
   Index const row;
   Index const col;
@@ -19,7 +19,7 @@ struct Event {
 };
 
 struct CompressedEvent {
-  Event expand() const;
+  inline Event expand() const;
 
   RawCompressEvent const raw;
 };

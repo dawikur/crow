@@ -1,15 +1,17 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#include "layer.hpp"
+#include "executor.hpp"
 #include "matrix.hpp"
 
 Crow::Matrix matrix;
-Crow::Layer current_layer;
+Crow::Executor execute;
 
 void setup() {
 }
 
 void loop() {
+  bool updateNeeded = false;
+
   for (Crow::Index i = 0; i < matrix.rows(); ++i) {
     auto const row = matrix(i);
     auto const prev_row = matrix[i];
@@ -21,10 +23,14 @@ void loop() {
           continue;
         }
 
-        current_layer[i][j](row[j]);
+        execute({i, j, row[j]});
       }
       matrix[i] = row;
-
+      updateNeeded = true;
     }
+  }
+
+  if (updateNeeded) {
+
   }
 }
