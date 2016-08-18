@@ -12,7 +12,9 @@
 
 // ===============
 
-#include <cstdint>
+#ifndef ARDUINO
+# include <cstdint>
+#endif
 
 namespace Crow {
 
@@ -22,37 +24,37 @@ constexpr Index RowsCount = ROWS_COUNT;
 constexpr Index ColsCount = COLS_COUNT;
 
 #if ROWS_COUNT <= 2
-  #define ROWS_BITS 1
+# define ROWS_BITS 1
 #elif ROWS_COUNT <= 4
-  #define ROWS_BITS 2
+# define ROWS_BITS 2
 #elif ROWS_COUNT <= 8
-  #define ROWS_BITS 3
+# define ROWS_BITS 3
 #elif ROWS_COUNT <= 16
-  #define ROWS_BITS 4
+# define ROWS_BITS 4
 #elif ROWS_COUNT <= 32
-  #define ROWS_BITS 5
+# define ROWS_BITS 5
 #elif ROWS_COUNT <= 64
-  #define ROWS_BITS 6
+# define ROWS_BITS 6
 #else
-  #error "Unsupported rows size."
+# error "Unsupported rows size."
 #endif
 
 constexpr Index RowsBits = ROWS_BITS;
 
 #if COLS_COUNT <= 2
-  #define COLS_BITS 1
+# define COLS_BITS 1
 #elif COLS_COUNT <= 4
-  #define COLS_BITS 2
+# define COLS_BITS 2
 #elif COLS_COUNT <= 8
-  #define COLS_BITS 3
+# define COLS_BITS 3
 #elif COLS_COUNT <= 16
-  #define COLS_BITS 4
+# define COLS_BITS 4
 #elif COLS_COUNT <= 32
-  #define COLS_BITS 5
+# define COLS_BITS 5
 #elif COLS_COUNT <= 64
-  #define COLS_BITS 6
+# define COLS_BITS 6
 #else
-  #error "Unsupported columns size."
+# error "Unsupported columns size."
 #endif
 
 constexpr Index ColsBits = COLS_BITS;
@@ -68,7 +70,7 @@ constexpr Index ColsBits = COLS_BITS;
 #elif COLS_COUNT <= 64
   using RawRow = uint64_t;
 #else
-  #error "Unsupported row count."
+# error "Unsupported row count."
 #endif
 
 #if BITS_COUNT <= 8
@@ -80,7 +82,7 @@ constexpr Index ColsBits = COLS_BITS;
 #elif BITS_COUNT <= 64
   using RawCompressEvent = uint64_t;
 #else
-  #error "Unsupported matrix"
+# error "Unsupported matrix"
 #endif
 
 }  // namespace Crow

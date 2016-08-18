@@ -10,8 +10,8 @@ namespace Crow {
 
 class Matrix {
  public:
-  static int rows() { return RowsCount; }
-  static int cols() { return ColsCount; }
+  static Index rows() { return RowsCount; }
+  static Index cols() { return ColsCount; }
 
   Matrix() : row{0} {}
 
