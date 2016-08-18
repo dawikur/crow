@@ -10,15 +10,15 @@ namespace Crow {
 
 class Matrix {
  public:
-  static int rows() { return Config::Rows; }
-  static int cols() { return Config::Cols; }
+  static int rows() { return RowsCount; }
+  static int cols() { return ColsCount; }
 
   Matrix() : row{0} {}
 
-  Row operator()(int const i) { return Row{0}; }
+  Row operator()(Index const i) { return Row{0}; }
 
-  Row operator[](int const i) const { return row; }
-  Row &operator[](int const i) { return row; }
+  Row operator[](Index const i) const { return row; }
+  Row &operator[](Index const i) { return row; }
 
  private:
   Row row;

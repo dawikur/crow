@@ -16,23 +16,23 @@ struct Event {
   Index const row;
   Index const col;
   bool const wasPressed;
-
 };
 
 struct CompressedEvent {
   Event expand() const;
 
-  Data const data;
+  RawCompressEvent const raw;
 };
 
 CompressedEvent Event::compress() const {
-  return {static_cast<Data>(row << 8 | col << 1 | wasPressed ? 1 : 0)};
+  return {static_cast<RawCompressEvent>((((row << ColsBits) | col) << 1) |
+                                        static_cast<Index>(wasPressed))};
 }
 
 Event CompressedEvent::expand() const {
-  return {static_cast<Index>(data >> 8),
-          static_cast<Index>((data >> 1) & 0x7),
-          static_cast<bool>(data & 0x01)};
+  return {static_cast<Index>(raw >> (ColsBits + 1)),
+          static_cast<Index>((raw >> 1) & ((1 << ColsBits) - 1)),
+          static_cast<bool>(raw & 0x01)};
 }
 
 }  // namespace Crow

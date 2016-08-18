@@ -2,7 +2,7 @@
 GTEST_DIR=../thirdparty/gtest
 
 CC=g++
-CFLAGS=-std=c++14 -I../thirdparty -I../fw
+CFLAGS=-std=c++14 -I../thirdparty -I../fw -I$(GTEST_DIR)
 LDFLAGS=-pthread
 
 SRC = $(shell find . -name '*.cpp') $(GTEST_DIR)/gtest-all.cpp $(GTEST_DIR)/gtest-main.cpp
@@ -12,11 +12,14 @@ OBJ=$(SRC:%.cpp=%.o)
 %.o: %.cpp
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -c -o $@
 
-all: $(OBJ)
+one: $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o test.app
 
-run: all
+run: one
 	./test.app
+
+all: clean
+all: run
 
 
 .PHONY: clean

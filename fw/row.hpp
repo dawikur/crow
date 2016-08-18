@@ -11,7 +11,9 @@ class Row {
  public:
   Row(RawRow const raw = 0) : raw{raw} {}
 
-  bool operator[](Index const index) const { return raw & (1 << index); }
+  bool operator[](Index const index) const {
+    return static_cast<bool>(raw & (1 << index));
+  }
 
   bool operator== (Row const other) const {
     return raw == other.raw;
