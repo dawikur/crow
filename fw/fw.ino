@@ -3,15 +3,13 @@
 #include "executor.hpp"
 #include "matrix.hpp"
 
-Crow::Matrix matrix;
-Crow::Executor execute;
+auto &matrix = Crow::Matrix();
+auto &execute = Crow::Executor();
 
 void setup() {
 }
 
 void loop() {
-  bool updateNeeded = false;
-
   for (Crow::Index i = 0; i < matrix.rows(); ++i) {
     auto const row = matrix(i);
     auto const prev_row = matrix[i];
@@ -26,11 +24,8 @@ void loop() {
         execute({i, j, row[j]});
       }
       matrix[i] = row;
-      updateNeeded = true;
     }
   }
 
-  if (updateNeeded) {
-
-  }
+  execute();
 }

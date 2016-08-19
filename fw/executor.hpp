@@ -8,14 +8,29 @@
 
 namespace Crow {
 
-class Executor {
+class Executor_ {
  public:
-  void operator() (Event const event) {
+  Executor_() = default;
+  Executor_(Executor_ const &) = delete;
 
+  void operator() () {
+    if (updateNeeded) {
+      updateNeeded = false;
+    }
+  }
+
+  void operator() (Event const event) {
+    updateNeeded = true;
   }
 
  private:
+  bool updateNeeded;
 };
+
+Executor_& Executor() {
+  static Executor_ impl;
+  return impl;
+}
 
 }  // namespace Crow
 

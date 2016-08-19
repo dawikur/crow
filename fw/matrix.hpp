@@ -8,21 +8,27 @@
 
 namespace Crow {
 
-class Matrix {
+class Matrix_ {
  public:
+  Matrix_() = default;
+  Matrix_(Matrix_ const &) = delete;
+
   static Index rows() { return RowsCount; }
   static Index cols() { return ColsCount; }
 
-  Matrix() : row{0} {}
+  Row operator()(Index const i) { return Row{0}; }  // TODO: 2016-08-18
 
-  Row operator()(Index const i) { return Row{0}; }
-
-  Row operator[](Index const i) const { return row; }
-  Row &operator[](Index const i) { return row; }
+  Row operator[](Index const i) const { return row[i]; }
+  Row &operator[](Index const i) { return row[i]; }
 
  private:
-  Row row;
+  Row row[RowsCount];
 };
+
+Matrix_& Matrix() {
+  static Matrix_ impl;
+  return impl;
+}
 
 }  // namespace Crow
 
