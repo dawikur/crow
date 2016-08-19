@@ -5,18 +5,15 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
-      - llvm-toolchain-precise-3.8
     packages:
       - g++-6
-      - clang-3.8
 
 compiler:
-  - clang
   - gcc
 
 before_script:
   - cd test
-  - make
+  - make CXX=g++-6
 
 script:
   - make run
