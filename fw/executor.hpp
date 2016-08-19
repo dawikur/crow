@@ -5,6 +5,7 @@
 
 #include "config.hpp"
 #include "event.hpp"
+#include "layer.hpp"
 
 namespace Crow {
 
@@ -14,17 +15,22 @@ class Executor_ {
   Executor_(Executor_ const &) = delete;
 
   void operator() () {
-    if (updateNeeded) {
-      updateNeeded = false;
+    if (!updateNeeded) {
+      return;
     }
+
+    updateNeeded = false;
   }
 
   void operator() (Event const event) {
     updateNeeded = true;
+
+    layer[event.row][event.col](event.wasPressed);
   }
 
  private:
   bool updateNeeded;
+  Layer layer;
 };
 
 Executor_& Executor() {
