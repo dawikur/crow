@@ -3,6 +3,13 @@
 #ifndef CROW_KEYMAP_BEGIN_HPP_
 #define CROW_KEYMAP_BEGIN_HPP_
 
+
+#include "config.hpp"
+#include "functions.hpp"
+#include "layer.hpp"
+
+#include "keymap_keys.hpp"
+
 #define K(ey)                                                                  \
   [](bool const wasPressed) { Send_Key(Keymap::Key_##ey, wasPressed); }
 

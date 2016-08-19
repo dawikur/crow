@@ -3,26 +3,9 @@
 #ifndef CROW_KEYMAP_HPP_
 #define CROW_KEYMAP_HPP_
 
-#include "config.hpp"
-#include "layer.hpp"
-#include "keymap_keys.hpp"
-
 #include "keymap_begin.hpp"
 
 namespace Crow {
-
-void Send_Key(Index const key, bool const wasPressed) {}
-void Send_Modifier(Index const key, bool const wasPressed) {}
-
-void Function_1(bool const wasPressed) {}
-void Function_1_Toggle(bool const wasPressed) {}
-void Function_2(bool const wasPressed) {}
-void Function_2_Toggle(bool const wasPressed) {}
-
-void Function_Shift_Toggle(bool const wasPressed) {}
-
-void Macro_Rec(bool const wasPressed) {}
-void Macro_Key(Index const key, bool const wasPressed) {}
 
 Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
