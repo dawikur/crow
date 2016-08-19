@@ -2,11 +2,13 @@
 
 #include "executor.hpp"
 #include "matrix.hpp"
+#include "keymap.hpp"
 
 auto &matrix = Crow::Matrix();
 auto &execute = Crow::Executor();
 
 void setup() {
+  execute.setLayer(&Crow::Layers[0]);
 }
 
 void loop() {

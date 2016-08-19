@@ -14,6 +14,10 @@ class Executor_ {
   Executor_() = default;
   Executor_(Executor_ const &) = delete;
 
+  void setLayer(Layer *newLayer) {
+    layer = newLayer;
+  }
+
   void operator() () {
     if (!updateNeeded) {
       return;
@@ -25,12 +29,12 @@ class Executor_ {
   void operator() (Event const event) {
     updateNeeded = true;
 
-    layer[event.row][event.col](event.wasPressed);
+    (*layer)[event.row][event.col](event.wasPressed);
   }
 
  private:
   bool updateNeeded;
-  Layer layer;
+  Layer *layer;
 };
 
 Executor_& Executor() {

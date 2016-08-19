@@ -53,20 +53,20 @@ constexpr Index Key_Enter        = 0x28;
 constexpr Index Key_Esc          = 0x29;
 constexpr Index Key_BackSpace    = 0x2A;
 constexpr Index Key_Tab          = 0x2B;
-constexpr Index Key_Del          = 0x2C;
+constexpr Index Key_SpaceBar     = 0x2C;
 constexpr Index Key_Minus        = 0x2D; // - _
 constexpr Index Key_Equal        = 0x2E; // = +
 constexpr Index Key_OpenBracket  = 0x2F; // [ {
 constexpr Index Key_CloseBracket = 0x30; // ] }
-constexpr Index Key_Pipe         = 0x31; // \ |
+constexpr Index Key_Slash        = 0x31; // \ |
+constexpr Index Key_Hash         = 0x32; // non-US # ~
 constexpr Index Key_Semicolon    = 0x33; // ; :
 constexpr Index Key_Apostrophe   = 0x34; // ' "
 constexpr Index Key_Aqute        = 0x35; // ` ~
 constexpr Index Key_Comma        = 0x36; // , <
 constexpr Index Key_Dot          = 0x37; // . >
 constexpr Index Key_ForwardSlash = 0x38; // / ?
-constexpr Index Key_PrtSc        = 0x46;
-constexpr Index Key_Pause        = 0x48;
+constexpr Index Key_CapsLock     = 0x39;
 
 
 // Functional
@@ -82,6 +82,7 @@ constexpr Index Key_F9           = 0x42;
 constexpr Index Key_F10          = 0x43;
 constexpr Index Key_F11          = 0x44;
 constexpr Index Key_F12          = 0x45;
+
 constexpr Index Key_F13          = 0x68;
 constexpr Index Key_F14          = 0x69;
 constexpr Index Key_F15          = 0x6A;
@@ -95,22 +96,21 @@ constexpr Index Key_F22          = 0x71;
 constexpr Index Key_F23          = 0x72;
 constexpr Index Key_F24          = 0x73;
 
-// Locks
-constexpr Index Key_CapsLock     = 0x39;;
-constexpr Index Key_ScrollLock   = 0x47;
-constexpr Index Key_NumLock      = 0x53;
-
 // Controlpad
-constexpr Index Key_Ins_CP       = 0x49;
-constexpr Index Key_Home_CP      = 0x4A;
-constexpr Index Key_PgUp_CP      = 0x4B;
-constexpr Index Key_Del_CP       = 0x4C;
-constexpr Index Key_End_CP       = 0x4D;
-constexpr Index Key_PgDn_CP      = 0x4E;
-constexpr Index Key_Right_CP     = 0x4F;
-constexpr Index Key_Left_CP      = 0x50;
-constexpr Index Key_Down_CP      = 0x51;
-constexpr Index Key_Up_CP        = 0x52;
+constexpr Index Key_PrtSc        = 0x46;
+constexpr Index Key_ScrollLock   = 0x47;
+constexpr Index Key_Pause        = 0x48;
+constexpr Index Key_Ins          = 0x49;
+constexpr Index Key_Home         = 0x4A;
+constexpr Index Key_PgUp         = 0x4B;
+constexpr Index Key_Delete       = 0x4C;
+constexpr Index Key_End          = 0x4D;
+constexpr Index Key_PgDn         = 0x4E;
+constexpr Index Key_Right        = 0x4F;
+constexpr Index Key_Left         = 0x50;
+constexpr Index Key_Down         = 0x51;
+constexpr Index Key_Up           = 0x52;
+constexpr Index Key_NumLock      = 0x53;
 
 // Keypad
 constexpr Index Key_Divide_KP    = 0x54; // /
@@ -119,21 +119,26 @@ constexpr Index Key_Minus_KP     = 0x56; // -
 constexpr Index Key_Plus_KP      = 0x57; // +
 constexpr Index Key_Enter_KP     = 0x58; // Return
 
-constexpr Index Key_1_KP         = 0x59; // End
-constexpr Index Key_2_KP         = 0x5A; // Down
-constexpr Index Key_3_KP         = 0x5B; // PgDn
-constexpr Index Key_4_KP         = 0x5C; // Left
-constexpr Index Key_6_KP         = 0x5E; // Right
-constexpr Index Key_7_KP         = 0x5F; // Home
-constexpr Index Key_8_KP         = 0x60; // Up
-constexpr Index Key_9_KP         = 0x61; // PgUp
-constexpr Index Key_0_KP         = 0x62; // Ins
+constexpr Index Key_1_KP         = 0x59; // 1 End
+constexpr Index Key_2_KP         = 0x5A; // 2 Down
+constexpr Index Key_3_KP         = 0x5B; // 3 PgDn
+constexpr Index Key_4_KP         = 0x5C; // 4 Left
+constexpr Index Key_5_KP         = 0x5D; // 5
+constexpr Index Key_6_KP         = 0x5E; // 6 Right
+constexpr Index Key_7_KP         = 0x5F; // 7 Home
+constexpr Index Key_8_KP         = 0x60; // 8 Up
+constexpr Index Key_9_KP         = 0x61; // 9 PgUp
+constexpr Index Key_0_KP         = 0x62; // 0 Ins
 constexpr Index Key_Comma_KP     = 0x63; // Del
+constexpr Index Key_NonUS_Pipe   = 0x64; // non-US \ |
 
 // Extra
-constexpr Index Key_WinMenu      = 0x65;
+constexpr Index Key_Application  = 0x65; // Menu
+
+constexpr Index Key_Power        = 0x66;
 
 constexpr Index Key_Help         = 0x75;
+constexpr Index Key_Again        = 0x79;
 constexpr Index Key_Undo         = 0x7A;
 constexpr Index Key_Cut          = 0x7B;
 constexpr Index Key_Copy         = 0x7C;
@@ -142,6 +147,25 @@ constexpr Index Key_Paste        = 0x7D;
 constexpr Index Key_Mute         = 0x7F;
 constexpr Index Key_VolumeUp     = 0x80;
 constexpr Index Key_VolumeDown   = 0x81;
+
+// Modifiers
+constexpr Index Key_CtrlL         = 0xE0;
+constexpr Index Key_ShiftL        = 0xE1;
+constexpr Index Key_AltL          = 0xE2;
+constexpr Index Key_GUIL          = 0xE3;
+constexpr Index Key_CtrlR         = 0xE4;
+constexpr Index Key_ShiftR        = 0xE5;
+constexpr Index Key_AltR          = 0xE6;
+constexpr Index Key_GUIR          = 0xE7;
+
+constexpr Index Modifier_CtrlL    = 1 << 0;
+constexpr Index Modifier_ShiftL   = 1 << 1;
+constexpr Index Modifier_AltL     = 1 << 2;
+constexpr Index Modifier_GUIL     = 1 << 3;
+constexpr Index Modifier_CtrlR    = 1 << 4;
+constexpr Index Modifier_ShiftR   = 1 << 5;
+constexpr Index Modifier_AltR     = 1 << 6;
+constexpr Index Modifier_GUIR     = 1 << 7;
 
 }  // namespace Keymap
 }  // namespace Crow

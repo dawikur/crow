@@ -3,10 +3,12 @@
 #ifndef CROW_LAYER_HPP_
 #define CROW_LAYER_HPP_
 
+#include "config.hpp"
+
 namespace Crow {
 
 using Function = void (*)(bool const);
-using Layer = Function **;
+using Layer = const Function[RowsCount][ColsCount];
 
 }  // namespace Crow
 

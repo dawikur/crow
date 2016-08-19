@@ -14,6 +14,7 @@
 
 #ifndef ARDUINO
 # include <cstdint>
+# define PROGMEM
 #endif
 
 namespace Crow {
