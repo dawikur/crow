@@ -17,13 +17,10 @@ void loop() {
     auto const prev_row = matrix[i];
 
     if (row != prev_row) {
-
       for (Crow::Index j = 0; j < matrix.cols(); ++j) {
-        if (row[j] == prev_row[j]) {
-          continue;
+        if (row[j] != prev_row[j]) {
+          execute({i, j, row[j]});
         }
-
-        execute({i, j, row[j]});
       }
       matrix[i] = row;
     }

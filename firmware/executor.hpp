@@ -5,6 +5,7 @@
 
 #include "config.hpp"
 #include "event.hpp"
+#include "keyboard.hpp"
 #include "layer.hpp"
 
 namespace Crow {
@@ -22,8 +23,9 @@ class Executor_ {
     if (!updateNeeded) {
       return;
     }
-
     updateNeeded = false;
+
+    Keyboard().send();
   }
 
   void operator() (Event const event) {

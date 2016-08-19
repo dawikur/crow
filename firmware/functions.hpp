@@ -3,10 +3,17 @@
 #ifndef CROW_FUNCTIONS_HPP_
 #define CROW_FUNCTIONS_HPP_
 
+#include "keyboard.hpp"
+
 namespace Crow {
 
-inline void Send_Key(Index const key, bool const wasPressed) {}
-inline void Send_Modifier(Index const key, bool const wasPressed) {}
+inline void Send_Key(Index const key, bool const wasPressed) {
+  Keyboard().key(key, wasPressed);
+}
+
+inline void Send_Modifier(Index const key, bool const wasPressed) {
+  Keyboard().modifier(key, wasPressed);
+}
 
 inline void Function_1(bool const wasPressed) {}
 inline void Function_1_Toggle(bool const wasPressed) {}
