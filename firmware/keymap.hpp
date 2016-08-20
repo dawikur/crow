@@ -3,9 +3,17 @@
 #ifndef CROW_KEYMAP_HPP_
 #define CROW_KEYMAP_HPP_
 
-#include "keymap_begin.hpp"
+#include "keymap/begin.hpp"
 
 namespace Crow {
+
+inline void Function_1(Report &, bool const) {}
+inline void Function_2(Report &, bool const) {}
+
+inline void Function_1_Toggle(Report &, bool const) {}
+inline void Function_2_Toggle(Report &, bool const) {}
+
+inline void Function_Shift_Toggle(Report &, bool const) {}
 
 Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
@@ -33,7 +41,7 @@ Function const Layers[][RowsCount][ColsCount] PROGMEM = {
     { K(Aqute),  K(1),    K(2),    K(3),        K(4),    K(5),    K(6),           K(7),  K(8),     K(9),   K(0),            K(Minus),       K(Equal),        K(BackSpace) },
     { K(Tab),    K(Q),    K(W),    K(E),        K(R),    K(T),    K(Y),           K(U),  K(I),     K(O),   K(P),            K(OpenBracket), K(CloseBracket), K(Slash) },
     { M(CtrlL),  K(A),    K(S),    K(D),        K(F),    K(G),    K(H),           K(J),  K(K),     K(L),   K(Semicolon),    K(Apostrophe),  K(Enter),        Nop() },
-    { M(ShiftL), K(Z),    K(X),    K(C),        K(V),    K(B),    K(N),           K(M),  K(Comma), K(Dot), K(ForwardSlash), M(ShiftR),      Nop(),           Nop() },
+    { M(ShiftL), K(Z),    K(X),    K(C),        K(V),    K(B),    K(N),           K(N),  K(Comma), K(Dot), K(ForwardSlash), M(ShiftR),      Nop(),           Nop() },
     { Fn(1),     M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Fn(2), Nop(),    Nop(),  Nop(),           Nop(),          Nop(),           Nop() }
   },
 
@@ -86,17 +94,17 @@ Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
   { // TODO: 2016-08-19
-    { K(Esc),       MK(1),   MK(2),     MK(3),       MK(4),   MK(5),   MK(6),          MK(7),   MK(8),  MK(9), MK(10), MK(11), MK(12), K(Delete) },
-    { Fn(2_Toggle), MR(),    Nop(),     Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        Nop(),   Nop(),     Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() }
+    { K(Esc),       Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  K(Delete) },
+    { Fn(2_Toggle), Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
+    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
+    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
+    { Nop(),        M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() }
   }
 
 };
 
 }  // namespace Crow
 
-#include "keymap_end.hpp"
+#include "keymap/end.hpp"
 
 #endif  // CROW_KEYMAP_HPP_

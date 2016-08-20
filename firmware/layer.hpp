@@ -4,10 +4,11 @@
 #define CROW_LAYER_HPP_
 
 #include "config.hpp"
+#include "report.hpp"
 
 namespace Crow {
 
-using Function = void (*)(bool const);
+using Function = void (*)(Report &, bool const);
 using Layer = const Function[RowsCount][ColsCount];
 
 }  // namespace Crow

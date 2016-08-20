@@ -1,30 +1,18 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#include "executor.hpp"
-#include "matrix.hpp"
-#include "keymap.hpp"
+#include "firmware.hpp"
 
-auto &matrix = Crow::Matrix();
-auto &execute = Crow::Executor();
+Firmware firmware;
+
+Crow::Row GetRow(Crow::Index const i) {
+  return Crow::Row{0};
+}
+void SendReport(void const *const data, Crow::Index const size) {}
 
 void setup() {
-  execute.setLayer(&Crow::Layers[0]);
+  firmware.setup(GetRow, SendReport);
 }
 
 void loop() {
-  for (Crow::Index i = 0; i < matrix.rows(); ++i) {
-    auto const row = matrix(i);
-    auto const prev_row = matrix[i];
-
-    if (row != prev_row) {
-      for (Crow::Index j = 0; j < matrix.cols(); ++j) {
-        if (row[j] != prev_row[j]) {
-          execute({i, j, row[j]});
-        }
-      }
-      matrix[i] = row;
-    }
-  }
-
-  execute();
+  firmware.loop();
 }

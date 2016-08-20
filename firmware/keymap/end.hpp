@@ -11,7 +11,4 @@
 
 #undef Fn
 
-#undef MR
-#undef MK
-
 #endif  // CROW_KEYMAP_END_HPP_

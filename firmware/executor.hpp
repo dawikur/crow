@@ -5,18 +5,26 @@
 
 #include "config.hpp"
 #include "event.hpp"
-#include "keyboard.hpp"
 #include "layer.hpp"
+#include "report.hpp"
+#include "system.hpp"
 
 namespace Crow {
 
-class Executor_ {
+class Executor {
  public:
-  Executor_() = default;
-  Executor_(Executor_ const &) = delete;
+  Executor() = default;
+  Executor(Executor const &) = delete;
 
-  void setLayer(Layer *newLayer) {
+  void setup(System::SendReportImpl sendReportImpl, Layer *newLayer) {
+    system.setup(sendReportImpl);
     layer = newLayer;
+  }
+
+  void operator() (Event const event) {
+    updateNeeded = true;
+
+    (*layer)[event.row][event.col](report, event.wasPressed);
   }
 
   void operator() () {
@@ -25,24 +33,15 @@ class Executor_ {
     }
     updateNeeded = false;
 
-    Keyboard().send();
-  }
-
-  void operator() (Event const event) {
-    updateNeeded = true;
-
-    (*layer)[event.row][event.col](event.wasPressed);
+    system.sendReport(report.data(), report.size());
   }
 
  private:
   bool updateNeeded;
+  Report report;
+  System system;
   Layer *layer;
 };
-
-Executor_& Executor() {
-  static Executor_ impl;
-  return impl;
-}
 
 }  // namespace Crow
 
