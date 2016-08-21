@@ -8,8 +8,29 @@
 
 namespace Crow {
 
-using Function = void (*)(Report &, Index &, bool const);
-using Layer = const Function[RowsCount][ColsCount];
+class Layer {
+ public:
+  using Function = void (*)(Report &, Layer &, bool const);
+  using Raw = const Function[RowsCount][ColsCount];
+
+  constexpr static Index Base = 0;
+
+  Layer() : raw{nullptr}, current{0}, locked{false} {}
+  Layer(Layer const &) = delete;
+
+  void setup(Raw const *const newRaw) { raw = newRaw; }
+
+  auto operator[](Index const index) { return raw[current][index]; }
+
+  void set(Index const number) {
+    current = number;
+  }
+
+ private:
+  Raw *raw;
+  Index current;
+  bool locked;
+};
 
 }  // namespace Crow
 

@@ -7,7 +7,7 @@
 
 namespace Crow {
 
-Function const Layers[][RowsCount][ColsCount] PROGMEM = {
+Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
 //
 // Layer 0
