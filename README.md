@@ -9,11 +9,17 @@ Custom 60% keyboard
 [![Tests Status](https://img.shields.io/travis/dawikur/crow/master.svg?label=tests&style=flat-square)](https://travis-ci.org/dawikur/crow)
 [![Controller](https://img.shields.io/badge/controller-arduino_micro-orange.svg?style=flat-square)](https://www.arduino.cc/en/Main/ArduinoBoardMicro)
 
+Layout
+======
+
 ![Keyboard](resources/keyboard-layout.png)
 ![Keyboard Layer 1](resources/keyboard-layout%20(1).png)
 ![Keyboard Layer 2](resources/keyboard-layout%20(2).png)
 
-About
-=====
-
 I am Vim user, so many keys (```Insert```, ```Page Up```, etc) are placed as commands in Vim.
+
+Firmware
+========
+
+![ClassDiagram](resources/class-diagram.png)
+![ActivityDiagram](resources/activity-diagram.png)
