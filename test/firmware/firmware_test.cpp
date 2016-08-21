@@ -77,8 +77,28 @@ TEST_F(firmware_test, pressing_and_releasing_key_will_send_two_reports) {
 
   expect_rows({0, 0, 0, 0, 0});
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
   firmware.loop();
 }
 
+TEST_F(firmware_test, when_pressing_three_keys_they_will_be_send_in_one_report) {
+  expect_rows({32, 4, 64, 0, 0});
+  expect_report({0, 0, Crow::Keymap::Key_5, Crow::Keymap::Key_W, Crow::Keymap::Key_H, 0, 0, 0});
 
+  firmware.loop();
+}
+
+TEST_F(firmware_test, pressed_modifier_will_be_send) {
+  expect_rows({0, 0, 1, 0, 0});
+  expect_report({Crow::Keymap::Modifier_CtrlL, 0, 0, 0, 0, 0, 0, 0,});
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
+  expect_rows({0, 0, 1, 1, 0});
+  expect_report({Crow::Keymap::Modifier_CtrlL | Crow::Keymap::Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0,});
+
+  firmware.loop();
+}
 
