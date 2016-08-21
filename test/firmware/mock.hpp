@@ -22,7 +22,7 @@ class USBHid {
  public:
   ~USBHid() = default;
 
-  virtual void sendReport(std::vector<uint8_t> const &) = 0;
+  virtual int sendReport(std::vector<uint8_t> const &) = 0;
 };
 
 namespace Mock {
@@ -34,7 +34,7 @@ class Hardware : public ::Crow::Hardware {
 
 class USBHid : public ::Crow::USBHid {
  public:
-  MOCK_METHOD1(sendReport, void(std::vector<uint8_t> const &));
+  MOCK_METHOD1(sendReport, int(std::vector<uint8_t> const &));
 };
 
 }  // namespace Mock
