@@ -102,3 +102,16 @@ TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
   firmware.loop();
 }
 
+TEST_F(firmware_test, modifiers_can_be_unpressed) {
+  expect_rows({0, 0, 0, 0, 16});
+  expect_report({Crow::Keymap::Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
+
+
