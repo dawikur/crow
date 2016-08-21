@@ -3,12 +3,14 @@
 #ifndef CROW_KEYMAP_END_HPP_
 #define CROW_KEYMAP_END_HPP_
 
-#undef K
+#undef K   // Key
 
-#undef M
+#undef M   // Modifier
+#undef MT  // ModifierToggle
 
-#undef L
+#undef L   // Layer
+#undef LT  // LayerToggle
 
-#undef Nop
+#undef Nop // No operation
 
 #endif  // CROW_KEYMAP_END_HPP_

@@ -19,9 +19,23 @@
     report.modifier(Crow::Keymap::Modifier_##in_key, wasPressed);              \
   }
 
+#define MT(in_key)                                                             \
+  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+    if (wasPressed) {                                                          \
+      report.toggleModifierLock(Crow::Keymap::Modifier_##in_key);              \
+    }                                                                          \
+  }
+
 #define L(number)                                                              \
   [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
     layer.set(wasPressed ? number : Crow::Layer::Base);                        \
+  }
+
+#define LT()                                                                   \
+  [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
+    if (wasPressed) {                                                          \
+      layer.toggleLock();                                                      \
+    }                                                                          \
   }
 
 #define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}

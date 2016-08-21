@@ -110,12 +110,12 @@ TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
 }
 
 TEST_F(firmware_test, modifiers_can_be_unpressed) {
-  expect_rows({0, 0, 0, 0, 16});
+  expect_rows({0, 0, 0, 0, 16});                                               // Press AltR
   expect_report({Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  expect_rows({0, 0, 0, 0, 0});
+  expect_rows({0, 0, 0, 0, 0});                                                // Release AltR
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
@@ -129,36 +129,147 @@ TEST_F(firmware_test, modifiers_press_can_be_combined_with_normal_keys) {
 }
 
 TEST_F(firmware_test, first_layer_can_be_reached) {
-  expect_rows({0, 0, 0, 0, 1});
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  expect_rows({2, 0, 0, 0, 1});
-  expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});
+  expect_rows({2, 0, 0, 0, 1});                                                // Press 2
+  expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});                                // ? Got F2
 
   firmware.loop();
 }
 
 TEST_F(firmware_test, can_click_on_first_layer_and_than_back_on_default_one) {
-  expect_rows({0, 0, 0, 0, 1});
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  expect_rows({0, 0, 512, 0, 1});
-  expect_report({0, 0, Key_Right, 0, 0, 0, 0, 0});
+  expect_rows({0, 0, 512, 0, 1});                                              // +Press l
+  expect_report({0, 0, Key_Right, 0, 0, 0, 0, 0});                             // ? Got RightKey
 
   firmware.loop();
 
 
-  expect_rows({0, 0, 0, 0, 0});
+  expect_rows({0, 0, 0, 0, 0});                                                // Release both
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  expect_rows({4, 0, 0, 0, 0});
-  expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});
+  expect_rows({4, 0, 0, 0, 0});                                                // Press 2
+  expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});                                 // ? Got 2
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, layer_can_be_toggled) {
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 1, 0, 0, 1});                                                // +Press Layer1Toggle
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});                                                // Releas both
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({2, 0, 0, 0, 0});                                                // Press 1
+  expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});                                // ? Got F1
+
+  firmware.loop();
+
+  expect_rows({0, 0, 64, 0, 0});                                               // Press h
+  expect_report({0, 0, Key_Left, 0, 0, 0, 0, 0});                              // ? Got Leftkey
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, layer_can_be_toggled_twice) {
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 1, 0, 0, 1});                                                // +Press Layer1Toggle
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});                                                // Release both
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({8, 0, 0, 0, 0});                                                // Press 3
+  expect_report({0, 0, Key_F3, 0, 0, 0, 0, 0});                                // ? Got F3
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 1, 0, 0, 1});                                                // + Press Layer1Toggle
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});                                                // Release both
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({8, 0, 0, 0, 0});                                                // Press 3
+  expect_report({0, 0, Key_3, 0, 0, 0, 0, 0});                                 // ? Got 3
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 1, 1});                                                // +Press ShiftToggle
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});                                                // Release both
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({4, 0, 0, 0, 0});                                                // Press 2
+  expect_report({Modifier_ShiftL, 0, Key_2, 0, 0, 0, 0, 0});                   // ? Got @
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 1});                                                // Press Layer1
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 1, 1});                                                // +Press ShiftToggle
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 0, 0, 0});                                                // Release both
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({4, 0, 0, 0, 0});                                                // Press 2
+  expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});                                 // ? Got 2
 
   firmware.loop();
 }

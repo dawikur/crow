@@ -9,7 +9,7 @@ namespace Crow {
 
 class Report {
  public:
-  Report() : raw{0} {}
+  Report() : raw{0}, lockedModifiers{0} {}
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
@@ -17,6 +17,16 @@ class Report {
 
   void modifier(Index const key, bool const wasPressed) {
     wasPressed ? process_modifier_press(key) : process_modifier_release(key);
+  }
+
+  void toggleModifierLock(Index const key) {
+    if (lockedModifiers & key) {
+      lockedModifiers &= ~key;
+      process_modifier_release(key);
+    } else {
+      lockedModifiers |= key;
+      process_modifier_press(key);
+    }
   }
 
   void const *data() const { return &raw; }
@@ -53,6 +63,8 @@ class Report {
     uint8_t reserved;
     uint8_t keys[6];
   } raw;
+
+  uint8_t lockedModifiers;
 };
 
 }  // namespace Crow

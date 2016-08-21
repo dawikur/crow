@@ -23,7 +23,13 @@ class Layer {
   auto operator[](Index const index) { return raw[current][index]; }
 
   void set(Index const number) {
-    current = number;
+    if (!locked) {
+      current = number;
+    }
+  }
+
+  void toggleLock() {
+    locked = !locked;
   }
 
  private:

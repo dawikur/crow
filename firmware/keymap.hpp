@@ -25,8 +25,8 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // |ShiftL   |Z   |X   |C   |V    |B   |N   |M   |<   |>   |?   |ShiftR      |
 // |         |    |    |    |     |    |    |    | ,  | .  | /  |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
-// |Fn1  |GUIL |AltL |                               |AltR |GUIR |Menu |Fn2  |
-// |     |     |     |                               |     |     |     |     |
+// |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |Layer|
+// | 1   |     |     |                               |     |     |     | 2   |
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
   {
@@ -50,19 +50,19 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // |Caps   |End |Prt-|    |PgDn |Home|<-- | |  |^   |--> |    |    |Enter    |
 // | Lock  |    | Sc |    |     |    |    | V  ||   |    |    |    |         |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,______________;
-// |Shift    |    |Del |    |     |PgUp|    |    |    |    |    |            |
+// |ShiftL   |    |Del |    |     |PgUp|    |    |    |    |    |            |
 // | Toggle  |    |    |    |     |    |    |    |    |    |    |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
-// |#####|GUIL |AltL |                               |AltR |GUIR |Menu |     |
-// |#####|     |     |                               |     |     |     |     |
+// |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |     |
+// |#1###|     |     |                               |     |     |     |     |
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
   {
-    { K(Esc),           K(F1),   K(F2),     K(F3),       K(F4),   K(F5),   K(F6),          K(F7),   K(F8),  K(F9),    K(F10),       K(F11),        K(F12),          K(Delete) },
-    { Nop(), /*TODO*/   Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),           Nop() },
-    { K(CapsLock),      K(End),  K(PrtSc),  Nop(),       K(PgDn), K(Home), K(Left),        K(Down), K(Up),  K(Right), K(Semicolon), K(Apostrophe), K(Enter),        Nop() },
-    { Nop(), /*TODO*/   Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() },
-    { L(1),             M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() }
+    { K(Esc),      K(F1),   K(F2),     K(F3),       K(F4),   K(F5),   K(F6),          K(F7),   K(F8),  K(F9),    K(F10),       K(F11),        K(F12),   K(Delete) },
+    { LT(),        Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),    Nop() },
+    { K(CapsLock), K(End),  K(PrtSc),  Nop(),       K(PgDn), K(Home), K(Left),        K(Down), K(Up),  K(Right), K(Semicolon), K(Apostrophe), K(Enter), Nop() },
+    { MT(ShiftL),  Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),    Nop() },
+    { L(1),        M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),    Nop() }
   },
 
 //
@@ -81,16 +81,16 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // |         |    |    |    |     |    |    |    |-Bri|+Bri|    |            |
 // |         |    |    |    |     |    |    |    | gth| gth|    |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
-// |     |GUIL |AltL |                               |AltR |GUIR |Menu |#####|
-// |     |     |     |                               |     |     |     |#####|
+// |     |GUIL |AltL |                               |AltR |GUIR |Menu |Layer|
+// |     |     |     |                               |     |     |     |#2###|
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
   { // TODO: 2016-08-19
-    { K(Esc),       Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  K(Delete) },
-    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
-    { Nop(),        M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() }
+    { K(Esc), Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), K(Delete) },
+    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
+    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
+    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
+    { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), L(2) }
   }
 
 };
