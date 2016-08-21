@@ -1,9 +1,10 @@
+// Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
 #include "config.hpp"
 
-#include "gtest.h"
-
 #include <cmath>
+
+#include "gtest.h"
 
 template <class Type> struct id;
 
