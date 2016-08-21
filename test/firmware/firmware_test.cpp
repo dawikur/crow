@@ -46,8 +46,7 @@ class firmware_test : public ::testing::Test {
   }
 
   void expect_report(std::vector<uint8_t> const &bytes) {
-    EXPECT_CALL(usbHid, sendReport(bytes))
-      .WillOnce(::testing::Return(1));
+    EXPECT_CALL(usbHid, sendReport(bytes)).WillOnce(::testing::Return(1));
   }
 
   Crow::Firmware firmware;
@@ -81,23 +80,42 @@ TEST_F(firmware_test, pressing_and_releasing_key_will_send_two_reports) {
   firmware.loop();
 }
 
-TEST_F(firmware_test, when_pressing_three_keys_they_will_be_send_in_one_report) {
+TEST_F(firmware_test,
+       when_pressing_three_keys_they_will_be_send_in_one_report) {
   expect_rows({32, 4, 64, 0, 0});
-  expect_report({0, 0, Crow::Keymap::Key_5, Crow::Keymap::Key_W, Crow::Keymap::Key_H, 0, 0, 0});
+  expect_report({0,
+                 0,
+                 Crow::Keymap::Key_5,
+                 Crow::Keymap::Key_W,
+                 Crow::Keymap::Key_H,
+                 0,
+                 0,
+                 0});
 
   firmware.loop();
 }
 
 TEST_F(firmware_test, pressed_modifier_will_be_send) {
   expect_rows({0, 0, 1, 0, 0});
-  expect_report({Crow::Keymap::Modifier_CtrlL, 0, 0, 0, 0, 0, 0, 0,});
+  expect_report({
+    Crow::Keymap::Modifier_CtrlL, 0, 0, 0, 0, 0, 0, 0,
+  });
 
   firmware.loop();
 }
 
 TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
   expect_rows({0, 0, 1, 1, 0});
-  expect_report({Crow::Keymap::Modifier_CtrlL | Crow::Keymap::Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0,});
+  expect_report({
+    Crow::Keymap::Modifier_CtrlL | Crow::Keymap::Modifier_ShiftL,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+  });
 
   firmware.loop();
 }
@@ -110,6 +128,20 @@ TEST_F(firmware_test, modifiers_can_be_unpressed) {
 
   expect_rows({0, 0, 0, 0, 0});
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, modifiers_press_can_be_combined_with_normal_keys) {
+  expect_rows({0, 32, 1, 8, 16});
+  expect_report({Crow::Keymap::Modifier_AltR | Crow::Keymap::Modifier_CtrlL,
+                 0,
+                 Crow::Keymap::Key_T,
+                 Crow::Keymap::Key_C,
+                 0,
+                 0,
+                 0,
+                 0});
 
   firmware.loop();
 }
