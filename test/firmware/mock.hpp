@@ -3,6 +3,8 @@
 #ifndef TEST_FIRMWARE_MOCK_HPP_
 #define TEST_FIRMWARE_MOCK_HPP_
 
+#include <vector>
+
 #include "config.hpp"
 
 #include "gmock.h"
@@ -20,7 +22,7 @@ class USBHid {
  public:
   ~USBHid() = default;
 
-  virtual void sendReport(void const *const data, Index const size) = 0;
+  virtual void sendReport(std::vector<uint8_t> const &) = 0;
 };
 
 namespace Mock {
@@ -32,7 +34,7 @@ class Hardware : public ::Crow::Hardware {
 
 class USBHid : public ::Crow::USBHid {
  public:
-  MOCK_METHOD2(sendReport, void(void const *const, Index const));
+  MOCK_METHOD1(sendReport, void(std::vector<uint8_t> const &));
 };
 
 }  // namespace Mock
