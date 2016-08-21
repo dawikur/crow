@@ -14,7 +14,7 @@ class Firmware {
   void setup(Matrix::GetRowImpl getRowImpl,
              System::SendReportImpl sendReportImpl) {
     matrix.setup(getRowImpl);
-    execute.setup(sendReportImpl, &Crow::Layers[0]);
+    execute.setup(sendReportImpl, Crow::Layers);
   }
 
   void loop() {

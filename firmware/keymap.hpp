@@ -7,14 +7,6 @@
 
 namespace Crow {
 
-inline void Function_1(Report &, bool const) {}
-inline void Function_2(Report &, bool const) {}
-
-inline void Function_1_Toggle(Report &, bool const) {}
-inline void Function_2_Toggle(Report &, bool const) {}
-
-inline void Function_Shift_Toggle(Report &, bool const) {}
-
 Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
 //
@@ -42,7 +34,7 @@ Function const Layers[][RowsCount][ColsCount] PROGMEM = {
     { K(Tab),    K(Q),    K(W),    K(E),        K(R),    K(T),    K(Y),           K(U),  K(I),     K(O),   K(P),            K(OpenBracket), K(CloseBracket), K(Slash) },
     { M(CtrlL),  K(A),    K(S),    K(D),        K(F),    K(G),    K(H),           K(J),  K(K),     K(L),   K(Semicolon),    K(Apostrophe),  K(Enter),        Nop() },
     { M(ShiftL), K(Z),    K(X),    K(C),        K(V),    K(B),    K(N),           K(N),  K(Comma), K(Dot), K(ForwardSlash), M(ShiftR),      Nop(),           Nop() },
-    { Fn(1),     M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Fn(2), Nop(),    Nop(),  Nop(),           Nop(),          Nop(),           Nop() }
+    { L(1),      M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), L(2),  Nop(),    Nop(),  Nop(),           Nop(),          Nop(),           Nop() }
   },
 
 //
@@ -67,10 +59,10 @@ Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
   {
     { K(Esc),           K(F1),   K(F2),     K(F3),       K(F4),   K(F5),   K(F6),          K(F7),   K(F8),  K(F9),    K(F10),       K(F11),        K(F12),          K(Delete) },
-    { Fn(1_Toggle),     Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),           Nop() },
+    { Nop(), /*TODO*/   Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),           Nop() },
     { K(CapsLock),      K(End),  K(PrtSc),  Nop(),       K(PgDn), K(Home), K(Left),        K(Down), K(Up),  K(Right), K(Semicolon), K(Apostrophe), K(Enter),        Nop() },
-    { Fn(Shift_Toggle), Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() },
-    { Nop(),            M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() }
+    { Nop(), /*TODO*/   Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() },
+    { L(1),             M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),           Nop() }
   },
 
 //
@@ -95,7 +87,7 @@ Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
   { // TODO: 2016-08-19
     { K(Esc),       Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  K(Delete) },
-    { Fn(2_Toggle), Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
+    { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
     { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
     { Nop(),        Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() },
     { Nop(),        M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(), Nop(),  Nop(),  Nop(),  Nop() }

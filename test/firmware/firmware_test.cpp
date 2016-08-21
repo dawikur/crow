@@ -128,3 +128,38 @@ TEST_F(firmware_test, modifiers_press_can_be_combined_with_normal_keys) {
   firmware.loop();
 }
 
+TEST_F(firmware_test, first_layer_can_be_reached) {
+  expect_rows({0, 0, 0, 0, 1});
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({2, 0, 0, 0, 1});
+  expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, can_click_on_first_layer_and_than_back_on_default_one) {
+  expect_rows({0, 0, 0, 0, 1});
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({0, 0, 512, 0, 1});
+  expect_report({0, 0, Key_Right, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+
+  expect_rows({0, 0, 0, 0, 0});
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  expect_rows({4, 0, 0, 0, 0});
+  expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
+

@@ -10,17 +10,20 @@
 #include "keymap/keys.hpp"
 
 #define K(in_key)                                                              \
-  [](Crow::Report &report, bool const wasPressed) {                            \
+  [](Crow::Report &report, Crow::Index &, bool const wasPressed) {             \
     report.key(Crow::Keymap::Key_##in_key, wasPressed);                        \
   }
 
 #define M(in_key)                                                              \
-  [](Crow::Report &report, bool const wasPressed) {                            \
+  [](Crow::Report &report, Crow::Index &, bool const wasPressed) {             \
     report.modifier(Crow::Keymap::Modifier_##in_key, wasPressed);              \
   }
 
-#define Nop() nullptr
+#define L(number)                                                              \
+  [](Crow::Report &, Crow::Index &layer, bool const wasPressed) {              \
+    layer = (wasPressed ? number : 0);                                         \
+  }
 
-#define Fn(Name) Function_##Name
+#define Nop() [](Crow::Report &, Crow::Index &, bool const) {}
 
 #endif  // CROW_KEYMAP_BEGIN_HPP_

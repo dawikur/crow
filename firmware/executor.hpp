@@ -13,18 +13,20 @@ namespace Crow {
 
 class Executor {
  public:
-  Executor() = default;
+  Executor()
+    : updateNeeded{false}, report{}, system{}, current{0}, layers{nullptr} {}
+
   Executor(Executor const &) = delete;
 
-  void setup(System::SendReportImpl sendReportImpl, Layer *newLayer) {
+  void setup(System::SendReportImpl sendReportImpl, Layer *newLayers) {
     system.setup(sendReportImpl);
-    layer = newLayer;
+    layers = newLayers;
   }
 
   void operator() (Event const event) {
     updateNeeded = true;
 
-    (*layer)[event.row][event.col](report, event.wasPressed);
+    layers[current][event.row][event.col](report, current, event.wasPressed);
   }
 
   void operator() () {
@@ -40,7 +42,9 @@ class Executor {
   bool updateNeeded;
   Report report;
   System system;
-  Layer *layer;
+
+  Index current;
+  Layer *layers;
 };
 
 }  // namespace Crow

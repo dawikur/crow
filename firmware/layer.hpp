@@ -8,7 +8,7 @@
 
 namespace Crow {
 
-using Function = void (*)(Report &, bool const);
+using Function = void (*)(Report &, Index &, bool const);
 using Layer = const Function[RowsCount][ColsCount];
 
 }  // namespace Crow

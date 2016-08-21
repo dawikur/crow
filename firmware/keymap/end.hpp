@@ -7,8 +7,8 @@
 
 #undef M
 
-#undef Nop
+#undef L
 
-#undef Fn
+#undef Nop
 
 #endif  // CROW_KEYMAP_END_HPP_
