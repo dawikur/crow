@@ -7,31 +7,36 @@
 #include "layer.hpp"
 #include "report.hpp"
 
-#include "keymap/keys.hpp"
+#include "keymap_keys.hpp"
 
+// Key
 #define K(in_key)                                                              \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
     report.key(Crow::Keymap::Key_##in_key, wasPressed);                        \
   }
 
+// Modifier
 #define M(in_key)                                                              \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
     report.modifier(Crow::Keymap::Modifier_##in_key, wasPressed);              \
   }
 
-#define MT(in_key)                                                             \
+// Modifier Lock
+#define ML(in_key)                                                             \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
     if (wasPressed) {                                                          \
       report.toggleModifierLock(Crow::Keymap::Modifier_##in_key);              \
     }                                                                          \
   }
 
+// Layer
 #define L(number)                                                              \
   [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
     layer.set(wasPressed ? number : Crow::Layer::Base);                        \
   }
 
-#define LT()                                                                   \
+// Layer Lock
+#define LL()                                                                   \
   [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
     if (wasPressed) {                                                          \
       layer.toggleLock();                                                      \

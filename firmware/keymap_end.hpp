@@ -6,10 +6,10 @@
 #undef K   // Key
 
 #undef M   // Modifier
-#undef MT  // ModifierToggle
+#undef ML  // ModifierLock
 
 #undef L   // Layer
-#undef LT  // LayerToggle
+#undef LL  // LayerLock
 
 #undef Nop // No operation
 

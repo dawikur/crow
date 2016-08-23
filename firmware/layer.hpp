@@ -20,7 +20,7 @@ class Layer {
 
   void setup(Raw const *const newRaw) { raw = newRaw; }
 
-  auto operator[](Index const index) { return raw[current][index]; }
+  auto operator[](Index const index) -> Function const* { return raw[current][index]; }
 
   void set(Index const number) {
     if (!locked) {

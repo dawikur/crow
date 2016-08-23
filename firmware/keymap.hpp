@@ -3,11 +3,11 @@
 #ifndef CROW_KEYMAP_HPP_
 #define CROW_KEYMAP_HPP_
 
-#include "keymap/begin.hpp"
+#include "keymap_begin.hpp"
 
 namespace Crow {
 
-Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
+Layer::Function const Layers[][RowsCount][ColsCount] = {
 
 //
 // Layer 0
@@ -45,13 +45,13 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,_____,____,____,____,____,____,____,____,____,_____;
 // |Fn1   |    |Pau-|    |     |    |Copy|Undo|Ins |    |Pas-|    |    |     |
-// |Toggle|    | se |    |     |    |    |    | CP |    | te |    |    |     |
+// | Lock |    | se |    |     |    |    |    | CP |    | te |    |    |     |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,____,_________;
 // |Caps   |End |Prt-|    |PgDn |Home|<-- | |  |^   |--> |    |    |Enter    |
 // | Lock  |    | Sc |    |     |    |    | V  ||   |    |    |    |         |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,______________;
 // |ShiftL   |    |Del |    |     |PgUp|    |    |    |    |    |            |
-// | Toggle  |    |    |    |     |    |    |    |    |    |    |            |
+// | Lock    |    |    |    |     |    |    |    |    |    |    |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |     |
 // |#1###|     |     |                               |     |     |     |     |
@@ -59,9 +59,9 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 
   {
     { K(Esc),      K(F1),   K(F2),     K(F3),       K(F4),   K(F5),   K(F6),          K(F7),   K(F8),  K(F9),    K(F10),       K(F11),        K(F12),   K(Delete) },
-    { LT(),        Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),    Nop() },
+    { LL(),        Nop(),   K(Pause),  Nop(),       Nop(),   Nop(),   K(Copy),        K(Undo), K(Ins), Nop(),    K(Paste),     Nop(),         Nop(),    Nop() },
     { K(CapsLock), K(End),  K(PrtSc),  Nop(),       K(PgDn), K(Home), K(Left),        K(Down), K(Up),  K(Right), K(Semicolon), K(Apostrophe), K(Enter), Nop() },
-    { MT(ShiftL),  Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),    Nop() },
+    { ML(ShiftL),  Nop(),   K(Delete), Nop(),       Nop(),   Nop(),   Nop(),          Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),    Nop() },
     { L(1),        M(GUIL), M(AltL),   K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(),   Nop(),  Nop(),    Nop(),        Nop(),         Nop(),    Nop() }
   },
 
@@ -73,7 +73,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
 // |    | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |10  |11  |12  |        |
 // ;______,____,____,____,_____,____,____,____,____,____,____,____,____,_____;
 // |Fn2   |Mac |    |    |     |    |    |    |    |Play|Stop|Prev|Next|     |
-// |Toggle| Rec|    |    |     |    |    |    |    |    |    |    |    |     |
+// | Lock | Rec|    |    |     |    |    |    |    |    |    |    |    |     |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,____,_________;
 // |       |    |    |    |     |    |    |    |    |Mute|Vol-|Vol+|Enter    |
 // |       |    |    |    |     |    |    |    |    |    |    |    |         |
@@ -90,13 +90,13 @@ Layer::Function const Layers[][RowsCount][ColsCount] PROGMEM = {
     { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
     { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
     { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
-    { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), L(2) }
+    { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), L(2),  Nop(), Nop(), Nop(), Nop(),  Nop(),  Nop() }
   }
 
 };
 
 }  // namespace Crow
 
-#include "keymap/end.hpp"
+#include "keymap_end.hpp"
 
 #endif  // CROW_KEYMAP_HPP_

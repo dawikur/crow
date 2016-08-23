@@ -9,7 +9,7 @@ namespace Crow {
 
 class Report {
  public:
-  Report() : raw{0}, lockedModifiers{0} {}
+  Report() : raw{0, 0, 0}, lockedModifiers{0} {}
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
