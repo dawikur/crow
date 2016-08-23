@@ -30,7 +30,7 @@ class Report {
   }
 
   void const *data() const { return &raw; }
-  Index size() const { return 8; }
+  Index size() const { return sizeof (raw); }
 
  private:
   void process_key_press(Index const key) {
