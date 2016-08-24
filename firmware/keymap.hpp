@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_KEYMAP_HPP_
-#define CROW_KEYMAP_HPP_
+#ifndef FIRMWARE_KEYMAP_HPP_
+#define FIRMWARE_KEYMAP_HPP_
 
 #include "keymap_begin.hpp"
 
@@ -92,11 +92,10 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(), Nop(), Nop(),  Nop(), Nop() },
     { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), L(2),  Nop(), Nop(), Nop(), Nop(),  Nop(),  Nop() }
   }
-
 };
 
 }  // namespace Crow
 
 #include "keymap_end.hpp"
 
-#endif  // CROW_KEYMAP_HPP_
+#endif  // FIRMWARE_KEYMAP_HPP_

@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_LAYER_HPP_
-#define CROW_LAYER_HPP_
+#ifndef FIRMWARE_LAYER_HPP_
+#define FIRMWARE_LAYER_HPP_
 
 #include "config.hpp"
 #include "report.hpp"
@@ -40,4 +40,4 @@ class Layer {
 
 }  // namespace Crow
 
-#endif  // CROW_LAYER_HPP_
+#endif  // FIRMWARE_LAYER_HPP_

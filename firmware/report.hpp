@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_REPORT_HPP_
-#define CROW_REPORT_HPP_
+#ifndef FIRMWARE_REPORT_HPP_
+#define FIRMWARE_REPORT_HPP_
 
 #include "config.hpp"
 
@@ -69,4 +69,4 @@ class Report {
 
 }  // namespace Crow
 
-#endif  // CROW_REPORT_HPP_
+#endif  // FIRMWARE_REPORT_HPP_

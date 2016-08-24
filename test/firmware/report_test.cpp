@@ -2,7 +2,7 @@
 
 #include "report.hpp"
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 TEST(report_test, size_will_return_8) {
   Crow::Report report;

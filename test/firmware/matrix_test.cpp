@@ -2,7 +2,7 @@
 
 #include "matrix.hpp"
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 TEST(matrix_test, rows_and_columns_return_data_from_config) {
   Crow::Matrix matrix;

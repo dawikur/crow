@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_CONFIG_HPP_
-#define CROW_CONFIG_HPP_
+#ifndef FIRMWARE_CONFIG_HPP_
+#define FIRMWARE_CONFIG_HPP_
 
 //
 //   Fill these
@@ -92,4 +92,4 @@ constexpr Index ColsBits = COLS_BITS;
 #undef COLS_COUNT
 #undef ROWS_COUNT
 
-#endif  // CROW_CONFIG_HPP_
+#endif  // FIRMWARE_CONFIG_HPP_

@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 TEST(event_test, event_initialization_works) {
   Crow::Event const event{4, 7, true};

@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_ROW_HPP_
-#define CROW_ROW_HPP_
+#ifndef FIRMWARE_ROW_HPP_
+#define FIRMWARE_ROW_HPP_
 
 #include "config.hpp"
 
@@ -9,7 +9,7 @@ namespace Crow {
 
 class Row {
  public:
-  Row(RawRow const raw = 0) : raw{raw} {}
+  explicit Row(RawRow const raw = 0) : raw{raw} {}
 
   bool operator[](Index const index) const {
     return static_cast<bool>(raw & (1 << index));
@@ -29,4 +29,4 @@ class Row {
 
 }  // namespace Crow
 
-#endif  // CROW_ROW_HPP_
+#endif  // FIRMWARE_ROW_HPP_

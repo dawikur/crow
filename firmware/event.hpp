@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_EVENT_HPP_
-#define CROW_EVENT_HPP_
+#ifndef FIRMWARE_EVENT_HPP_
+#define FIRMWARE_EVENT_HPP_
 
 #include "config.hpp"
 
@@ -37,4 +37,4 @@ Event CompressedEvent::expand() const {
 
 }  // namespace Crow
 
-#endif  // CROW_EVENT_HPP_
+#endif  // FIRMWARE_EVENT_HPP_

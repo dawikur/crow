@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_KEYMAP_END_HPP_
-#define CROW_KEYMAP_END_HPP_
+#ifndef FIRMWARE_KEYMAP_END_HPP_
+#define FIRMWARE_KEYMAP_END_HPP_
 
 #undef K   // Key
 
@@ -13,4 +13,4 @@
 
 #undef Nop // No operation
 
-#endif  // CROW_KEYMAP_END_HPP_
+#endif  // FIRMWARE_KEYMAP_END_HPP_

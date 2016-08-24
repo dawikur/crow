@@ -7,7 +7,7 @@
 
 #include "config.hpp"
 
-#include "gmock.h"
+#include "gmock/gmock.h"
 
 namespace Crow {
 

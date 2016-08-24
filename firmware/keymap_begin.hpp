@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_KEYMAP_BEGIN_HPP_
-#define CROW_KEYMAP_BEGIN_HPP_
+#ifndef FIRMWARE_KEYMAP_BEGIN_HPP_
+#define FIRMWARE_KEYMAP_BEGIN_HPP_
 
 #include "config.hpp"
 #include "layer.hpp"
@@ -45,4 +45,4 @@
 
 #define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}
 
-#endif  // CROW_KEYMAP_BEGIN_HPP_
+#endif  // FIRMWARE_KEYMAP_BEGIN_HPP_

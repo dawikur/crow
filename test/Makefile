@@ -1,7 +1,7 @@
 
 GTEST_DIR=../thirdparty/gtest
 
-CXXFLAGS=-std=c++14 -I../thirdparty -I../firmware -I$(GTEST_DIR) -I$(GTEST_DIR)/gmock -I$(GTEST_DIR)/gtest
+CXXFLAGS=-std=c++14 -I../thirdparty -I../firmware -I$(GTEST_DIR)
 LDFLAGS=-pthread
 
 SRC = $(shell find . -name '*.cpp') $(GTEST_DIR)/gmock-gtest-all.cpp $(GTEST_DIR)/gtest-main.cpp

@@ -4,7 +4,7 @@
 
 #include <vector>
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 #include "mock.hpp"
 
@@ -27,7 +27,6 @@ void sendReport(void const *const data, Crow::Index const size) {
 
 class firmware_test : public ::testing::Test {
  protected:
-
   void SetUp() override {
     Functions::_hardware = &hardware;
     Functions::_usbHid = &usbHid;

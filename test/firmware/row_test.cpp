@@ -2,7 +2,7 @@
 
 #include "row.hpp"
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 TEST(row_test, by_default_row_is_zero) {
   Crow::Row const row;

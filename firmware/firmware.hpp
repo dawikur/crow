@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_FIRMWARE_HPP_
-#define CROW_FIRMWARE_HPP_
+#ifndef FIRMWARE_FIRMWARE_HPP_
+#define FIRMWARE_FIRMWARE_HPP_
 
 #include "executor.hpp"
 #include "matrix.hpp"
@@ -43,4 +43,4 @@ class Firmware {
 
 }  // namespace Crow
 
-#endif  // CROW_FIRMWARE_HPP_
+#endif  // FIRMWARE_FIRMWARE_HPP_

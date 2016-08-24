@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_MATRIX_HPP_
-#define CROW_MATRIX_HPP_
+#ifndef FIRMWARE_MATRIX_HPP_
+#define FIRMWARE_MATRIX_HPP_
 
 #include "config.hpp"
 #include "row.hpp"
@@ -34,5 +34,5 @@ class Matrix {
 
 }  // namespace Crow
 
-#endif  // CROW_MATRIX_HPP_
+#endif  // FIRMWARE_MATRIX_HPP_
 

@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef _EXECUTOR_HPP_
-#define _EXECUTOR_HPP_
+#ifndef FIRMWARE_EXECUTOR_HPP_
+#define FIRMWARE_EXECUTOR_HPP_
 
 #include "config.hpp"
 #include "event.hpp"
@@ -48,4 +48,4 @@ class Executor {
 
 }  // namespace Crow
 
-#endif  // _EXECUTOR_HPP_
+#endif  // FIRMWARE_EXECUTOR_HPP_

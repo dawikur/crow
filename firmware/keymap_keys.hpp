@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_KEYMAP_KEYS_HPP_
-#define CROW_KEYMAP_KEYS_HPP_
+#ifndef FIRMWARE_KEYMAP_KEYS_HPP_
+#define FIRMWARE_KEYMAP_KEYS_HPP_
 
 #include "config.hpp"
 
@@ -170,4 +170,4 @@ constexpr Index Modifier_GUIR     = 1 << 7;
 }  // namespace Keymap
 }  // namespace Crow
 
-#endif  // CROW_KEYMAP_KEYS_HPP_
+#endif  // FIRMWARE_KEYMAP_KEYS_HPP_

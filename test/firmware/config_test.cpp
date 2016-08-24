@@ -4,7 +4,7 @@
 
 #include <cmath>
 
-#include "gtest.h"
+#include "gtest/gtest.h"
 
 template <class Type> struct id;
 

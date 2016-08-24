@@ -1,7 +1,7 @@
 // Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
-#ifndef CROW_SYSTEM_HPP_
-#define CROW_SYSTEM_HPP_
+#ifndef FIRMWARE_SYSTEM_HPP_
+#define FIRMWARE_SYSTEM_HPP_
 
 #include "config.hpp"
 
@@ -14,7 +14,7 @@ class System {
   System() = default;
   System(System const &) = delete;
 
-  void setup (SendReportImpl const newSendReportImpl) {
+  void setup(SendReportImpl const newSendReportImpl) {
     sendReportImpl = newSendReportImpl;
   }
 
@@ -28,4 +28,4 @@ class System {
 
 }  // namespace Crow
 
-#endif  // CROW_SYSTEM_HPP_
+#endif  // FIRMWARE_SYSTEM_HPP_
