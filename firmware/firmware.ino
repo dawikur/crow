@@ -55,8 +55,8 @@ Crow::Row GetRow(Crow::Index const i) {
   return Crow::Row{row};
 }
 
-void SendReport(void const *const data, Crow::Index const size) {
-  HID().SendReport(2, data, size);
+void SendReport(Crow::Index const id, void const *const data, Crow::Index const size) {
+  HID().SendReport(id, data, size);
 }
 
 void setup() {

@@ -35,7 +35,7 @@ class Executor {
     }
     updateNeeded = false;
 
-    system.sendReport(report.data(), report.size());
+    system.sendReport(report.id(), report.data(), report.size());
   }
 
  private:

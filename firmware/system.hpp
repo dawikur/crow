@@ -9,7 +9,9 @@ namespace Crow {
 
 class System {
  public:
-  using SendReportImpl = void (*)(void const *const data, Index const size);
+  using SendReportImpl = void (*)(Index const id,
+                                  void const *const data,
+                                  Index const size);
 
   System() = default;
   System(System const &) = delete;
@@ -18,8 +20,8 @@ class System {
     sendReportImpl = newSendReportImpl;
   }
 
-  void sendReport(void const *const data, Index const size) {
-    (*sendReportImpl)(data, size);
+  void sendReport(Index const id, void const *const data, Index const size) {
+    (*sendReportImpl)(id, data, size);
   }
 
  public:

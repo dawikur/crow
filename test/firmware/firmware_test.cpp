@@ -17,7 +17,9 @@ Crow::Row getRow(Crow::Index const i) {
   return _hardware->getRow(i);
 }
 
-void sendReport(void const *const data, Crow::Index const size) {
+void sendReport(Crow::Index const id,
+                void const *const data,
+                Crow::Index const size) {
   auto *bytes = reinterpret_cast<uint8_t const *>(data);
   std::vector<uint8_t> buffor(bytes, bytes + size);
   _usbHid->sendReport(buffor);

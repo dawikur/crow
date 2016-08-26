@@ -29,6 +29,7 @@ class Report {
     }
   }
 
+  Index id() const { return 2; }
   void const *data() const { return &raw; }
   Index size() const { return sizeof (raw); }
 
