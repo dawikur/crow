@@ -9,7 +9,19 @@ namespace Crow {
 
 class Report {
  public:
-  Report() : raw{0, 0, 0}, lockedModifiers{0} {}
+  using SendImpl = void (*)(Index const id,
+                            void const *const data,
+                            Index const size);
+
+  Report() : sendImpl{nullptr}, raw{0, 0, 0}, lockedModifiers{0} {}
+
+  void setup(SendImpl const newSendImpl) {
+    sendImpl = newSendImpl;
+  }
+
+  void send() {
+    (*sendImpl)(id(), data(), size());
+  }
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
@@ -30,7 +42,6 @@ class Report {
   }
 
   static Index constexpr id() { return 2; }
-
   void const *data() const { return &raw; }
   Index size() const { return sizeof (raw); }
 
@@ -59,6 +70,8 @@ class Report {
   void process_modifier_press(Index const key) { raw.modifiers |= key; }
 
   void process_modifier_release(Index const key) { raw.modifiers &= ~key; }
+
+  SendImpl sendImpl;
 
   struct RawReport {
     uint8_t modifiers;

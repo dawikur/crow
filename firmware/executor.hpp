@@ -7,19 +7,18 @@
 #include "event.hpp"
 #include "layer.hpp"
 #include "report.hpp"
-#include "system.hpp"
 
 namespace Crow {
 
 class Executor {
  public:
   Executor()
-    : updateNeeded{false}, report{}, system{}, layer{} {}
+    : updateNeeded{false}, report{}, layer{} {}
 
   Executor(Executor const &) = delete;
 
-  void setup(System::SendReportImpl sendReportImpl, Layer::Raw *newLayers) {
-    system.setup(sendReportImpl);
+  void setup(Report::SendImpl sendReportImpl, Layer::Raw *newLayers) {
+    report.setup(sendReportImpl);
     layer.setup(newLayers);
   }
 
@@ -35,13 +34,12 @@ class Executor {
     }
     updateNeeded = false;
 
-    system.sendReport(report.id(), report.data(), report.size());
+    report.send();
   }
 
  private:
   bool updateNeeded;
   Report report;
-  System system;
 
   Layer layer;
 };

@@ -12,7 +12,7 @@ namespace Crow {
 class Firmware {
  public:
   void setup(Matrix::GetRowImpl getRowImpl,
-             System::SendReportImpl sendReportImpl) {
+             Report::SendImpl sendReportImpl) {
     matrix.setup(getRowImpl);
     execute.setup(sendReportImpl, Crow::Layers);
   }
