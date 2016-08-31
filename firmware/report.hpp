@@ -4,6 +4,7 @@
 #define FIRMWARE_REPORT_HPP_
 
 #include "config.hpp"
+#include "report_customer.hpp"
 #include "report_keyboard.hpp"
 
 namespace Crow {
