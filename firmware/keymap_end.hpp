@@ -11,6 +11,8 @@
 #undef L   // Layer
 #undef LL  // LayerLock
 
+#undef C   // Customer Media
+
 #undef Nop // No operation
 
 #endif  // FIRMWARE_KEYMAP_END_HPP_

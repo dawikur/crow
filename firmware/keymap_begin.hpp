@@ -43,6 +43,12 @@
     }                                                                          \
   }
 
+// Customer Media
+#define C(in_key)                                                              \
+  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+    report.media(Crow::Keymap::Media_##in_key, wasPressed);                    \
+  }
+
 #define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}
 
 #endif  // FIRMWARE_KEYMAP_BEGIN_HPP_
