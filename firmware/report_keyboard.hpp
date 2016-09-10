@@ -83,34 +83,34 @@ class Keyboard {
 
 
 static uint8_t const KeyboardDescriptor[] PROGMEM = {
-    0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)  // 47
-    0x09, 0x06,                    // USAGE (Keyboard)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, Keyboard::id(),          //   REPORT_ID (2)
-    0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+  0X05, 0X01,           // USAGE_PAGE (GENERIC DESKTOP)
+  0X09, 0X06,           // USAGE (KEYBOARD)
+  0XA1, 0X01,           // COLLECTION (APPLICATION)
+  0X85, Keyboard::id(), //   REPORT_ID (2)
+  0X05, 0X07,           //   USAGE_PAGE (KEYBOARD)
 
-    0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)
-    0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-    0x75, 0x01,                    //   REPORT_SIZE (1)
+  0X19, 0XE0,           //   USAGE_MINIMUM (KEYBOARD LEFTCONTROL)
+  0X29, 0XE7,           //   USAGE_MAXIMUM (KEYBOARD RIGHT GUI)
+  0X15, 0X00,           //   LOGICAL_MINIMUM (0)
+  0X25, 0X01,           //   LOGICAL_MAXIMUM (1)
+  0X75, 0X01,           //   REPORT_SIZE (1)
+  0X95, 0X08,           //   REPORT_COUNT (8)
 
-    0x95, 0x08,                    //   REPORT_COUNT (8)
-    0x81, 0x02,                    //   INPUT (Data,Var,Abs)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x81, 0x03,                    //   INPUT (Cnst,Var,Abs)
+  0X81, 0X02,           //   INPUT (DATA,VAR,ABS)
+  0X95, 0X01,           //   REPORT_COUNT (1)
+  0X75, 0X08,           //   REPORT_SIZE (8)
+  0X81, 0X03,           //   INPUT (CNST,VAR,ABS)
 
-    0x95, 0x06,                    //   REPORT_COUNT (6)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x25, 0xE7,                    //   LOGICAL_MAXIMUM (231)
-    0x05, 0x07,                    //   USAGE_PAGE (Keyboard)
+  0X95, 0X06,           //   REPORT_COUNT (6)
+  0X75, 0X08,           //   REPORT_SIZE (8)
+  0X15, 0X00,           //   LOGICAL_MINIMUM (0)
+  0X25, 0XE7,           //   LOGICAL_MAXIMUM (231)
+  0X05, 0X07,           //   USAGE_PAGE (KEYBOARD)
 
-    0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))
-    0x29, 0xE7,                    //   USAGE_MAXIMUM (Keyboard Application)
-    0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-    0xc0,                          // END_COLLECTION
+  0X19, 0X00,           //   USAGE_MINIMUM (RESERVED (NO EVENT INDICATED))
+  0X29, 0XE7,           //   USAGE_MAXIMUM (KEYBOARD APPLICATION)
+  0X81, 0X00,           //   INPUT (DATA, ARY, ABS)
+  0XC0,                 // END_COLLECTION
 };
 
 }  // namespace Report

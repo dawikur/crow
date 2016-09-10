@@ -29,9 +29,15 @@ void SendReport(Crow::Index const id, void const *const data, Crow::Index const 
 }
 
 void setup() {
-  static HIDSubDescriptor node(Crow::Reports::KeyboardDescriptor,
-                               sizeof(Crow::Reports::KeyboardDescriptor));
-  HID().AppendDescriptor(&node);
+  static HIDSubDescriptor customerNode(
+    Crow::Reports::CustomerDescriptor,
+    sizeof(Crow::Reports::CustomerDescriptor));
+  HID().AppendDescriptor(&customerNode);
+
+  static HIDSubDescriptor keyboardNode(
+    Crow::Reports::KeyboardDescriptor,
+    sizeof(Crow::Reports::KeyboardDescriptor));
+  HID().AppendDescriptor(&keyboardNode);
 
   for (int i = 0; i < Crow::RowsCount; ++i) {
     pinMode(Rows[i], OUTPUT);

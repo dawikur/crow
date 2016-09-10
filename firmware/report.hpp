@@ -17,15 +17,11 @@ class Report {
 
   Report() : sendImpl{nullptr}, keyboard{} {}
 
-  void setup(SendImpl const newSendImpl) {
-    sendImpl = newSendImpl;
-  }
+  void setup(SendImpl const newSendImpl) { sendImpl = newSendImpl; }
 
   void send() {
-    if (keyboard) {
-      (*sendImpl)(keyboard.id(), keyboard.data(), keyboard.size());
-      keyboard.commit();
-    }
+    send(customer);
+    send(keyboard);
   }
 
   void key(Index const key, bool const wasPressed) {
@@ -36,13 +32,20 @@ class Report {
     keyboard.modifier(key, wasPressed);
   }
 
-  void toggleModifierLock(Index const key) {
-    keyboard.toggleModifierLock(key);
-  }
+  void toggleModifierLock(Index const key) { keyboard.toggleModifierLock(key); }
 
  private:
+  template <class Type>
+  void send(Type &report) {
+    if (report) {
+      (*sendImpl)(report.id(), report.data(), report.size());
+      report.commit();
+    }
+  }
+
   SendImpl sendImpl;
 
+  Reports::Customer customer;
   Reports::Keyboard keyboard;
 };
 

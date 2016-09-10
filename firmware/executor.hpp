@@ -12,8 +12,7 @@ namespace Crow {
 
 class Executor {
  public:
-  Executor()
-    : updateNeeded{false}, report{}, layer{} {}
+  Executor() : report{}, layer{} {}
 
   Executor(Executor const &) = delete;
 
@@ -22,23 +21,13 @@ class Executor {
     layer.setup(newLayers);
   }
 
-  void operator() (Event const event) {
-    updateNeeded = true;
-
+  void operator()(Event const event) {
     layer[event.row][event.col](report, layer, event.wasPressed);
   }
 
-  void operator() () {
-    if (!updateNeeded) {
-      return;
-    }
-    updateNeeded = false;
-
-    report.send();
-  }
+  void operator()() { report.send(); }
 
  private:
-  bool updateNeeded;
   Report report;
 
   Layer layer;
