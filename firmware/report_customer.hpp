@@ -16,13 +16,25 @@ class Customer {
 
   void commit() { changed = false; }
 
-  void media(Index const key, bool const wasPressed) { changed = true; }
+  void media(Index const key, bool const wasPressed) {
+    wasPressed ? process_media_press(key) : process_media_release(key);
+    changed = true;
+  }
 
   static Index constexpr id() { return 3; }
-  void const *data() const { return nullptr; }
-  Index size() const { return 0; }
+  void const *data() const { return &raw; }
+  Index size() const { return sizeof(raw); }
 
  private:
+  void process_media_press(Index const key) {
+    raw |= key;
+  }
+
+  void process_media_release(Index const key) {
+    raw &= ~key;
+  }
+
+  uint16_t raw;
   bool changed;
 };
 

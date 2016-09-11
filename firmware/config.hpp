@@ -19,7 +19,7 @@
 
 namespace Crow {
 
-using Index = uint8_t;
+using Index = uint16_t;
 
 constexpr Index RowsCount = ROWS_COUNT;
 constexpr Index ColsCount = COLS_COUNT;

@@ -12,13 +12,9 @@ class Keyboard {
  public:
   Keyboard() : raw{0, 0, 0}, lockedModifiers{0}, changed{false} {}
 
-  explicit operator bool () const {
-    return changed;
-  }
+  explicit operator bool() const { return changed; }
 
-  void commit() {
-    changed = false;
-  }
+  void commit() { changed = false; }
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
@@ -43,7 +39,7 @@ class Keyboard {
 
   static Index constexpr id() { return 2; }
   void const *data() const { return &raw; }
-  Index size() const { return sizeof (raw); }
+  Index size() const { return sizeof(raw); }
 
  private:
   void process_key_press(Index const key) {
@@ -81,36 +77,35 @@ class Keyboard {
   bool changed;
 };
 
-
 static uint8_t const KeyboardDescriptor[] PROGMEM = {
-  0X05, 0X01,           // USAGE_PAGE (GENERIC DESKTOP)
-  0X09, 0X06,           // USAGE (KEYBOARD)
-  0XA1, 0X01,           // COLLECTION (APPLICATION)
-  0X85, Keyboard::id(), //   REPORT_ID (2)
-  0X05, 0X07,           //   USAGE_PAGE (KEYBOARD)
+  0X05, 0X01,            // USAGE_PAGE (GENERIC DESKTOP)
+  0X09, 0X06,            // USAGE (KEYBOARD)
+  0XA1, 0X01,            // COLLECTION (APPLICATION)
+  0X85, Keyboard::id(),  //   REPORT_ID (2)
+  0X05, 0X07,            //   USAGE_PAGE (KEYBOARD)
 
-  0X19, 0XE0,           //   USAGE_MINIMUM (KEYBOARD LEFTCONTROL)
-  0X29, 0XE7,           //   USAGE_MAXIMUM (KEYBOARD RIGHT GUI)
-  0X15, 0X00,           //   LOGICAL_MINIMUM (0)
-  0X25, 0X01,           //   LOGICAL_MAXIMUM (1)
-  0X75, 0X01,           //   REPORT_SIZE (1)
-  0X95, 0X08,           //   REPORT_COUNT (8)
+  0X19, 0XE0,  //   USAGE_MINIMUM (KEYBOARD LEFTCONTROL)
+  0X29, 0XE7,  //   USAGE_MAXIMUM (KEYBOARD RIGHT GUI)
+  0X15, 0X00,  //   LOGICAL_MINIMUM (0)
+  0X25, 0X01,  //   LOGICAL_MAXIMUM (1)
+  0X75, 0X01,  //   REPORT_SIZE (1)
+  0X95, 0X08,  //   REPORT_COUNT (8)
 
-  0X81, 0X02,           //   INPUT (DATA,VAR,ABS)
-  0X95, 0X01,           //   REPORT_COUNT (1)
-  0X75, 0X08,           //   REPORT_SIZE (8)
-  0X81, 0X03,           //   INPUT (CNST,VAR,ABS)
+  0X81, 0X02,  //   INPUT (DATA,VAR,ABS)
+  0X95, 0X01,  //   REPORT_COUNT (1)
+  0X75, 0X08,  //   REPORT_SIZE (8)
+  0X81, 0X03,  //   INPUT (CNST,VAR,ABS)
 
-  0X95, 0X06,           //   REPORT_COUNT (6)
-  0X75, 0X08,           //   REPORT_SIZE (8)
-  0X15, 0X00,           //   LOGICAL_MINIMUM (0)
-  0X25, 0XE7,           //   LOGICAL_MAXIMUM (231)
-  0X05, 0X07,           //   USAGE_PAGE (KEYBOARD)
+  0X95, 0X06,  //   REPORT_COUNT (6)
+  0X75, 0X08,  //   REPORT_SIZE (8)
+  0X15, 0X00,  //   LOGICAL_MINIMUM (0)
+  0X25, 0XE7,  //   LOGICAL_MAXIMUM (231)
+  0X05, 0X07,  //   USAGE_PAGE (KEYBOARD)
 
-  0X19, 0X00,           //   USAGE_MINIMUM (RESERVED (NO EVENT INDICATED))
-  0X29, 0XE7,           //   USAGE_MAXIMUM (KEYBOARD APPLICATION)
-  0X81, 0X00,           //   INPUT (DATA, ARY, ABS)
-  0XC0,                 // END_COLLECTION
+  0X19, 0X00,  //   USAGE_MINIMUM (RESERVED (NO EVENT INDICATED))
+  0X29, 0XE7,  //   USAGE_MAXIMUM (KEYBOARD APPLICATION)
+  0X81, 0X00,  //   INPUT (DATA, ARY, ABS)
+  0XC0,        // END_COLLECTION
 };
 
 }  // namespace Report

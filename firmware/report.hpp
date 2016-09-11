@@ -34,6 +34,10 @@ class Report {
 
   void toggleModifierLock(Index const key) { keyboard.toggleModifierLock(key); }
 
+  void media(Index const key, bool const wasPressed) {
+    customer.media(key, wasPressed);
+  }
+
  private:
   template <class Type>
   void send(Type &report) {

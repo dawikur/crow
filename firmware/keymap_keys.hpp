@@ -167,6 +167,24 @@ constexpr Index Modifier_ShiftR   = 1 << 5;
 constexpr Index Modifier_AltR     = 1 << 6;
 constexpr Index Modifier_GUIR     = 1 << 7;
 
+// Media
+constexpr Index Media_Play_Pause  = 1 << 0x0;
+constexpr Index Media_Stop        = 1 << 0x1;
+constexpr Index Media_Prev_Track  = 1 << 0x2;
+constexpr Index Media_Next_Track  = 1 << 0x3;
+constexpr Index Media_Mute        = 1 << 0x4;
+constexpr Index Media_Volume_Up   = 1 << 0x5;
+constexpr Index Media_Volume_Down = 1 << 0x6;
+//constexpr Index Media_Reserved  = 1 << 0x7;
+constexpr Index Media_Bright_Up   = 1 << 0x8;
+constexpr Index Media_Bright_Down = 1 << 0x9;
+//constexpr Index Media_Reserved  = 1 << 0xA;
+//constexpr Index Media_Reserved  = 1 << 0xB;
+//constexpr Index Media_Reserved  = 1 << 0xC;
+//constexpr Index Media_Reserved  = 1 << 0xD;
+//constexpr Index Media_Reserved  = 1 << 0xE;
+//constexpr Index Media_Reserved  = 1 << 0xF;
+
 }  // namespace Keymap
 }  // namespace Crow
 
