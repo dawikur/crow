@@ -69,8 +69,8 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // Layer 2
 //
 // ,____,____,____,____,____,____,____,____,____,____,____,____,____,________,
-// |Esc |    |    |    |    |    |    |    |    |    |    |    |    |Delete  |
-// |    | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |10  |11  |12  |        |
+// |Esc | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |10  |11  |12  |Delete  |
+// |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,_____,____,____,____,____,____,____,____,____,_____;
 // |Fn2   |Mac |    |    |     |    |    |    |    |Play|Stop|Prev|Next|     |
 // | Lock | Rec|    |    |     |    |    |    |    |    |    |    |    |     |
@@ -86,11 +86,11 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
   {
-    { K(Esc), Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(),   Nop(),         Nop(),       Nop(),    K(Delete) },
-    { LL(),   Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(),   Nop(),         Nop(),       Nop(),    Nop() },
-    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), K(Mute), K(VolumeDown), K(VolumeUp), K(Enter), Nop() },
-    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(), Nop(),   Nop(),         Nop(),       Nop(),    Nop() },
-    { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), L(2),  Nop(), Nop(),   Nop(),         Nop(),       Nop(),    Nop() }
+    { K(Esc), Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(),         Nop(),         Nop(),         Nop(),         Nop(),        K(Delete) },
+    { LL(),   Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(),         C(Play_Pause), C(Stop),       C(PrevTrack),  C(NextTrack), Nop() },
+    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), Nop(),         C(Mute),       C(VolumeDown), C(VolumeUp),   K(Enter),     Nop() },
+    { Nop(),  Nop(),   Nop(),   Nop(),       Nop(),   Nop(),   Nop(),          Nop(), C(BrightDown), C(BrightUp),   Nop(),         Nop(),         Nop(),        Nop() },
+    { Nop(),  M(GUIL), M(AltL), K(SpaceBar), M(AltR), M(GUIR), K(Application), L(2),  Nop(),         Nop(),         Nop(),         Nop(),         Nop(),        Nop() }
   }
 };
 
