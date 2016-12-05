@@ -8,7 +8,7 @@
 // ===============
 
 #define ROWS_COUNT 5
-#define COLS_COUNT 14
+#define COLS_COUNT 13
 
 // ===============
 

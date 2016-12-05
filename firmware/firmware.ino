@@ -7,7 +7,7 @@
 Crow::Firmware firmware;
 
 Crow::Index const Rows[Crow::RowsCount] = {15, 18, 19, 20, 21};
-Crow::Index const Cols[Crow::ColsCount] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 16};
+Crow::Index const Cols[Crow::ColsCount] = {14, 16, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 1};
 
 Crow::Row GetRow(Crow::Index const i) {
   digitalWrite(Rows[i], LOW);
@@ -29,22 +29,25 @@ void SendReport(Crow::Index const id, void const *const data, Crow::Index const 
 }
 
 void setup() {
-  static HIDSubDescriptor customerNode(
-    Crow::Reports::CustomerDescriptor,
-    sizeof(Crow::Reports::CustomerDescriptor));
-  HID().AppendDescriptor(&customerNode);
+  TXLED0;
+  RXLED0;
+
+  //static HIDSubDescriptor customerNode(
+  //  Crow::Reports::CustomerDescriptor,
+  //  sizeof(Crow::Reports::CustomerDescriptor));
+  //HID().AppendDescriptor(&customerNode);
 
   static HIDSubDescriptor keyboardNode(
     Crow::Reports::KeyboardDescriptor,
     sizeof(Crow::Reports::KeyboardDescriptor));
   HID().AppendDescriptor(&keyboardNode);
 
-  for (int i = 0; i < Crow::RowsCount; ++i) {
+  for (Crow::Index i = 0; i < Crow::RowsCount; ++i) {
     pinMode(Rows[i], OUTPUT);
     digitalWrite(Rows[i], HIGH);;
   }
 
-  for (int i = 0; i < Crow::ColsCount; ++i) {
+  for (Crow::Index i = 0; i < Crow::ColsCount; ++i) {
     pinMode(Cols[i], INPUT_PULLUP);
   }
 
