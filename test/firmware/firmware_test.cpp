@@ -116,7 +116,7 @@ TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
 }
 
 TEST_F(firmware_test, modifiers_can_be_unpressed) {
-  expect_rows(0, 0, 0, 0, 16);                                                 // Press AltR
+  expect_rows(0, 0, 0, 0, 256);                                                // Press AltR
   expect_report({Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
@@ -128,7 +128,7 @@ TEST_F(firmware_test, modifiers_can_be_unpressed) {
 }
 
 TEST_F(firmware_test, modifiers_press_can_be_combined_with_normal_keys) {
-  expect_rows(0, 32, 1, 8, 16);
+  expect_rows(0, 32, 1, 8, 256);
   expect_report({Modifier_AltR | Modifier_CtrlL, 0, Key_T, Key_C, 0, 0, 0, 0});
 
   firmware.loop();
