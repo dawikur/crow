@@ -119,12 +119,12 @@ TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
 }
 
 TEST_F(firmware_test, modifiers_can_be_unpressed) {
-  set_rows(0, 0, 0, 0, 256);                                                // Press AltR
+  set_rows(0, 0, 0, 0, 256);                                                   // Press AltR
   expect_report({Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 0, 0);                                                  // Release AltR
+  set_rows(0, 0, 0, 0, 0);                                                     // Release AltR
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
@@ -153,7 +153,7 @@ TEST_F(firmware_test, can_click_on_first_layer_and_than_back_on_default_one) {
 
   firmware.loop();
 
-  set_rows(0, 0, 512, 0, 1);                                                   // +Press l
+  set_rows(0, 0, 512, 0, 1);                                                   // Press l
   expect_report({0, 0, Key_Right, 0, 0, 0, 0, 0});                             // ? Got RightKey
 
   firmware.loop();
@@ -175,7 +175,7 @@ TEST_F(firmware_test, layer_can_be_toggled) {
 
   firmware.loop();
 
-  set_rows(0, 1, 0, 0, 1);                                                     // +Press Layer1Toggle
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
   firmware.loop();
 
@@ -199,7 +199,7 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
 
   firmware.loop();
 
-  set_rows(0, 1, 0, 0, 1);                                                     // +Press Layer1Toggle
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
   firmware.loop();
 
@@ -217,7 +217,7 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
 
   firmware.loop();
 
-  set_rows(0, 1, 0, 0, 1);                                                     // + Press Layer1Toggle
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
   firmware.loop();
 
@@ -236,7 +236,7 @@ TEST_F(firmware_test, locking_does_not_work_with_left_shift) {
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 1, 1);                                                     // +Press ShiftL
+  set_rows(0, 0, 0, 1, 1);                                                     // Press ShiftL
   expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});                       // ? Got ShiftL
 
   firmware.loop();
@@ -252,8 +252,8 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 1, 1);                                                     // +Press ShiftToggle
-  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+  set_rows(0, 0, 0, 2048, 1);                                                  // Press ShiftToggle
+  expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
@@ -262,16 +262,16 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
   firmware.loop();
 
   set_rows(4, 0, 0, 0, 0);                                                     // Press 2
-  expect_report({Modifier_ShiftL, 0, Key_2, 0, 0, 0, 0, 0});                   // ? Got @
+  expect_report({Modifier_ShiftR, 0, Key_2, 0, 0, 0, 0, 0});                   // ? Got @
 
   firmware.loop();
 
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
-  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+  expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 1, 1);                                                     // +Press ShiftToggle
+  set_rows(0, 0, 0, 2048, 1);                                                 // Press ShiftToggle
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
