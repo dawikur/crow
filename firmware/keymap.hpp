@@ -59,7 +59,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 
   {
     { K(Esc)         , K(F1)          , K(F2)          , K(F3)      , K(F4)              , K(F5)          , K(F6)          , K(F7)          , K(F8)          , K(F9)          , K(F10)         , K(F11)         , K(F12)          },
-    { LL()           , Nop()          , K(Pause)       , Nop()      , K(Ins)             , Nop()          , Nop()          , Nop()          , K(Home)        , Nop()          , K(Up)          , Nop()          , Nop()           },
+    { LL()           , Nop()          , K(Pause)       , Nop()      , K(Ins)             , Nop()          , Nop()          , Nop()          , K(Home)        , Nop()          , K(Up)          , K(Left)        , K(Right)        },
     { K(CapsLock)    , K(End)         , K(PrtSc)       , Nop()      , K(PgDn)            , Nop()          , K(Left)        , K(Down)        , K(Up)          , K(Right)       , Nop()          , Nop()          , K(Enter)        },
     { M(ShiftL)      , Nop()          , K(Delete)      , Nop()      , Nop()              , K(PgUp)        , K(Down)        , Nop()          , Nop()          , Nop()          , Nop()          , ML(ShiftR)     , Nop()           },
     { L(1)           , M(GUIL)        , M(AltL)        , Nop()      , Nop()              , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , Nop()          , K(Delete)       }
