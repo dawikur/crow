@@ -12,12 +12,10 @@ class Matrix {
  public:
   using GetRowImpl = Row (*)(Index const);
 
-  Matrix() = default;
+  Matrix()               = default;
   Matrix(Matrix const &) = delete;
 
-  void setup(GetRowImpl const newGetRowImpl) {
-    getRowImpl = newGetRowImpl;
-  }
+  void setup(GetRowImpl const newGetRowImpl) { getRowImpl = newGetRowImpl; }
 
   static Index rows() { return RowsCount; }
   static Index cols() { return ColsCount; }
@@ -29,7 +27,7 @@ class Matrix {
 
  private:
   GetRowImpl getRowImpl;
-  Row row[RowsCount];
+  Row        row[RowsCount];
 };
 
 }  // namespace Crow

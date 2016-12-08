@@ -4,27 +4,27 @@
 #define FIRMWARE_FIRMWARE_HPP_
 
 #include "executor.hpp"
-#include "matrix.hpp"
 #include "keymap.hpp"
+#include "matrix.hpp"
 
 namespace Crow {
 
 class Firmware {
  public:
-  void setup(Matrix::GetRowImpl getRowImpl,
-             Report::SendImpl sendReportImpl,
-             Layer::SetCallbackImpl setCallbackImpl) {
+  void setup(Matrix::GetRowImpl const     getRowImpl,
+             Report::SendImpl const       sendReportImpl,
+             Layer::SetCallbackImpl const setCallbackImpl) {
     matrix.setup(getRowImpl);
     execute.setup(sendReportImpl, Crow::Layers, setCallbackImpl);
   }
 
   void loop() {
     for (Crow::Index i = 0; i < matrix.rows(); ++i) {
-      auto const row = matrix(i);
+      auto const row      = matrix(i);
       auto const prev_row = matrix[i];
 
       for (Crow::Index j = 0; j < matrix.cols(); ++j) {
-        auto const bit = row[j];
+        auto const bit      = row[j];
         auto const prev_bit = prev_row[j];
 
         if (bit != prev_bit) {
@@ -38,7 +38,7 @@ class Firmware {
   }
 
  private:
-  Matrix matrix;
+  Matrix   matrix;
   Executor execute;
 };
 

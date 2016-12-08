@@ -15,13 +15,8 @@ class Row {
     return static_cast<bool>(raw & (1 << index));
   }
 
-  bool operator== (Row const other) const {
-    return raw == other.raw;
-  }
-
-  bool operator!= (Row const other) const {
-    return raw != other.raw;
-  }
+  bool operator==(Row const other) const { return raw == other.raw; }
+  bool operator!=(Row const other) const { return raw != other.raw; }
 
  private:
   RawRow raw;

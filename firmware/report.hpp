@@ -11,9 +11,8 @@ namespace Crow {
 
 class Report {
  public:
-  using SendImpl = void (*)(Index const id,
-                            void const *const data,
-                            Index const size);
+  using SendImpl
+    = void (*)(Index const id, void const *const data, Index const size);
 
   Report() : sendImpl{nullptr}, keyboard{} {}
 

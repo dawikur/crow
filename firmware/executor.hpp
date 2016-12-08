@@ -17,7 +17,7 @@ class Executor {
   Executor(Executor const &) = delete;
 
   void setup(Report::SendImpl const sendReportImpl,
-             Layer::Raw *newLayers,
+             Layer::Raw const *const newLayers,
              Layer::SetCallbackImpl const setCallbackImpl) {
     report.setup(sendReportImpl);
     layer.setup(newLayers, setCallbackImpl);

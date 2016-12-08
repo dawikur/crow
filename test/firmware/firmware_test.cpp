@@ -40,6 +40,8 @@ void sendReport(Crow::Index const id,
   _usbHid->sendReport(buffor);
 }
 
+void setLayer(Crow::Index const) {}
+
 }  // namespace Functions
 
 class firmware_test : public ::testing::Test {
@@ -48,7 +50,8 @@ class firmware_test : public ::testing::Test {
     Functions::_hardware = &hardware;
     Functions::_usbHid = &usbHid;
 
-    firmware.setup(Functions::getRow, Functions::sendReport);
+    firmware.setup(
+      Functions::getRow, Functions::sendReport, Functions::setLayer);
   }
 
   void TearDown() override {

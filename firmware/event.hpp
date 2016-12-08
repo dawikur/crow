@@ -15,7 +15,7 @@ struct Event {
 
   Index const row;
   Index const col;
-  bool const wasPressed;
+  bool const  wasPressed;
 };
 
 struct CompressedEvent {
@@ -25,8 +25,8 @@ struct CompressedEvent {
 };
 
 CompressedEvent Event::compress() const {
-  return {static_cast<RawCompressEvent>((((row << ColsBits) | col) << 1) |
-                                        static_cast<Index>(wasPressed))};
+  return {static_cast<RawCompressEvent>((((row << ColsBits) | col) << 1)
+                                        | static_cast<Index>(wasPressed))};
 }
 
 Event CompressedEvent::expand() const {

@@ -23,19 +23,14 @@ class Customer {
 
   static Index constexpr id() { return 3; }
   void const *data() const { return &raw; }
-  Index size() const { return sizeof(raw); }
+  Index       size() const { return sizeof(raw); }
 
  private:
-  void process_media_press(Index const key) {
-    raw |= key;
-  }
-
-  void process_media_release(Index const key) {
-    raw &= ~key;
-  }
+  void process_media_press(Index const key) { raw |= key; }
+  void process_media_release(Index const key) { raw &= ~key; }
 
   uint16_t raw;
-  bool changed;
+  bool     changed;
 };
 
 static uint8_t const CustomerDescriptor[] PROGMEM = {

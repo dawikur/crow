@@ -1,3 +1,4 @@
+# Copyright 2016, Dawid Kurek, <dawikur@gmail.com>
 
 GTEST_DIR=../thirdparty/gtest
 
@@ -24,5 +25,5 @@ all: run
 .PHONY: clean
 
 clean:
-	$(RM) $(GTEST_DIR)/*.o */*.o *.o *~ test.app
+	$(RM) $(GTEST_DIR)/*.o */*.o */*/*.o *.o *~ test.app
 

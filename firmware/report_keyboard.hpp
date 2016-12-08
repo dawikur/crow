@@ -39,7 +39,7 @@ class Keyboard {
 
   static Index constexpr id() { return 2; }
   void const *data() const { return &raw; }
-  Index size() const { return sizeof(raw); }
+  Index       size() const { return sizeof(raw); }
 
  private:
   void process_key_press(Index const key) {
@@ -64,7 +64,6 @@ class Keyboard {
   }
 
   void process_modifier_press(Index const key) { raw.modifiers |= key; }
-
   void process_modifier_release(Index const key) { raw.modifiers &= ~key; }
 
   struct RawReport {
@@ -74,7 +73,7 @@ class Keyboard {
   } raw;
 
   uint8_t lockedModifiers;
-  bool changed;
+  bool    changed;
 };
 
 static uint8_t const KeyboardDescriptor[] PROGMEM = {
