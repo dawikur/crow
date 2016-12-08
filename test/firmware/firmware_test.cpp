@@ -231,6 +231,22 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
   firmware.loop();
 }
 
+TEST_F(firmware_test, locking_does_not_work_with_left_shift) {
+  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
+
+  firmware.loop();
+
+  set_rows(0, 0, 0, 1, 1);                                                     // +Press ShiftL
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});                       // ? Got ShiftL
+
+  firmware.loop();
+
+  set_rows(0, 0, 0, 0, 1);                                                     // Release ShiftL
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                     // ? Does not got ShiftL
+
+  firmware.loop();
+}
+
 TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
