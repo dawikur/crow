@@ -9,6 +9,8 @@ namespace Crow {
 namespace Reports {
 
 class Keyboard {
+  static constexpr int KeysCount = 6;
+  
  public:
   Keyboard() : raw{0, 0, 0}, lockedModifiers{0}, changed{false} {}
 
@@ -22,7 +24,7 @@ class Keyboard {
   }
 
   void keysClear() {
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < KeysCount; ++i) {
       if (raw.keys[i] != 0) {
         raw.keys[i] = 0;
         changed = true;
@@ -52,7 +54,7 @@ class Keyboard {
 
  private:
   void process_key_press(Index const key) {
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < KeysCount; ++i) {
       if (raw.keys[i] == key) {
         return;
       }
@@ -64,7 +66,7 @@ class Keyboard {
   }
 
   void process_key_release(Index const key) {
-    for (int i = 0; i < 6; ++i) {
+    for (int i = 0; i < KeysCount; ++i) {
       if (raw.keys[i] == key) {
         raw.keys[i] = 0x00;
         return;
@@ -78,7 +80,7 @@ class Keyboard {
   struct RawReport {
     uint8_t modifiers;
     uint8_t reserved;
-    uint8_t keys[6];
+    uint8_t keys[KeysCount];
   } raw;
 
   uint8_t lockedModifiers;
@@ -115,7 +117,7 @@ static uint8_t const KeyboardDescriptor[] PROGMEM = {
   0XC0,                  // END_COLLECTION
 };
 
-}  // namespace Report
+}  // namespace Reports
 }  // namespace Crow
 
 #endif  // FIRMWARE_REPORT_KEYBOARD_HPP_

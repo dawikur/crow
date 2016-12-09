@@ -10,7 +10,7 @@ namespace Reports {
 
 class Customer {
  public:
-  Customer() : changed{false} {}
+  Customer() : raw{0}, changed{false} {}
 
   explicit operator bool() const { return changed; }
 
@@ -61,7 +61,7 @@ static uint8_t const CustomerDescriptor[] PROGMEM = {
   0XC0                  // END COLLECTION
 };
 
-}  // namespace Report
+}  // namespace Reports
 }  // namespace Crow
 
 #endif  // FIRMWARE_REPORT_CUSTOMER_HPP_
