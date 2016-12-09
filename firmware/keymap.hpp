@@ -44,14 +44,14 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // |Esc |F1  |F2  |F3  |F4  |F5  |F6  |F7  |F8  |F9  |F10 |F11 |F12 |Delete  |
 // |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,_____,____,____,____,____,____,____,____,____,_____;
-// |Fn1   |    |Pau-|    |     |    |    |    |Home|    |    |    |    |     |
-// | Lock |    | se |    |     |    |    |    |    |    |    |    |    |     |
+// |Layer |    |Pau-|    |Ins  |    |    |    |Home|    | ^  |<-- |--> |     |
+// | Lock |    | se |    | CP  |    |    |    |    |    | |  |    |    |     |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,____,_________;
-// |Caps   |End |Prt-|    |PgDn |Home|<-- | |  |^   |--> |    |    |Enter    |
-// | Lock  |    | Sc |    |     |    |    | V  ||   |    |    |    |         |
+// |Caps   |End |Prt-|    |PgDn |Home|<-- | |  | ^  |--> |    |    |Enter    |
+// | Lock  |    | Sc |    |     |    |    | V  | |  |    |    |    |         |
 // ;_________,____,____,____,_____,____,____,____,____,____,____,____________;
-// |ShiftL   |    |Del |    |     |PgUp|    |    |    |    |    |ShiftR      |
-// |         |    |    |    |     |    |    |    |    |    |    | Lock       |
+// |ShiftL   |    |Del |    |     |PgUp|    | |  |    |    |    |ShiftR      |
+// |         |    |    |    |     |    |    | V  |    |    |    |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |     |
 // |#1###|     |     |                               |     |     |     |     |
@@ -72,14 +72,14 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // |Esc | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |10  |11  |12  |Delete  |
 // |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,_____,____,____,____,____,____,____,____,____,_____;
-// |Fn2   |Mac |    |    |     |    |    |    |    |Play|Stop|Prev|Next|     |
+// |Layer |Mac |    |    |     |    |    |    |    |Play|Stop|Prev|Next|     |
 // | Lock | Rec|    |    |     |    |    |    |    |    |    |    |    |     |
 // ;_______,____,____,____,_____,____,____,____,____,____,____,____,_________;
 // |       |    |    |    |     |    |    |    |    |Mute|Vol-|Vol+|Enter    |
 // |       |    |    |    |     |    |    |    |    |    |    |    |         |
 // ;_________,____,____,____,_____,____,____,____,____,____,____,____________;
 // |ShiftL   |    |    |    |     |    |    |    |-Bri|+Bri|    |ShiftR      |
-// |         |    |    |    |     |    |    |    | gth| gth|    |            |
+// | Lock    |    |    |    |     |    |    |    | gth| gth|    | Lock       |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |     |GUIL |AltL |                               |AltR |GUIR |Menu |Layer|
 // |     |     |     |                               |     |     |     |#2###|
@@ -89,7 +89,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { K(Esc)         , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()            },
     { LL()           , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
     { Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
-    { K(ShiftL)      , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , M(ShiftR)      , Nop()            },
+    { ML(ShiftL)     , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
     { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(Delete)        }
   }
 };

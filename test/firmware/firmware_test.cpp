@@ -231,28 +231,12 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
   firmware.loop();
 }
 
-TEST_F(firmware_test, locking_does_not_work_with_left_shift) {
-  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
+TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_2) {
+  set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 1, 1);                                                     // Press ShiftL
-  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});                       // ? Got ShiftL
-
-  firmware.loop();
-
-  set_rows(0, 0, 0, 0, 1);                                                     // Release ShiftL
-  expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                     // ? Does not got ShiftL
-
-  firmware.loop();
-}
-
-TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
-  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
-
-  firmware.loop();
-
-  set_rows(0, 0, 0, 2048, 1);                                                  // Press ShiftToggle
+  set_rows(0, 0, 0, 2048, 2048);                                               // Press ShiftLock
   expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
@@ -266,12 +250,12 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
+  set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
   expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
 
-  set_rows(0, 0, 0, 2048, 1);                                                 // Press ShiftToggle
+  set_rows(0, 0, 0, 2048, 2048);                                               // Press ShiftLock
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   firmware.loop();
@@ -282,6 +266,17 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
 
   set_rows(4, 0, 0, 0, 0);                                                     // Press 2
   expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});                                 // ? Got 2
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, can_lock_both_shift_keys) {
+  set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
+
+  firmware.loop();
+
+  set_rows(0, 0, 0, 2049, 2048);                                               // Press both ShiftLock
+  expect_report({Modifier_ShiftL | Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});     // ? Got both Shift
 
   firmware.loop();
 }
