@@ -3,6 +3,8 @@
 #ifndef FIRMWARE_REPORT_KEYBOARD_HPP_
 #define FIRMWARE_REPORT_KEYBOARD_HPP_
 
+#include <cstring>
+
 #include "config.hpp"
 
 namespace Crow {
@@ -19,6 +21,15 @@ class Keyboard {
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
     changed = true;
+  }
+
+  void keysClear() {
+    for (int i = 0; i < 6; ++i) {
+      if (raw.keys[i] != 0) {
+        raw.keys[i] = 0;
+        changed = true;
+      }
+    }
   }
 
   void modifier(Index const key, bool const wasPressed) {

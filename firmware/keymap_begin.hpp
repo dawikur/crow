@@ -31,7 +31,8 @@
 
 // Layer
 #define L(number)                                                              \
-  [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
+  [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
+    report.keysClear();                                                        \
     layer.set(wasPressed ? number : Crow::Layer::Base);                        \
   }
 

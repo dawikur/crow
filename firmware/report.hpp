@@ -27,6 +27,10 @@ class Report {
     keyboard.key(key, wasPressed);
   }
 
+  void keysClear() {
+    keyboard.keysClear();
+  }
+
   void modifier(Index const key, bool const wasPressed) {
     keyboard.modifier(key, wasPressed);
   }

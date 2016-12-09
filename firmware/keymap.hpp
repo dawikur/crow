@@ -50,8 +50,8 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // |Caps   |End |Prt-|    |PgDn |Home|<-- | |  |^   |--> |    |    |Enter    |
 // | Lock  |    | Sc |    |     |    |    | V  ||   |    |    |    |         |
 // ;_________,____,____,____,_____,____,____,____,____,____,____,____________;
-// |ShiftL   |    |Del |    |     |PgUp|    |    |    |    |    | ShiftR     |
-// |         |    |    |    |     |    |    |    |    |    |    |  Lock      |
+// |ShiftL   |    |Del |    |     |PgUp|    |    |    |    |    |ShiftR      |
+// |         |    |    |    |     |    |    |    |    |    |    | Lock       |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |     |
 // |#1###|     |     |                               |     |     |     |     |
@@ -78,7 +78,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 // |       |    |    |    |     |    |    |    |    |Mute|Vol-|Vol+|Enter    |
 // |       |    |    |    |     |    |    |    |    |    |    |    |         |
 // ;_________,____,____,____,_____,____,____,____,____,____,____,____________;
-// |         |    |    |    |     |    |    |    |-Bri|+Bri|    |            |
+// |ShiftL   |    |    |    |     |    |    |    |-Bri|+Bri|    |ShiftR      |
 // |         |    |    |    |     |    |    |    | gth| gth|    |            |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |     |GUIL |AltL |                               |AltR |GUIR |Menu |Layer|
@@ -89,7 +89,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { K(Esc)         , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()            },
     { LL()           , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
     { Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
-    { Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , Nop()          , Nop()            },
+    { K(ShiftL)      , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , M(ShiftR)      , Nop()            },
     { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(Delete)        }
   }
 };

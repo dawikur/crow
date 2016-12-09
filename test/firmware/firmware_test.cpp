@@ -286,3 +286,34 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_1) {
   firmware.loop();
 }
 
+TEST_F(firmware_test, when_changing_layer_all_keys_are_cleared) {
+  set_rows(0, 0, 0, 0, 1);
+
+  firmware.loop();
+
+  set_rows(1, 0, 0, 0, 1);
+  expect_report({0, 0, Key_Esc, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  set_rows(1, 0, 0, 0, 0);
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
+
+TEST_F(firmware_test, when_changing_layer_modifier_keys_are_not_cleared) {
+  set_rows(0, 0, 0, 1, 1);
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+
+  set_rows(0, 0, 0, 1, 0);
+
+  firmware.loop();
+
+  set_rows(0, 0, 0, 0, 0);
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+
+  firmware.loop();
+}
