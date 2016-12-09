@@ -59,6 +59,10 @@ class firmware_test : public ::testing::Test {
     Functions::_hardware = nullptr;
   }
 
+  void loop() {
+    firmware.loop();
+  }
+
   Crow::Firmware firmware;
 
   Crow::Mock::Hardware hardware;
@@ -70,26 +74,26 @@ using namespace Crow::Keymap;
 TEST_F(firmware_test, not_pressing_any_key_will_not_send_report) {
   set_rows(0, 0, 0, 0, 0);
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, pressing_one_key_will_send_report_with_that_key) {
   set_rows(0, 0, 2, 0, 0);
   expect_report({0, 0, Key_A, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, pressing_and_releasing_key_will_send_two_reports) {
   set_rows(0, 0, 4, 0, 0);
   expect_report({0, 0, Key_S, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test,
@@ -97,7 +101,7 @@ TEST_F(firmware_test,
   set_rows(32, 4, 64, 0,0);
   expect_report({0, 0, Key_5, Key_W, Key_H, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, pressed_modifier_will_be_send) {
@@ -106,7 +110,7 @@ TEST_F(firmware_test, pressed_modifier_will_be_send) {
     Modifier_CtrlL, 0, 0, 0, 0, 0, 0, 0,
   });
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
@@ -115,200 +119,200 @@ TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
     Modifier_CtrlL | Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0,
   });
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, modifiers_can_be_unpressed) {
   set_rows(0, 0, 0, 0, 256);                                                   // Press AltR
   expect_report({Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release AltR
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, modifiers_press_can_be_combined_with_normal_keys) {
   set_rows(0, 32, 1, 8, 256);
   expect_report({Modifier_AltR | Modifier_CtrlL, 0, Key_T, Key_C, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, first_layer_can_be_reached) {
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
-  firmware.loop();
+  loop();
 
   set_rows(2, 0, 0, 0, 1);                                                     // Press 2
   expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});                                // ? Got F2
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, can_click_on_first_layer_and_than_back_on_default_one) {
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 512, 0, 1);                                                   // Press l
   expect_report({0, 0, Key_Right, 0, 0, 0, 0, 0});                             // ? Got RightKey
 
-  firmware.loop();
+  loop();
 
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release both
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(4, 0, 0, 0, 0);                                                     // Press 2
   expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});                                 // ? Got 2
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, layer_can_be_toggled) {
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Releas both
 
-  firmware.loop();
+  loop();
 
   set_rows(2, 0, 0, 0, 0);                                                     // Press 1
   expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});                                // ? Got F1
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 64, 0, 0);                                                    // Press h
   expect_report({0, 0, Key_Left, 0, 0, 0, 0, 0});                              // ? Got Leftkey
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, layer_can_be_toggled_twice) {
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release both
 
-  firmware.loop();
+  loop();
 
   set_rows(8, 0, 0, 0, 0);                                                     // Press 3
   expect_report({0, 0, Key_F3, 0, 0, 0, 0, 0});                                // ? Got F3
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release both
 
-  firmware.loop();
+  loop();
 
   set_rows(8, 0, 0, 0, 0);                                                     // Press 3
   expect_report({0, 0, Key_3, 0, 0, 0, 0, 0});                                 // ? Got 3
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_2) {
   set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 2048, 2048);                                               // Press ShiftLock
   expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release both
 
-  firmware.loop();
+  loop();
 
   set_rows(4, 0, 0, 0, 0);                                                     // Press 2
   expect_report({Modifier_ShiftR, 0, Key_2, 0, 0, 0, 0, 0});                   // ? Got @
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
   expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 2048, 2048);                                               // Press ShiftLock
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 0, 0);                                                     // Release both
 
-  firmware.loop();
+  loop();
 
   set_rows(4, 0, 0, 0, 0);                                                     // Press 2
   expect_report({0, 0, Key_2, 0, 0, 0, 0, 0});                                 // ? Got 2
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, can_lock_both_shift_keys) {
   set_rows(0, 0, 0, 0, 2048);                                                  // Press Layer2
 
-  firmware.loop();
+  loop();
 
   set_rows(0, 0, 0, 2049, 2048);                                               // Press both ShiftLock
   expect_report({Modifier_ShiftL | Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});     // ? Got both Shift
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, when_changing_layer_all_keys_are_cleared) {
-  set_rows(0, 0, 0, 0, 1);
+  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
 
-  firmware.loop();
+  loop();
 
-  set_rows(1, 0, 0, 0, 1);
-  expect_report({0, 0, Key_Esc, 0, 0, 0, 0, 0});
+  set_rows(1, 0, 0, 0, 1);                                                     // Press Esc
+  expect_report({0, 0, Key_Esc, 0, 0, 0, 0, 0});                               // ? Got Esc
 
-  firmware.loop();
+  loop();
 
-  set_rows(1, 0, 0, 0, 0);
-  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+  set_rows(1, 0, 0, 0, 0);                                                     // Release Layer1
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                     // ? Did not get Esc
 
-  firmware.loop();
+  loop();
 }
 
 TEST_F(firmware_test, when_changing_layer_modifier_keys_are_not_cleared) {
-  set_rows(0, 0, 0, 1, 1);
-  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});
+  set_rows(0, 0, 0, 1, 1);                                                     // Press Layer1 and ShiftL
+  expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});                       // ? Got ShiftL
 
-  firmware.loop();
+  loop();
 
-  set_rows(0, 0, 0, 1, 0);
+  set_rows(0, 0, 0, 1, 0);                                                     // Release Layer1
 
-  firmware.loop();
+  loop();
 
-  set_rows(0, 0, 0, 0, 0);
-  expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+  set_rows(0, 0, 0, 0, 0);                                                     // Release ShiftL
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                     // ? Did not get ShiftL
 
-  firmware.loop();
+  loop();
 }
