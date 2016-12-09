@@ -6,6 +6,7 @@
 #include "config.hpp"
 #include "report_customer.hpp"
 #include "report_keyboard.hpp"
+#include "report_pointer.hpp"
 
 namespace Crow {
 
@@ -21,6 +22,7 @@ class Report {
   void send() {
     send(customer);
     send(keyboard);
+    send(pointer);
   }
 
   void key(Index const key, bool const wasPressed) {
@@ -54,6 +56,7 @@ class Report {
 
   Reports::Customer customer;
   Reports::Keyboard keyboard;
+  Reports::Pointer  pointer;
 };
 
 }  // namespace Crow
