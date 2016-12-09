@@ -167,7 +167,7 @@ constexpr Index Modifier_ShiftR   = 1 << 5;
 constexpr Index Modifier_AltR     = 1 << 6;
 constexpr Index Modifier_GUIR     = 1 << 7;
 
-// Media
+// Media / Customer
 constexpr Index Media_Play_Pause  = 1 << 0x0;
 constexpr Index Media_Stop        = 1 << 0x1;
 constexpr Index Media_PrevTrack   = 1 << 0x2;
@@ -177,6 +177,8 @@ constexpr Index Media_VolumeUp    = 1 << 0x5;
 constexpr Index Media_VolumeDown  = 1 << 0x6;
 constexpr Index Media_BrightUp    = 1 << 0x7;
 constexpr Index Media_BrightDown  = 1 << 0x8;
+
+// Pointer
 
 }  // namespace Keymap
 }  // namespace Crow

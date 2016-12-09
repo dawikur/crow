@@ -57,6 +57,11 @@ void setup() {
     Crow::Reports::KeyboardDescriptor,
     sizeof(Crow::Reports::KeyboardDescriptor));
   HID().AppendDescriptor(&keyboardNode);
+  
+  static HIDSubDescriptor pointerNode(
+    Crow::Reports::PointerDescriptor,
+    sizeof(Crow::Reports::PointerDescriptor));
+  HID().AppendDescriptor(&pointerNode);
 
   for (Crow::Index i = 0; i < Crow::RowsCount; ++i) {
     pinMode(Rows[i], OUTPUT);
