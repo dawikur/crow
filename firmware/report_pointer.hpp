@@ -3,31 +3,23 @@
 #ifndef FIRMWARE_REPORT_POINTER_HPP_
 #define FIRMWARE_REPORT_POINTER_HPP_
 
-#include "config.hpp"
+#include "report_base.hpp"
 
 namespace Crow {
 namespace Reports {
 
-class Pointer {
- public:
-  Pointer() : raw{0, 0, 0, 0}, changed{false} {}
-
-  explicit operator bool() const { return changed; }
-
-  void commit() { changed = false; }
-
-  static Index constexpr id() { return 4; }
-  void const *data() const { return &raw; }
-  Index       size() const { return sizeof(raw); }
-
- private:
-  struct RawReport {
+struct PointerRaw {
     uint8_t buttons;
-    uint8_t x;
-    uint8_t y;
-    uint8_t wheel;
-  } raw;
-  bool     changed;
+    int8_t x;
+    int8_t y;
+    int8_t wheel;
+};
+
+class Pointer : public Base<4, PointerRaw> {
+  using Base = Base<4, PointerRaw>;
+  
+ public:
+  Pointer() : Base{} {}
 };
 
 static uint8_t const PointerDescriptor[] PROGMEM = {

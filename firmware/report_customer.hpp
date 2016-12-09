@@ -3,41 +3,32 @@
 #ifndef FIRMWARE_REPORT_CUSTOMER_HPP_
 #define FIRMWARE_REPORT_CUSTOMER_HPP_
 
-#include "config.hpp"
+#include "report_base.hpp"
 
 namespace Crow {
 namespace Reports {
 
-class Customer {
+class Customer : public Base<2, uint16_t> {
+  using Base = Base<2, uint16_t>;
+  
  public:
-  Customer() : raw{0}, changed{false} {}
-
-  explicit operator bool() const { return changed; }
-
-  void commit() { changed = false; }
+  Customer() : Base{} {}
 
   void media(Index const key, bool const wasPressed) {
     wasPressed ? process_media_press(key) : process_media_release(key);
-    changed = true;
+    markChanged();
   }
-
-  static Index constexpr id() { return 3; }
-  void const *data() const { return &raw; }
-  Index       size() const { return sizeof(raw); }
 
  private:
   void process_media_press(Index const key) { raw |= key; }
   void process_media_release(Index const key) { raw &= ~key; }
-
-  uint16_t raw;
-  bool     changed;
 };
 
 static uint8_t const CustomerDescriptor[] PROGMEM = {
   0X05, 0X0C,           // USAGE_PAGE (CONSUMER DEVICES)
   0X09, 0X01,           // USAGE (CONSUMER CONTROL)
   0XA1, 0X01,           // COLLECTION (APPLICATION)
-  0X85, Customer::id(), //   REPORT_ID (3)
+  0X85, Customer::id(), //   REPORT_ID (2)
   0X05, 0X0C,           //   USAGE_PAGE (CONSUMER DEVICES)
 
   0X15, 0X00,           //   LOGICAL_MINIMUM (0)

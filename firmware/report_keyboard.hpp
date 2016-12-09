@@ -3,38 +3,43 @@
 #ifndef FIRMWARE_REPORT_KEYBOARD_HPP_
 #define FIRMWARE_REPORT_KEYBOARD_HPP_
 
-#include "config.hpp"
+#include "report_base.hpp"
 
 namespace Crow {
 namespace Reports {
-
-class Keyboard {
+  
+struct KeyboardRaw {
   static constexpr int KeysCount = 6;
   
+  uint8_t modifiers;
+  uint8_t reserved;
+  uint8_t keys[KeysCount];
+};
+  
+class Keyboard : public Base<3, KeyboardRaw> {
+  using Base = Base<3, KeyboardRaw>;
+  
  public:
-  Keyboard() : raw{0, 0, 0}, lockedModifiers{0}, changed{false} {}
+  Keyboard() : Base{}, lockedModifiers{0} {}
 
-  explicit operator bool() const { return changed; }
-
-  void commit() { changed = false; }
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
-    changed = true;
+    markChanged();
   }
 
   void keysClear() {
-    for (int i = 0; i < KeysCount; ++i) {
+    for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
       if (raw.keys[i] != 0) {
         raw.keys[i] = 0;
-        changed = true;
+        markChanged();
       }
     }
   }
 
   void modifier(Index const key, bool const wasPressed) {
     wasPressed ? process_modifier_press(key) : process_modifier_release(key);
-    changed = true;
+    markChanged();
   }
 
   void toggleModifierLock(Index const key) {
@@ -45,16 +50,12 @@ class Keyboard {
       lockedModifiers |= key;
       process_modifier_press(key);
     }
-    changed = true;
+    markChanged();
   }
-
-  static Index constexpr id() { return 2; }
-  void const *data() const { return &raw; }
-  Index       size() const { return sizeof(raw); }
 
  private:
   void process_key_press(Index const key) {
-    for (int i = 0; i < KeysCount; ++i) {
+    for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
       if (raw.keys[i] == key) {
         return;
       }
@@ -66,7 +67,7 @@ class Keyboard {
   }
 
   void process_key_release(Index const key) {
-    for (int i = 0; i < KeysCount; ++i) {
+    for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
       if (raw.keys[i] == key) {
         raw.keys[i] = 0x00;
         return;
@@ -77,21 +78,14 @@ class Keyboard {
   void process_modifier_press(Index const key) { raw.modifiers |= key; }
   void process_modifier_release(Index const key) { raw.modifiers &= ~key; }
 
-  struct RawReport {
-    uint8_t modifiers;
-    uint8_t reserved;
-    uint8_t keys[KeysCount];
-  } raw;
-
   uint8_t lockedModifiers;
-  bool    changed;
 };
 
 static uint8_t const KeyboardDescriptor[] PROGMEM = {
   0X05, 0X01,            // USAGE_PAGE (GENERIC DESKTOP)
   0X09, 0X06,            // USAGE (KEYBOARD)
   0XA1, 0X01,            // COLLECTION (APPLICATION)
-  0X85, Keyboard::id(),  //   REPORT_ID (2)
+  0X85, Keyboard::id(),  //   REPORT_ID (3)
   0X05, 0X07,            //   USAGE_PAGE (KEYBOARD)
 
   0X19, 0XE0,            //   USAGE_MINIMUM (KEYBOARD LEFTCONTROL)
