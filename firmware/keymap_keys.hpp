@@ -148,15 +148,15 @@ constexpr Index Key_Mute         = 0x7F;
 constexpr Index Key_VolumeUp     = 0x80;
 constexpr Index Key_VolumeDown   = 0x81;
 
-// Modifiers
-constexpr Index Key_CtrlL         = 0xE0;
-constexpr Index Key_ShiftL        = 0xE1;
-constexpr Index Key_AltL          = 0xE2;
-constexpr Index Key_GUIL          = 0xE3;
-constexpr Index Key_CtrlR         = 0xE4;
-constexpr Index Key_ShiftR        = 0xE5;
-constexpr Index Key_AltR          = 0xE6;
-constexpr Index Key_GUIR          = 0xE7;
+// Modifiers 
+// constexpr Index Key_CtrlL         = 0xE0;
+// constexpr Index Key_ShiftL        = 0xE1;
+// constexpr Index Key_AltL          = 0xE2;
+// constexpr Index Key_GUIL          = 0xE3;
+// constexpr Index Key_CtrlR         = 0xE4;
+// constexpr Index Key_ShiftR        = 0xE5;
+// constexpr Index Key_AltR          = 0xE6;
+// constexpr Index Key_GUIR          = 0xE7;
 
 constexpr Index Modifier_CtrlL    = 1 << 0;
 constexpr Index Modifier_ShiftL   = 1 << 1;
@@ -175,15 +175,8 @@ constexpr Index Media_NextTrack   = 1 << 0x3;
 constexpr Index Media_Mute        = 1 << 0x4;
 constexpr Index Media_VolumeUp    = 1 << 0x5;
 constexpr Index Media_VolumeDown  = 1 << 0x6;
-//constexpr Index Media_Reserved  = 1 << 0x7;
-constexpr Index Media_BrightUp    = 1 << 0x8;
-constexpr Index Media_BrightDown  = 1 << 0x9;
-//constexpr Index Media_Reserved  = 1 << 0xA;
-//constexpr Index Media_Reserved  = 1 << 0xB;
-//constexpr Index Media_Reserved  = 1 << 0xC;
-//constexpr Index Media_Reserved  = 1 << 0xD;
-//constexpr Index Media_Reserved  = 1 << 0xE;
-//constexpr Index Media_Reserved  = 1 << 0xF;
+constexpr Index Media_BrightUp    = 1 << 0x7;
+constexpr Index Media_BrightDown  = 1 << 0x8;
 
 }  // namespace Keymap
 }  // namespace Crow

@@ -52,16 +52,12 @@ static uint8_t const CustomerDescriptor[] PROGMEM = {
   0X09, 0XE2,           //   USAGE (MUTE)                         BIT 4
   0X09, 0XE9,           //   USAGE (VOLUME UP)                    BIT 5
   0X09, 0XEA,           //   USAGE (VOLUME DOWN)                  BIT 6
+  0x09, 0x6F,           //   USAGE (BRIGHTNESS INC)               BIT 7
+  0x09, 0x70,           //   USAGE (BRIGHTNESS DEC)               BIT 8
   0X81, 0X02,           //   INPUT (DATA, VARIABLE, ABSOLUTE)
-  0X95, 0X01,           //   REPORT COUNT (1)                     BIT 7
-  0X81, 0X01,           //   INPUT (CONSTANT)
 
-  0x09, 0x70,           //   USAGE (BRIGHTNESS DEC)               BIT 0
-  0x09, 0x6F,           //   USAGE (BRIGHTNESS INC)               BIT 1
-  0X81, 0X02,           //   INPUT (DATA, VARIABLE, ABSOLUTE)
-  0X95, 0X05,           //   REPORT COUNT (5)                     BIT 2-7
-  0X81, 0X01,           //   INPUT (CONSTANT)
-
+  // No need for padding to full 16 bites?
+  
   0XC0                  // END COLLECTION
 };
 
