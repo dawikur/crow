@@ -9,6 +9,8 @@
 
 #include "keymap_keys.hpp"
 
+#define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}
+
 // Key
 #define K(in_key)                                                              \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
@@ -32,7 +34,7 @@
 // Layer
 #define L(number)                                                              \
   [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
-    report.keysClear();                                                        \
+    report.clear();                                                            \
     layer.set(wasPressed ? number : Crow::Layer::Base);                        \
   }
 
@@ -50,6 +52,10 @@
     report.media(Crow::Keymap::Media_##in_key, wasPressed);                    \
   }
 
-#define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}
+// Pointer
+#define P(m_id)                                                                \
+  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+    report.pointer_move(Crow::Keymap::Pointer_##m_id, wasPressed);             \
+  }
 
 #endif  // FIRMWARE_KEYMAP_BEGIN_HPP_

@@ -56,9 +56,6 @@ class Keyboard : public Base<3, KeyboardRaw> {
  private:
   void process_key_press(Index const key) {
     for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
-      if (raw.keys[i] == key) {
-        return;
-      }
       if (raw.keys[i] == 0x00) {
         raw.keys[i] = key;
         return;

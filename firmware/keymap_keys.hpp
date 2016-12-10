@@ -179,6 +179,10 @@ constexpr Index Media_BrightUp    = 1 << 0x7;
 constexpr Index Media_BrightDown  = 1 << 0x8;
 
 // Pointer
+constexpr Index Pointer_Up        = '-'^'y';
+constexpr Index Pointer_Down      = '+'^'y';
+constexpr Index Pointer_Left      = '-'^'x';
+constexpr Index Pointer_Right     = '+'^'x';
 
 }  // namespace Keymap
 }  // namespace Crow

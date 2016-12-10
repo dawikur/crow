@@ -13,7 +13,7 @@ class Base {
  public:
   Base() : changed{false} {}
 
-  explicit operator bool() const { return changed; }
+  virtual explicit operator bool() const { return changed; }
 
   void commit() { changed = false; }
 

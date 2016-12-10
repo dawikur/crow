@@ -15,11 +15,44 @@ struct PointerRaw {
     int8_t wheel;
 };
 
-class Pointer : public Base<4, PointerRaw> {
-  using Base = Base<4, PointerRaw>;
+class Pointer : public Base<1, PointerRaw> {
+  using Base = Base<1, PointerRaw>;
   
  public:
   Pointer() : Base{} {}
+
+  explicit operator bool() const override { return raw.x != 0 || raw.y != 0; }
+
+  void clear() {
+    raw.buttons = 0;
+    raw.x = 0;
+    raw.y = 0;
+    raw.wheel = 0;  
+  }
+  
+  void move(Index const id, bool const wasPressed) {
+    wasPressed ? process_move_begin(id) : process_move_end(id);
+    markChanged();
+  }
+
+ private:
+   void process_move_begin(Index const id) {
+    switch (id) {
+      case '+'^'x': raw.x =  10; break;
+      case '-'^'x': raw.x = -10; break;
+      case '+'^'y': raw.y =  10; break;
+      case '-'^'y': raw.y = -10; break;
+    }
+  }
+
+  void process_move_end(Index const id ) {
+    switch (id) {
+      case '+'^'x': if (raw.x > 0) raw.x = 0; break;
+      case '-'^'x': if (raw.x < 0) raw.x = 0; break;
+      case '+'^'y': if (raw.y > 0) raw.y = 0; break;
+      case '-'^'y': if (raw.y < 0) raw.y = 0; break;
+    }
+  }
 };
 
 static uint8_t const PointerDescriptor[] PROGMEM = {
@@ -28,7 +61,7 @@ static uint8_t const PointerDescriptor[] PROGMEM = {
   0xa1, 0x01,                    // COLLECTION (Application)
   0x09, 0x01,                    //   USAGE (Pointer)
   0xa1, 0x00,                    //   COLLECTION (Physical)
-  0X85, Pointer::id(),           //   REPORT_ID (4)
+  0X85, Pointer::id(),           //   REPORT_ID (1)
   0x85, 0x01,                    //     REPORT_ID (1)
   0x05, 0x09,                    //     USAGE_PAGE (Button)
   0x19, 0x01,                    //     USAGE_MINIMUM (Button 1)

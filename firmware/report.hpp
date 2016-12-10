@@ -25,22 +25,29 @@ class Report {
     send(pointer);
   }
 
-  void key(Index const key, bool const wasPressed) {
-    keyboard.key(key, wasPressed);
+  void clear() {
+    keyboard.keysClear();
+    pointer.clear();
   }
 
-  void keysClear() {
-    keyboard.keysClear();
+  void key(Index const key, bool const wasPressed) {
+    keyboard.key(key, wasPressed);
   }
 
   void modifier(Index const key, bool const wasPressed) {
     keyboard.modifier(key, wasPressed);
   }
 
-  void toggleModifierLock(Index const key) { keyboard.toggleModifierLock(key); }
+  void toggleModifierLock(Index const key) { 
+    keyboard.toggleModifierLock(key);
+  }
 
   void media(Index const key, bool const wasPressed) {
     customer.media(key, wasPressed);
+  }
+
+  void pointer_move(Index const id, bool const wasPressed) {
+    pointer.move(id, wasPressed);
   }
 
  private:
