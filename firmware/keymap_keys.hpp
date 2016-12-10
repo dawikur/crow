@@ -184,6 +184,10 @@ constexpr Index Pointer_Down      = '+'^'y';
 constexpr Index Pointer_Left      = '-'^'x';
 constexpr Index Pointer_Right     = '+'^'x';
 
+constexpr Index Pointer_BLeft     = 'B'^'L';
+constexpr Index Pointer_BMiddle   = 'B'^'M';
+constexpr Index Pointer_BRight    = 'B'^'R';
+
 }  // namespace Keymap
 }  // namespace Crow
 

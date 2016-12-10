@@ -8,20 +8,42 @@
 namespace Crow {
 namespace Reports {
 
-struct PointerRaw {
-    uint8_t buttons;
+union PointerRaw {
+  struct {
+    int8_t buttons;
     int8_t x;
     int8_t y;
     int8_t wheel;
+  };
+  int8_t _[4];
 };
 
 class Pointer : public Base<1, PointerRaw> {
   using Base = Base<1, PointerRaw>;
+
+  static constexpr int8_t Speed = 5;
   
  public:
   Pointer() : Base{} {}
 
   explicit operator bool() const override { return raw.x != 0 || raw.y != 0; }
+
+  #define update_move(V, P, C)                            \
+    do {                                                  \
+      if (raw.V C 0) {                                    \
+             if (P(Speed << 1) C raw.V) raw.V P##= 1;     \
+        else if (P(Speed * 3)  C raw.V) raw.V P##= Speed; \
+      }                                                   \
+    } while(0)
+    
+  void commit() {
+    update_move(x, +, >);
+    update_move(x, -, <);
+    update_move(y, +, >);
+    update_move(y, -, <);
+  }
+
+  #undef update_move
 
   void clear() {
     raw.buttons = 0;
@@ -36,21 +58,29 @@ class Pointer : public Base<1, PointerRaw> {
   }
 
  private:
-   void process_move_begin(Index const id) {
+  void process_move_begin(Index const id) {
     switch (id) {
-      case '+'^'x': raw.x =  10; break;
-      case '-'^'x': raw.x = -10; break;
-      case '+'^'y': raw.y =  10; break;
-      case '-'^'y': raw.y = -10; break;
+      case '+'^'x': raw.x =  Speed; break;
+      case '-'^'x': raw.x = -Speed; break;
+      case '+'^'y': raw.y =  Speed; break;
+      case '-'^'y': raw.y = -Speed; break;
+
+      case 'B'^'L': raw.buttons = 0x01; break;
+      case 'B'^'M': raw.buttons = 0x04; break;
+      case 'B'^'R': raw.buttons = 0x02; break;
     }
   }
 
   void process_move_end(Index const id ) {
     switch (id) {
-      case '+'^'x': if (raw.x > 0) raw.x = 0; break;
-      case '-'^'x': if (raw.x < 0) raw.x = 0; break;
-      case '+'^'y': if (raw.y > 0) raw.y = 0; break;
-      case '-'^'y': if (raw.y < 0) raw.y = 0; break;
+      case '+'^'x': if (raw.x > 0) raw.x = 0x00; break;
+      case '-'^'x': if (raw.x < 0) raw.x = 0x00; break;
+      case '+'^'y': if (raw.y > 0) raw.y = 0x00; break;
+      case '-'^'y': if (raw.y < 0) raw.y = 0x00; break;
+
+      case 'B'^'L':          raw.buttons = 0x00; break;
+      case 'B'^'M':          raw.buttons = 0x00; break;
+      case 'B'^'R':          raw.buttons = 0x00; break;
     }
   }
 };
