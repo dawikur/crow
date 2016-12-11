@@ -44,8 +44,8 @@ class Report {
     customer.media(key, wasPressed);
   }
 
-  void pointer_move(Index const id, bool const wasPressed) {
-    pointer.move(id, wasPressed);
+  void pointer_action(Index const id, bool const wasPressed) {
+    pointer.action(id, wasPressed);
   }
 
  private:
