@@ -11,6 +11,8 @@ namespace Reports {
 struct KeyboardRaw {
   static constexpr int KeysCount = 6;
 
+  KeyboardRaw() : modifiers{0}, reserved{0}, keys{0} {}
+
   uint8_t modifiers;
   uint8_t reserved;
   uint8_t keys[KeysCount];

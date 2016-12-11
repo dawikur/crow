@@ -11,7 +11,7 @@ namespace Reports {
 template <Index Id, class RawReport>
 class Base {
  public:
-  Base() : raw{0}, changed{false} {}
+  Base() : raw{}, changed{false} {}
 
   virtual explicit operator bool() const { return changed; }
 

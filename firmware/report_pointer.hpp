@@ -9,6 +9,8 @@ namespace Crow {
 namespace Reports {
 
 union PointerRaw {
+  PointerRaw() : _{0} {}
+  
   struct {
     int8_t buttons;
     int8_t x;
