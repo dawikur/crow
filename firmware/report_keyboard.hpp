@@ -7,21 +7,20 @@
 
 namespace Crow {
 namespace Reports {
-  
+
 struct KeyboardRaw {
   static constexpr int KeysCount = 6;
-  
+
   uint8_t modifiers;
   uint8_t reserved;
   uint8_t keys[KeysCount];
 };
-  
+
 class Keyboard : public Base<3, KeyboardRaw> {
   using Base = Base<3, KeyboardRaw>;
-  
+
  public:
   Keyboard() : Base{}, lockedModifiers{0} {}
-
 
   void key(Index const key, bool const wasPressed) {
     wasPressed ? process_key_press(key) : process_key_release(key);
@@ -56,6 +55,9 @@ class Keyboard : public Base<3, KeyboardRaw> {
  private:
   void process_key_press(Index const key) {
     for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
+      if (raw.keys[i] == key) {
+        return;
+      }
       if (raw.keys[i] == 0x00) {
         raw.keys[i] = key;
         return;
@@ -92,7 +94,7 @@ static uint8_t const KeyboardDescriptor[] PROGMEM = {
   0X75, 0X01,            //   REPORT_SIZE (1)
   0X95, 0X08,            //   REPORT_COUNT (8)
   0X81, 0X02,            //   INPUT (DATA,VAR,ABS)
-  
+
   0X95, 0X01,            //   REPORT_COUNT (1)
   0X75, 0X08,            //   REPORT_SIZE (8)
   0X81, 0X03,            //   INPUT (CNST,VAR,ABS)
@@ -105,7 +107,7 @@ static uint8_t const KeyboardDescriptor[] PROGMEM = {
   0X19, 0X00,            //   USAGE_MINIMUM (RESERVED (NO EVENT INDICATED))
   0X29, 0XE7,            //   USAGE_MAXIMUM (KEYBOARD APPLICATION)
   0X81, 0X00,            //   INPUT (DATA, ARY, ABS)
-  
+
   0XC0,                  // END_COLLECTION
 };
 

@@ -11,7 +11,7 @@ namespace Reports {
 template <Index Id, class RawReport>
 class Base {
  public:
-  Base() : changed{false} {}
+  Base() : raw{0}, changed{false} {}
 
   virtual explicit operator bool() const { return changed; }
 
@@ -23,7 +23,7 @@ class Base {
 
  protected:
   void markChanged() { changed = true; }
-  
+
   RawReport raw;
 
  private:

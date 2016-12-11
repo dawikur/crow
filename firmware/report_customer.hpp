@@ -10,7 +10,7 @@ namespace Reports {
 
 class Customer : public Base<2, uint16_t> {
   using Base = Base<2, uint16_t>;
-  
+
  public:
   Customer() : Base{} {}
 
@@ -48,7 +48,7 @@ static uint8_t const CustomerDescriptor[] PROGMEM = {
   0X81, 0X02,           //   INPUT (DATA, VARIABLE, ABSOLUTE)
 
   // No need for padding to full 16 bites?
-  
+
   0XC0                  // END COLLECTION
 };
 

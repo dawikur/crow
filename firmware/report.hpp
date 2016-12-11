@@ -38,9 +38,7 @@ class Report {
     keyboard.modifier(key, wasPressed);
   }
 
-  void toggleModifierLock(Index const key) { 
-    keyboard.toggleModifierLock(key);
-  }
+  void toggleModifierLock(Index const key) { keyboard.toggleModifierLock(key); }
 
   void media(Index const key, bool const wasPressed) {
     customer.media(key, wasPressed);
