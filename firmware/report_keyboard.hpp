@@ -105,6 +105,7 @@ static uint8_t const KeyboardDescriptor[] PROGMEM = {
   0X19, 0X00,            //   USAGE_MINIMUM (RESERVED (NO EVENT INDICATED))
   0X29, 0XE7,            //   USAGE_MAXIMUM (KEYBOARD APPLICATION)
   0X81, 0X00,            //   INPUT (DATA, ARY, ABS)
+  
   0XC0,                  // END_COLLECTION
 };
 
