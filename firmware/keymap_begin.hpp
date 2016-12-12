@@ -9,7 +9,9 @@
 
 #include "keymap_keys.hpp"
 
-#define Nop() [](Crow::Report &, Crow::Layer &, bool const) {}
+inline auto Nop() {
+  return [](Crow::Report &, Crow::Layer &, bool const) {};
+}
 
 // Key
 #define K(in_key)                                                              \
@@ -39,12 +41,13 @@
   }
 
 // Layer Lock
-#define LL()                                                                   \
-  [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
-    if (wasPressed) {                                                          \
-      layer.toggleLock();                                                      \
-    }                                                                          \
-  }
+inline auto LL() {
+  return [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {
+    if (wasPressed) {
+      layer.toggleLock();
+    }
+  };
+}
 
 // Customer Media
 #define C(in_key)                                                              \
@@ -58,7 +61,7 @@
     report.move(Crow::Keymap::Pointer_Move##in_id, wasPressed);                \
   }
 
-#define PS(in_id)                                                               \
+#define PS(in_id)                                                              \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
     report.scroll(Crow::Keymap::Pointer_Scroll##in_id, wasPressed);            \
   }
