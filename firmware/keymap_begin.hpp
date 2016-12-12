@@ -9,6 +9,8 @@
 
 #include "keymap_keys.hpp"
 
+namespace Crow {
+
 inline auto Nop() {
   return [](Crow::Report &, Crow::Layer &, bool const) {};
 }
@@ -70,5 +72,7 @@ inline auto LL() {
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
     report.click(Crow::Keymap::Pointer_Button##in_button, wasPressed);         \
   }
+
+}  // namespace Crow
 
 #endif  // FIRMWARE_KEYMAP_BEGIN_HPP_
