@@ -16,5 +16,6 @@
 #undef C   // Customer Media
 
 #undef P   // Pointer
+#undef PC  // Pointer Click
 
 #endif  // FIRMWARE_KEYMAP_END_HPP_

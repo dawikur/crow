@@ -58,4 +58,9 @@
     report.pointer_action(Crow::Keymap::Pointer_##m_id, wasPressed);           \
   }
 
+#define PC(in_button)                                                          \
+  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+    report.click(Crow::Keymap::Pointer_Button##in_button, wasPressed);         \
+  }
+
 #endif  // FIRMWARE_KEYMAP_BEGIN_HPP_

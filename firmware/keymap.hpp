@@ -89,7 +89,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { K(Esc)         , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()            },
     { LL()           , Nop()          , P(Up)          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
     { Nop()          , P(Left)        , P(Down)        , P(Right)       , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
-    { ML(ShiftL)     , P(BLeft)       , P(BMiddle)     , P(BRight)      , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
+    { ML(ShiftL)     , PC(Left)       , PC(Middle)     , PC(Right)      , Nop()          , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
     { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(BackSpace)     }
   }
 };

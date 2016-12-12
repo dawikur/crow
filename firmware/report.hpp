@@ -48,6 +48,10 @@ class Report {
     pointer.action(id, wasPressed);
   }
 
+  void click(Index const button, bool const wasPressed) {
+    pointer.click(button, wasPressed);
+  }
+
  private:
   template <class Type>
   void send(Type &report) {

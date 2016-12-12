@@ -73,6 +73,11 @@ class Pointer : public Base<1, PointerRaw> {
     markChanged();
   }
 
+  void click(Index const button, bool const wasPreseed) {
+    wasPreseed ? process_click_press(button) : process_click_release(button);
+    markChanged();
+  }
+
  private:
   void process_action_begin(Index const id) {
     switch (id) {
@@ -80,10 +85,6 @@ class Pointer : public Base<1, PointerRaw> {
       case '-' ^ 'x': raw.x = -Speed; break;
       case '+' ^ 'y': raw.y = Speed; break;
       case '-' ^ 'y': raw.y = -Speed; break;
-
-      case 'B' ^ 'L': raw.buttons |= PointerRaw::Button::Left; break;
-      case 'B' ^ 'R': raw.buttons |= PointerRaw::Button::Right; break;
-      case 'B' ^ 'M': raw.buttons |= PointerRaw::Button::Middle; break;
     }
   }
 
@@ -105,11 +106,15 @@ class Pointer : public Base<1, PointerRaw> {
         if (raw.y < 0)
           raw.y = 0x00;
         break;
-
-      case 'B' ^ 'L': raw.buttons &= ~PointerRaw::Button::Left; break;
-      case 'B' ^ 'R': raw.buttons &= ~PointerRaw::Button::Right; break;
-      case 'B' ^ 'M': raw.buttons &= ~PointerRaw::Button::Middle; break;
     }
+  }
+
+  void process_click_press(Index const button) {
+    raw.buttons |= button;
+  }
+
+  void process_click_release(Index const button) {
+    raw.buttons &= ~button;
   }
 };
 
