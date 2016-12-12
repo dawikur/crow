@@ -87,8 +87,8 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
 
   {
     { K(Esc)         , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()            },
-    { LL()           , Nop()          , P(Up)          , Nop()          , PC(Backward)   , Nop()          , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
-    { Nop()          , P(Left)        , P(Down)        , P(Right)       , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
+    { LL()           , Nop()          , P(Up)          , Nop()          , PC(Backward)   , PS(Up)         , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
+    { Nop()          , P(Left)        , P(Down)        , P(Right)       , PS(Left)       , PS(Down)       , PS(Right)      , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
     { ML(ShiftL)     , PC(Left)       , PC(Middle)     , PC(Right)      , PC(Forward)    , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
     { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(BackSpace)     }
   }
