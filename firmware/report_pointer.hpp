@@ -40,7 +40,7 @@ class Pointer : public Base<1, PointerRaw> {
     return Base::operator bool() || raw.x != 0 || raw.y != 0;
   }
 
-#define update_move(V, P, C)                                                   \
+#define do_commit(V, P, C)                                                     \
   do {                                                                         \
     if (raw.V C 0) {                                                           \
       if (P(Speed << 1) C raw.V)                                               \
@@ -51,15 +51,15 @@ class Pointer : public Base<1, PointerRaw> {
   } while (0)
 
   void commit() {
-    update_move(x, +, >);
-    update_move(x, -, <);
-    update_move(y, +, >);
-    update_move(y, -, <);
+    do_commit(x, +, >);
+    do_commit(x, -, <);
+    do_commit(y, +, >);
+    do_commit(y, -, <);
 
     Base::commit();
   }
 
-#undef update_move
+#undef do_commit
 
   void clear() {
     raw.buttons = 0;

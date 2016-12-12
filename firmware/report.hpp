@@ -44,7 +44,7 @@ class Report {
     customer.media(key, wasPressed);
   }
 
-  void pointer_action(Index const id, bool const wasPressed) {
+  void action(Index const id, bool const wasPressed) {
     pointer.action(id, wasPressed);
   }
 

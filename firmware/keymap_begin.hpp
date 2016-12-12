@@ -55,7 +55,7 @@
 // Pointer
 #define P(m_id)                                                                \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.pointer_action(Crow::Keymap::Pointer_##m_id, wasPressed);           \
+    report.action(Crow::Keymap::Pointer_##m_id, wasPressed);                   \
   }
 
 #define PC(in_button)                                                          \
