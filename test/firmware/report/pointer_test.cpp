@@ -61,7 +61,7 @@ TEST(pointer_test, releasing_one_button_releasis_only_this_one) {
 TEST(pointer_test, moving__will_set_report) {
   Crow::Reports::Pointer report;
 
-  report.action('+' ^ 'x', true);
+  report.move('+' ^ 'X', true);
 
   ASSERT_TRUE(report);
 }
@@ -69,7 +69,7 @@ TEST(pointer_test, moving__will_set_report) {
 TEST(pointer_test, commiting_will_not_unset_moving_report) {
   Crow::Reports::Pointer report;
 
-  report.action('-' ^ 'x', true);
+  report.move('-' ^ 'X', true);
   report.commit();
 
   ASSERT_TRUE(report);
@@ -78,9 +78,9 @@ TEST(pointer_test, commiting_will_not_unset_moving_report) {
 TEST(pointer_test, stopping_and_commiting_movement_will_unset_report) {
   Crow::Reports::Pointer report;
 
-  report.action('-' ^ 'x', true);
+  report.move('-' ^ 'X', true);
   report.commit();
-  report.action('-' ^ 'x', false);
+  report.move('-' ^ 'X', false);
   report.commit();
 
   ASSERT_FALSE(report);
@@ -90,8 +90,8 @@ TEST(pointer_test, speed_will_increase_slowly_in_first_few_commits) {
   Crow::Reports::Pointer report;
 
   {
-    report.action('+' ^ 'x', true);
-    report.action('-' ^ 'y', true);
+    report.move('+' ^ 'X', true);
+    report.move('-' ^ 'Y', true);
 
     int8_t raw[4] = {0, 5, -5, 0};
     ASSERT_EQ(0, memcmp(raw, report.data(), 4));
@@ -109,8 +109,8 @@ TEST(pointer_test, speed_will_increase_faster_in_later_few_commits) {
   Crow::Reports::Pointer report;
 
   {
-    report.action('+' ^ 'x', true);
-    report.action('-' ^ 'y', true);
+    report.move('+' ^ 'X', true);
+    report.move('-' ^ 'Y', true);
 
     int8_t raw[4] = {0, 5, -5, 0};
     ASSERT_EQ(0, memcmp(raw, report.data(), 4));

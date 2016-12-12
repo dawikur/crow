@@ -68,8 +68,13 @@ class Pointer : public Base<1, PointerRaw> {
     raw.wheel   = 0;
   }
 
-  void action(Index const id, bool const wasPressed) {
-    wasPressed ? process_action_begin(id) : process_action_end(id);
+  void move(Index const id, bool const wasPressed) {
+    wasPressed ? process_move_begin(id) : process_move_end(id);
+    markChanged();
+  }
+
+  void scroll(Index const id, bool const wasPressed) {
+    wasPressed ? process_scroll_begin(id) : process_scroll_end(id);
     markChanged();
   }
 
@@ -79,34 +84,40 @@ class Pointer : public Base<1, PointerRaw> {
   }
 
  private:
-  void process_action_begin(Index const id) {
+  void process_move_begin(Index const id) {
     switch (id) {
-      case '+' ^ 'x': raw.x = Speed; break;
-      case '-' ^ 'x': raw.x = -Speed; break;
-      case '+' ^ 'y': raw.y = Speed; break;
-      case '-' ^ 'y': raw.y = -Speed; break;
+      case '+' ^ 'X': raw.x = Speed; break;
+      case '-' ^ 'X': raw.x = -Speed; break;
+      case '+' ^ 'Y': raw.y = Speed; break;
+      case '-' ^ 'Y': raw.y = -Speed; break;
     }
   }
 
-  void process_action_end(Index const id) {
+  void process_move_end(Index const id) {
     switch (id) {
-      case '+' ^ 'x':
+      case '+' ^ 'X':
         if (raw.x > 0)
           raw.x = 0x00;
         break;
-      case '-' ^ 'x':
+      case '-' ^ 'X':
         if (raw.x < 0)
           raw.x = 0x00;
         break;
-      case '+' ^ 'y':
+      case '+' ^ 'Y':
         if (raw.y > 0)
           raw.y = 0x00;
         break;
-      case '-' ^ 'y':
+      case '-' ^ 'Y':
         if (raw.y < 0)
           raw.y = 0x00;
         break;
     }
+  }
+
+  void process_scroll_begin(Index const id) {
+  }
+
+  void process_scroll_end(Index const id) {
   }
 
   void process_click_press(Index const button) {

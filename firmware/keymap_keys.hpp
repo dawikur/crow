@@ -179,10 +179,15 @@ constexpr Index Media_BrightUp          = 1 << 0x7;
 constexpr Index Media_BrightDown        = 1 << 0x8;
 
 // Pointer
-constexpr Index Pointer_Up              = '-'^'y';
-constexpr Index Pointer_Down            = '+'^'y';
-constexpr Index Pointer_Left            = '-'^'x';
-constexpr Index Pointer_Right           = '+'^'x';
+constexpr Index Pointer_MoveUp          = '-'^'Y';
+constexpr Index Pointer_MoveDown        = '+'^'Y';
+constexpr Index Pointer_MoveLeft        = '-'^'X';
+constexpr Index Pointer_MoveRight       = '+'^'X';
+
+constexpr Index Pointer_ScrollUp        = '-'^'V';
+constexpr Index Pointer_ScrollDown      = '+'^'V';
+constexpr Index Pointer_ScrollLeft      = '-'^'H';
+constexpr Index Pointer_ScrollRight     = '+'^'H';
 
 constexpr Index Pointer_ButtonLeft      = 0x1 << 0;
 constexpr Index Pointer_ButtonRight     = 0x1 << 1;

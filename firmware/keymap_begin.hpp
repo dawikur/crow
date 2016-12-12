@@ -32,10 +32,10 @@
   }
 
 // Layer
-#define L(number)                                                              \
+#define L(in_number)                                                           \
   [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
     report.clear();                                                            \
-    layer.set(wasPressed ? number : Crow::Layer::Base);                        \
+    layer.set(wasPressed ? in_number : Crow::Layer::Base);                     \
   }
 
 // Layer Lock
@@ -53,9 +53,14 @@
   }
 
 // Pointer
-#define P(m_id)                                                                \
+#define P(in_id)                                                               \
   [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.action(Crow::Keymap::Pointer_##m_id, wasPressed);                   \
+    report.move(Crow::Keymap::Pointer_Move##in_id, wasPressed);                \
+  }
+
+#define PS(in_id)                                                               \
+  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+    report.scroll(Crow::Keymap::Pointer_Scroll##in_id, wasPressed);            \
   }
 
 #define PC(in_button)                                                          \

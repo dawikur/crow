@@ -44,8 +44,12 @@ class Report {
     customer.media(key, wasPressed);
   }
 
-  void action(Index const id, bool const wasPressed) {
-    pointer.action(id, wasPressed);
+  void move(Index const id, bool const wasPressed) {
+    pointer.move(id, wasPressed);
+  }
+
+  void scroll(Index const id, bool const wasPreseed) {
+    pointer.scroll(id, wasPreseed);
   }
 
   void click(Index const button, bool const wasPressed) {

@@ -8,14 +8,15 @@
 #undef K   // Key
 
 #undef M   // Modifier
-#undef ML  // ModifierLock
+#undef ML  // Modifier Lock
 
 #undef L   // Layer
-#undef LL  // LayerLock
+#undef LL  // Layer Lock
 
 #undef C   // Customer Media
 
 #undef P   // Pointer
+#undef PS  // Pointer Scroll
 #undef PC  // Pointer Click
 
 #endif  // FIRMWARE_KEYMAP_END_HPP_
