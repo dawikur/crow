@@ -11,9 +11,8 @@
 
 namespace Crow {
 
-inline auto Nop() {
-  return [](Crow::Report &, Crow::Layer &, bool const) {};
-}
+#define Nop()                                                                   \
+  [](Crow::Report &, Crow::Layer &, bool const) {}
 
 // Key
 #define K(in_key)                                                              \
@@ -43,13 +42,12 @@ inline auto Nop() {
   }
 
 // Layer Lock
-inline auto LL() {
-  return [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {
-    if (wasPressed) {
-      layer.toggleLock();
-    }
-  };
-}
+#define LL()                                                                   \
+  [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
+    if (wasPressed) {                                                          \
+      layer.toggleLock();                                                      \
+    }                                                                          \
+  }
 
 // Customer Media
 #define C(in_key)                                                              \
