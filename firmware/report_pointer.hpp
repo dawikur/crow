@@ -21,9 +21,9 @@ union PointerRaw {
 
   struct {
     int8_t buttons;
-    int8_t x;
-    int8_t y;
-    int8_t wheel;
+    int8_t X;
+    int8_t Y;
+    int8_t V;
   };
   int8_t _[4];
 };
@@ -37,10 +37,10 @@ class Pointer : public Base<1, PointerRaw> {
   Pointer() : Base{} {}
 
   explicit operator bool() const override {
-    return Base::operator bool() || raw.x != 0 || raw.y != 0;
+    return Base::operator bool() || raw.X != 0 || raw.Y != 0;
   }
 
-#define do_commit(V, P, C)                                                     \
+#define do_commit(P, V, C)                                                     \
   do {                                                                         \
     if (raw.V C 0) {                                                           \
       if (P(Speed << 1) C raw.V)                                               \
@@ -51,13 +51,13 @@ class Pointer : public Base<1, PointerRaw> {
   } while (0)
 
   void commit() {
-    do_commit(x, +, >);
-    do_commit(x, -, <);
-    do_commit(y, +, >);
-    do_commit(y, -, <);
+    do_commit(+, X, >);
+    do_commit(-, X, <);
+    do_commit(+, Y, >);
+    do_commit(-, Y, <);
 
-    do_commit(wheel, +, >);
-    do_commit(wheel, -, <);
+    do_commit(+, V, >);
+    do_commit(-, V, <);
 
     Base::commit();
   }
@@ -66,9 +66,9 @@ class Pointer : public Base<1, PointerRaw> {
 
   void clear() {
     raw.buttons = 0;
-    raw.x       = 0;
-    raw.y       = 0;
-    raw.wheel   = 0;
+    raw.X       = 0;
+    raw.Y       = 0;
+    raw.V       = 0;
   }
 
   void move(Index const id, bool const wasPressed) {
@@ -87,41 +87,51 @@ class Pointer : public Base<1, PointerRaw> {
   }
 
  private:
+#define case_begin(P, V)                                                       \
+  case #P[0] ^ #V[0]: raw.V = P(Speed); break
+
   void process_move_begin(Index const id) {
     switch (id) {
-      case '+' ^ 'X': raw.x = Speed; break;
-      case '-' ^ 'X': raw.x = -Speed; break;
-      case '+' ^ 'Y': raw.y = Speed; break;
-      case '-' ^ 'Y': raw.y = -Speed; break;
-    }
-  }
-
-  void process_move_end(Index const id) {
-    switch (id) {
-      case '+' ^ 'X':
-        if (raw.x > 0)
-          raw.x = 0x00;
-        break;
-      case '-' ^ 'X':
-        if (raw.x < 0)
-          raw.x = 0x00;
-        break;
-      case '+' ^ 'Y':
-        if (raw.y > 0)
-          raw.y = 0x00;
-        break;
-      case '-' ^ 'Y':
-        if (raw.y < 0)
-          raw.y = 0x00;
-        break;
+      case_begin(+, X);
+      case_begin(-, X);
+      case_begin(+, Y);
+      case_begin(-, Y);
     }
   }
 
   void process_scroll_begin(Index const id) {
+    switch (id) {
+      case_begin(+, V);
+      case_begin(-, V);
+    }
+  }
+
+#undef case_begin
+
+#define case_end(P, V, C)                                                      \
+  case #P[0] ^ #V[0]:                                                          \
+    if (raw.V C 0) {                                                           \
+      raw.V = 0x00;                                                            \
+    }                                                                          \
+    break
+
+  void process_move_end(Index const id) {
+    switch (id) {
+      case_end(+, X, >);
+      case_end(-, X, <);
+      case_end(+, Y, >);
+      case_end(-, Y, <);
+    }
   }
 
   void process_scroll_end(Index const id) {
+    switch (id) {
+      case_end(+, V, >);
+      case_end(-, V, <);
+    }
   }
+
+#undef case_end
 
   void process_click_press(Index const button) {
     raw.buttons |= button;
