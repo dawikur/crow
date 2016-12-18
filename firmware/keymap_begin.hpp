@@ -35,10 +35,10 @@ namespace Crow {
   }
 
 // Layer
-#define L(in_number)                                                           \
+#define L(in_from, in_to)                                                      \
   [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
     report.clear();                                                            \
-    layer.set(wasPressed ? in_number : Crow::Layer::Base);                     \
+    layer.set(wasPressed ? in_to : in_from);                                   \
   }
 
 // Layer Lock

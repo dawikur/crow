@@ -316,3 +316,36 @@ TEST_F(firmware_test, when_changing_layer_modifier_keys_are_not_cleared) {
 
   loop();
 }
+
+TEST_F(firmware_test, on_non_default_layer_we_can_switch_to_base_one) {
+  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
+
+  loop();
+
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer Lock
+
+  loop();
+
+  set_rows(0 ,0, 0, 0, 0);                                                     // Release both
+
+  loop();
+
+  set_rows(2, 0, 0, 0, 0);                                                     // Press 1
+  expect_report({0, 0, Key_F1, 0, 0, 0, 0, 0});                                // ? Got F1
+
+  loop();
+
+  set_rows(0, 0, 0, 0, 0);                                                     // Release
+  expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                     // ? Got 1
+
+  loop();
+
+  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer 0
+
+  loop();
+
+  set_rows(2, 0, 0, 0, 1);                                                     // Press 1
+  expect_report({0, 0, Key_1, 0, 0, 0, 0, 0});                                 // ? Got 1
+
+  loop();
+}

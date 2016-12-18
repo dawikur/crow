@@ -34,7 +34,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { K(Tab)         , K(Q)           , K(W)           , K(E)           , K(R)           , K(T)           , K(Y)           , K(U)           , K(I)           , K(O)           , K(P)           , K(OpenBracket) , K(CloseBracket)  },
     { M(CtrlL)       , K(A)           , K(S)           , K(D)           , K(F)           , K(G)           , K(H)           , K(J)           , K(K)           , K(L)           , K(Semicolon)   , K(Apostrophe)  , K(Enter)         },
     { M(ShiftL)      , K(Z)           , K(X)           , K(C)           , K(V)           , K(B)           , K(N)           , K(M)           , K(Comma)       , K(Dot)         , K(ForwardSlash), M(ShiftR)      , K(Slash)         },
-    { L(1)           , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(BackSpace)     }
+    { L(0, 1)        , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(0, 2)        , K(BackSpace)     }
   },
 
 //
@@ -62,7 +62,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { LL()           , Nop()          , K(Pause)       , Nop()      , K(Ins)             , Nop()          , Nop()          , Nop()          , K(Home)        , Nop()          , K(Up)          , K(Left)        , K(Right)        },
     { M(CtrlL)       , K(End)         , K(PrtSc)       , Nop()      , K(PgDn)            , Nop()          , K(Left)        , K(Down)        , K(Up)          , K(Right)       , Nop()          , Nop()          , K(Enter)        },
     { M(ShiftL)      , Nop()          , K(Delete)      , Nop()      , Nop()              , K(PgUp)        , K(Down)        , Nop()          , Nop()          , Nop()          , Nop()          , ML(ShiftR)     , Nop()           },
-    { L(1)           , M(GUIL)        , M(AltL)        , Nop()      , Nop()              , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , Nop()          , K(Delete)       }
+    { L(0, 1)        , M(GUIL)        , M(AltL)        , Nop()      , Nop()              , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , Nop()          , K(Delete)       }
   },
 
 //
@@ -90,7 +90,7 @@ Layer::Function const Layers[][RowsCount][ColsCount] = {
     { LL()           , Nop()          , P(Up)          , Nop()          , PC(Backward)   , PS(Up)         , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
     { Nop()          , P(Left)        , P(Down)        , P(Right)       , PS(Left)       , PS(Down)       , PS(Right)      , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
     { ML(ShiftL)     , PC(Left)       , PC(Middle)     , PC(Right)      , PC(Forward)    , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
-    { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(2)           , K(BackSpace)     }
+    { Nop()          , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(0, 2)        , K(BackSpace)     }
   }
 };
 
