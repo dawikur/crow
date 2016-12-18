@@ -16,7 +16,8 @@ class Layer {
 
   constexpr static Index Base = 0;
 
-  Layer() : raw{nullptr}, setCallbackImpl{nullptr}, current{0}, locked{false} {}
+  Layer()
+    : raw{nullptr}, setCallbackImpl{nullptr}, current{0}, isLocked{false} {}
   Layer(Layer const &) = delete;
 
   void setup(Raw const *const      newRaw,
@@ -29,20 +30,18 @@ class Layer {
     return raw[current][index];
   }
 
-  void set(Index const number) {
-    if (!locked) {
-      current = number;
-      setCallbackImpl(current);
-    }
+  void change(Index const from, Index const to) {
+    current = isLocked ? from : to;
+    setCallbackImpl(current);
   }
 
-  void toggleLock() { locked = !locked; }
+  void toggleLock() { isLocked = !isLocked; }
 
  private:
   Raw *           raw;
   SetCallbackImpl setCallbackImpl;
   Index           current;
-  bool            locked;
+  bool            isLocked;
 };
 
 }  // namespace Crow

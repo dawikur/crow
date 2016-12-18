@@ -203,7 +203,7 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
 
   loop();
 
-  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer Toggle
 
   loop();
 
@@ -216,12 +216,12 @@ TEST_F(firmware_test, layer_can_be_toggled_twice) {
 
   loop();
 
-  set_rows(0, 0, 0, 0, 1);                                                     // Press Layer1
+  set_rows(0, 0, 0, 0, 0);                                                     // Release all
   expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
   loop();
 
-  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer1Toggle
+  set_rows(0, 1, 0, 0, 1);                                                     // Press Layer Toggle
 
   loop();
 

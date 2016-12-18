@@ -38,7 +38,11 @@ namespace Crow {
 #define L(in_from, in_to)                                                      \
   [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
     report.clear();                                                            \
-    layer.set(wasPressed ? in_to : in_from);                                   \
+    if (wasPressed) {                                                          \
+      layer.change(in_from, in_to);                                            \
+    } else {                                                                   \
+      layer.change(in_to, in_from);                                            \
+    }                                                                          \
   }
 
 // Layer Lock
