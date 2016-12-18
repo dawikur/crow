@@ -56,6 +56,9 @@ class Pointer : public Base<1, PointerRaw> {
     do_commit(y, +, >);
     do_commit(y, -, <);
 
+    do_commit(wheel, +, >);
+    do_commit(wheel, -, <);
+
     Base::commit();
   }
 
