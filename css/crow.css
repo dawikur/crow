@@ -12,6 +12,8 @@ h1 { color: #3c3836; }
 h2 { color: #504945; }
 h3 { color: #665c54; }
 
+a { color: #076678; }
+
 .inverse {
   color: #ebdbb2;
   background-color: #32302f;
@@ -29,6 +31,7 @@ h3 { color: #665c54; }
 .bg01   { color: #ebdbb2; }
 .bg02   { color: #d5c4a1; }
 .bg03   { color: #bdae93; }
+.bg04   { color: #a89984; }
 .fg03   { color: #665c54; }
 .fg02   { color: #504945; }
 .fg01   { color: #3c3836; }
@@ -61,7 +64,7 @@ h3 { color: #665c54; }
 
 .left-column {
   color: #504945;
-  width: 20%;
+  width: 25%;
   height: 92%;
   float: left;
 }
