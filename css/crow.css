@@ -42,3 +42,19 @@ a { color: #076678; }
   float: right;
   padding-top: 1em;
 }
+
+.ribbon {
+  position: absolute;
+  top: -90px;
+  right: -180px;
+  margin: 0;
+  border: 0;
+  width: 300px;
+  color: white;
+  background-color: #076678;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+  text-align: center;
+  text-shadow: 0 0 5px #504945;
+  box-shadow: 0 0 5px #504945;
+}

@@ -16,9 +16,9 @@
 
     <textarea id="source">
 
-name: inverse
-class: middle, center, inverse
+name: title
 layout: true
+class: middle, center, inverse
 
 ---
 
@@ -56,23 +56,17 @@ layout: false
 
 --
 
-.footnote[.right[.red[*] This is what this presentation is all about, right?]]
+.footnote[
+  .right[.red[*] This is what this presentation is all about, right?]
+]
+
+.ribbon[?]
 
 ---
 
-template: inverse
+template: title
 
 # 60%
-
-## &nbsp;
-
----
-
-template: inverse
-
-# 60%
-
-## of what?
 
 ---
 
@@ -94,6 +88,12 @@ template: inverse
 .footnote[.right[.red[*] ISO]]
 ]
 
+???
+
+* big enter
+* short left shift with key between it and 'z'
+* one extra key
+
 ---
 
 .left-column[
@@ -114,6 +114,11 @@ template: inverse
 .footnote[.right[.red[*] ANSI]]
 ]
 
+???
+
+* smaller enter
+* longer left shift
+
 ---
 
 .left-column[
@@ -127,6 +132,10 @@ template: inverse
 ## ISO vs ANSI
 ![ANSI 60%](res/ansi/60.svg)
 ]]
+
+???
+
+what are the differences?
 
 ---
 
@@ -142,6 +151,10 @@ template: inverse
 ![ANSI 60%](res/ansi/60_R.svg)
 ]]
 
+???
+
+enter island
+
 ---
 
 .left-column[
@@ -155,6 +168,11 @@ template: inverse
 ## ISO vs ANSI
 ![ANSI 60%](res/ansi/60_L.svg)
 ]]
+
+???
+
+* left shift island
+* one additional key in ANSI
 
 ---
 
@@ -170,21 +188,21 @@ template: inverse
 
 ]]
 
+.ribbon[?]
+
+???
+
+differet key sizes
+
+* all letters are box 1x1
+* progression is with 0.25
+* longest is spacebar (but shortest i have seen is 3!)
+
 ---
 
-template: inverse
+template: title
 
 # Black
-
-## &nbsp;
-
----
-
-template: inverse
-
-# Black
-
-## Friday
 
 ---
 
@@ -198,6 +216,10 @@ template: inverse
   .fill[![KeyCaps](res/keycaps/0.png)]
 ]
 
+???
+
+plastic, thing that is actually touched
+
 ---
 
 .left-column[
@@ -209,6 +231,10 @@ template: inverse
 .right-column[
   .fill[![1](res/keycaps/1.png)]
 ]
+
+???
+
+different colors
 
 ---
 
@@ -222,6 +248,10 @@ template: inverse
   .fill[![2](res/keycaps/2.png)]
 ]
 
+???
+
+semitranspared
+
 ---
 
 .left-column[
@@ -233,6 +263,10 @@ template: inverse
 .right-column[
   .fill[![3](res/keycaps/3.png)]
 ]
+
+???
+
+(very) nonstandard labeling
 
 ---
 
@@ -246,6 +280,10 @@ template: inverse
   .fill[![4](res/keycaps/4.png)]
 ]
 
+???
+
+printed on the side (my favorite!)
+
 ---
 
 .left-column[
@@ -257,6 +295,10 @@ template: inverse
 .right-column[
   .fill[![5](res/keycaps/5.png)]
 ]
+
+???
+
+different shapes, now with 3d-printing gets very popular
 
 ---
 
@@ -270,22 +312,18 @@ template: inverse
   ![KyesProfiles](res/profiles.png)
 ]
 
----
+.ribbon[?]
 
-template: inverse
+???
 
-# Mechanical
-
-## &nbsp;
-
+* rows are marked, from bottom (spacebar row)
+* makes it more 'ergonomic'
 
 ---
 
-template: inverse
+template: title
 
 # Mechanical
-
-## enginering
 
 ---
 
@@ -297,7 +335,61 @@ template: inverse
   - wiring
 ]
 .right-column[
+  ![Switch](res/switch.jpg)
 ]
+
+???
+
+switch is not very complicated:
+* plastic frame
+* spring
+* cross, plastic pin which is moving
+* often the middle pin is oiled
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - .active[switches]
+  - wiring
+]
+.right-column[
+  ![Switches](res/switches.png)
+]
+
+???
+
+those are for cherry, but it is quite a standard thing
+* colors normally means sound level and 'feel'
+* red is soft but does not provide 'feeled' click on activation
+* blue is soft as red, but does have 'click' on 'activation' (both feel and sound)
+* brown has only 'feel'
+* green is 'hardest' to press
+* there is also a difference in force neede to press
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - .active[switches]
+  - wiring
+]
+.right-column[
+  ![Red](res/switch_red.gif) ![Brown](res/switch_brown.gif)
+  ![Blue](res/switch_blue.gif) ![Black](res/switch_black.gif)
+]
+
+???
+
+section
+* the main (only?) difference is the pin shape
+
+work
+* depending on the little hook the feel and sound is different
 
 ---
 
@@ -316,20 +408,10 @@ template: inverse
 
 ---
 
-template: inverse
-
-## &nbsp;
+template: title
 
 # Keyboard
 
-
----
-
-template: inverse
-
-## Electronic
-
-# Keyboard
 
 ---
 
@@ -356,24 +438,9 @@ template: inverse
 
 ---
 
-template: inverse
-
-## &nbsp;
+template: title
 
 # Crow
-
-## &nbsp;
-
-
----
-
-template: inverse
-
-## The
-
-# Crow
-
-## Salvation
 
 ---
 
@@ -392,17 +459,19 @@ template: inverse
 
 ---
 
-class: middle, center, inverse
+class: middle, center, title
 
 # questions?
 
+.ribbon[?]
+
 ---
 
-class: inverse
+class: title
 
 ## colors: [gruvbox](http://github.com/morhetz/gruvbox)
 ## layouts: [keyboards layout editor](http://www.keyboard-layout-editor.com) (+[vim](http://www.vim.org), +[inkscape](https://inkscape.org))
-## images: [falbatech](http://falbatech.pl)
+## images: [falbatech](http://falbatech.pl) and [internet](http://google.com)
 
     </textarea>
 
