@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="../../css/wires.css" type="text/css"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="620"
+   height="530">
+
+  <polyline
+    id="microcontroller"
+    class="new"
+    points="30,70 70,70 70,450, 30,450" />
+</svg>

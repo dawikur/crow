@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="../../css/wires.css" type="text/css"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="620"
+   height="530">
+
+  <polyline
+    id="microcontroller"
+    points="30,70 70,70 70,450, 30,450" />
+
+  <g
+    id="switch"
+    class="active"
+    transform="translate(300,100)">
+
+    <g
+      transform="translate(0,8)">
+      <line
+        x1="18"
+        y1="-4"
+        x2="18"
+        y2="1" />
+      <line
+        x1="1"
+        y1="1"
+        x2="36"
+        y2="1" />
+    </g>
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="resistor"
+    transform="translate(407,60)">
+
+    <rect
+      x="0"
+      y="0"
+      width="15"
+      height="40" />
+    <text
+      x="2"
+      y="25">
+      R
+    </text>
+  </g>
+
+  <g
+    id="wires"
+    class="wire">
+
+    <line
+      class="active"
+      x1="60"
+      y1="115"
+      x2="301"
+      y2="115" />
+    <line
+      class="active"
+      x1="336"
+      y1="115"
+      x2="415"
+      y2="115" />
+    <line
+      x1="415"
+      y1="40"
+      x2="415"
+      y2="60" />
+    <line
+      class="active"
+      x1="415"
+      y1="100"
+      x2="415"
+      y2="500" />
+  </g>
+
+  <g
+    id="vcc"
+    transform="translate(400,30)">
+
+    <text
+      x="0"
+      y="0">
+      VCC
+    </text>
+    <circle
+      cx="15"
+      cy="5"
+      r="5" />
+  </g>
+
+  <g
+    id="gnd"
+    class="active"
+    transform="translate(400,500)">
+
+    <polygon
+      points="7,0 24,0 15,8" />
+    <text
+      x="0"
+      y="20">
+      GND
+    </text>
+  </g>
+
+</svg>

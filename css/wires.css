@@ -1,0 +1,27 @@
+
+svg {
+  fill: white;
+  stroke: #504945;
+  stroke-width: 2px;
+}
+
+.new {
+  fill: white;
+  stroke: #3c3836;
+  stroke-width: 3px;
+}
+
+.wire {
+  fill: white;
+  stroke: #665c54;
+  stroke-width: 1px;
+}
+
+.active {
+  stroke: #9d0006;
+}
+
+.dot {
+  fill: #3c3836;
+  stroke: #3c3836;
+}
