@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="../../css/wires.css" type="text/css"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="620"
+   height="530">
+
+  <polyline
+    id="microcontroller"
+    points="30,70 70,70 70,450, 30,450" />
+
+  <g
+    id="switch1"
+    transform="translate(300,100)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="switch2"
+    transform="translate(300,150)">
+
+    <g
+      transform="translate(0,0)">
+      <line
+        x1="18"
+        y1="-4"
+        x2="18"
+        y2="1" />
+      <line
+        x1="1"
+        y1="1"
+        x2="36"
+        y2="1" />
+    </g>
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="switch3"
+    transform="translate(300,200)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <circle
+    class="dot"
+    cx="318"
+    cy="295"
+    r="3" />
+
+  <circle
+    class="dot"
+    cx="318"
+    cy="310"
+    r="3" />
+
+  <circle
+    class="dot"
+    cx="318"
+    cy="325"
+    r="3" />
+
+  <g
+    id="switchn"
+    transform="translate(300,400)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="wires"
+    class="wire">
+
+    <line
+      x1="60"
+      y1="80"
+      x2="415"
+      y2="80" />
+
+    <line
+      x1="60"
+      y1="115"
+      x2="301"
+      y2="115" />
+    <line
+      x1="336"
+      y1="115"
+      x2="415"
+      y2="115" />
+
+    <line
+      x1="60"
+      y1="165"
+      x2="301"
+      y2="165" />
+    <line
+      x1="336"
+      y1="165"
+      x2="415"
+      y2="165" />
+
+    <line
+      x1="60"
+      y1="215"
+      x2="301"
+      y2="215" />
+    <line
+      x1="336"
+      y1="215"
+      x2="415"
+      y2="215" />
+
+    <line
+      x1="60"
+      y1="415"
+      x2="301"
+      y2="415" />
+    <line
+      x1="336"
+      y1="415"
+      x2="415"
+      y2="415" />
+
+    <line
+      x1="415"
+      y1="80"
+      x2="415"
+      y2="115" />
+    <line
+      x1="415"
+      y1="115"
+      x2="415"
+      y2="415" />
+  </g>
+
+</svg>
