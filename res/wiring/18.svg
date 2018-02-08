@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="../../css/wires.css" type="text/css"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   width="620"
+   height="530">
+
+  <polyline
+    id="microcontroller"
+    points="30,70 70,70 70,450, 30,450" />
+
+      <g
+        id="switch11"
+        transform="translate(100,150) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch12"
+        transform="translate(100,200) rotate(45)">
+
+        <g
+          transform="translate(0,0)">
+          <line
+            x1="18"
+            y1="-4"
+            x2="18"
+            y2="1" />
+          <line
+            x1="1"
+            y1="1"
+            x2="36"
+            y2="1" />
+        </g>
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch13"
+        transform="translate(100,250) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch21"
+        transform="translate(175,150) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch22"
+        transform="translate(175,200) rotate(45)">
+
+        <g
+          transform="translate(0,0)">
+          <line
+            x1="18"
+            y1="-4"
+            x2="18"
+            y2="1" />
+          <line
+            x1="1"
+            y1="1"
+            x2="36"
+            y2="1" />
+        </g>
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch23"
+        transform="translate(175,250) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch31"
+        transform="translate(250,150) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch32"
+        transform="translate(250,200) rotate(45)">
+
+        <g
+          transform="translate(0,0)">
+          <line
+            x1="18"
+            y1="-4"
+            x2="18"
+            y2="1" />
+          <line
+            x1="1"
+            y1="1"
+            x2="36"
+            y2="1" />
+        </g>
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switch33"
+        transform="translate(250,250) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switchn1"
+        transform="translate(405,150) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switchn2"
+        transform="translate(405,200) rotate(45)">
+
+        <g
+          transform="translate(0,0)">
+          <line
+            x1="18"
+            y1="-4"
+            x2="18"
+            y2="1" />
+          <line
+            x1="1"
+            y1="1"
+            x2="36"
+            y2="1" />
+        </g>
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+      <g
+        id="switchn3"
+        transform="translate(405,250) rotate(45)">
+
+        <line
+          x1="18"
+          y1="-4"
+          x2="18"
+          y2="1" />
+        <line
+          x1="1"
+          y1="1"
+          x2="36"
+          y2="1" />
+        <circle
+          cx="7"
+          cy="15"
+          r="5" />
+        <circle
+          cx="30"
+          cy="15"
+          r="5" />
+      </g>
+
+
+  <circle
+    class="dot"
+    cx="415"
+    cy="325"
+    r="3" />
+  <circle
+    class="dot"
+    cx="415"
+    cy="340"
+    r="3" />
+  <circle
+    class="dot"
+    cx="415"
+    cy="355"
+    r="3" />
+
+
+  <circle
+    class="dot"
+    cx="180"
+    cy="325"
+    r="3" />
+  <circle
+    class="dot"
+    cx="180"
+    cy="340"
+    r="3" />
+  <circle
+    class="dot"
+    cx="180"
+    cy="355"
+    r="3" />
+
+  <circle
+    class="dot"
+    cx="310"
+    cy="325"
+    r="3" />
+  <circle
+    class="dot"
+    cx="325"
+    cy="340"
+    r="3" />
+  <circle
+    class="dot"
+    cx="340"
+    cy="355"
+    r="3" />
+
+
+  <circle
+    class="dot"
+    cx="310"
+    cy="215"
+    r="3" />
+  <circle
+    class="dot"
+    cx="325"
+    cy="215"
+    r="3" />
+  <circle
+    class="dot"
+    cx="340"
+    cy="215"
+    r="3" />
+
+  <circle
+    class="dot"
+    cx="310"
+    cy="400"
+    r="3" />
+  <circle
+    class="dot"
+    cx="325"
+    cy="400"
+    r="3" />
+  <circle
+    class="dot"
+    cx="340"
+    cy="400"
+    r="3" />
+
+  <g
+    id="switchn1"
+    transform="translate(100,385) rotate(45)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="switchn2"
+    transform="translate(175,385) rotate(45)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="switchn3"
+    transform="translate(250,385) rotate(45)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+  <g
+    id="switchnn"
+    transform="translate(405,385) rotate(45)">
+
+    <line
+      x1="18"
+      y1="-4"
+      x2="18"
+      y2="1" />
+    <line
+      x1="1"
+      y1="1"
+      x2="36"
+      y2="1" />
+    <circle
+      cx="7"
+      cy="15"
+      r="5" />
+    <circle
+      cx="30"
+      cy="15"
+      r="5" />
+  </g>
+
+  <g
+    id="wires"
+    class="wire">
+
+    <line
+      x1="60"
+      y1="80"
+      x2="415"
+      y2="80" />
+
+    <line
+      x1="60"
+      y1="100"
+      x2="260"
+      y2="100" />
+
+    <line
+      x1="60"
+      y1="120"
+      x2="185"
+      y2="120" />
+
+    <line
+      x1="60"
+      y1="140"
+      x2="110"
+      y2="140" />
+
+    <line
+      x1="60"
+      y1="165"
+      x2="281"
+      y2="165" />
+    <line
+      x1="376"
+      y1="165"
+      x2="395"
+      y2="165" />
+
+    <line
+      x1="60"
+      y1="215"
+      x2="281"
+      y2="215" />
+    <line
+      x1="376"
+      y1="215"
+      x2="395"
+      y2="215" />
+
+    <line
+      x1="60"
+      y1="265"
+      x2="281"
+      y2="265" />
+    <line
+      x1="376"
+      y1="265"
+      x2="395"
+      y2="265" />
+
+    <line
+      x1="60"
+      y1="400"
+      x2="281"
+      y2="400" />
+    <line
+      x1="376"
+      y1="400"
+      x2="395"
+      y2="400" />
+
+    <line
+      x1="260"
+      y1="100"
+      x2="260"
+      y2="300" />
+    <line
+      x1="260"
+      y1="380"
+      x2="260"
+      y2="411" />
+
+    <line
+      x1="185"
+      y1="120"
+      x2="185"
+      y2="300" />
+    <line
+      x1="185"
+      y1="380"
+      x2="185"
+      y2="411" />
+
+    <line
+      x1="110"
+      y1="140"
+      x2="110"
+      y2="300" />
+    <line
+      x1="110"
+      y1="380"
+      x2="110"
+      y2="411" />
+
+    <line
+      x1="415"
+      y1="80"
+      x2="415"
+      y2="300" />
+    <line
+      x1="415"
+      y1="380"
+      x2="415"
+      y2="411" />
+  </g>
+
+
+  <path
+    d="M 450 140 q 20 0 20 130" />
+  <path
+    d="M 480 290 q -10 0 -10 -20" />
+  <path
+    d="M 480 290 q -10 0 -10 20" />
+  <path
+    d="M 450 440 q 20 0 20 -130" />
+
+  <text
+    class="wire"
+    x="490"
+    y="295">
+    x N
+  </text>
+
+  <path
+    d="M 80 440 q 0 20 120 20" />
+  <path
+    d="M 265 470 q 0 -10 -65 -10" />
+  <path
+    d="M 265 470 q 0 -10 65 -10" />
+  <path
+    d="M 450 440 q 0 20 -120 20" />
+
+  <text
+    class="wire"
+    x="255"
+    y="485">
+    x M
+  </text>
+</svg>

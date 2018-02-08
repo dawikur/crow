@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/crow.css"/>
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" href="css/gruvbox.css"/>
+
+    <link rel="stylesheet" href="css/highlight.min.css">
   </head>
   <body>
 
@@ -25,6 +27,10 @@ class: middle, center, inverse
 # 60% black mechanical keyboard
 
 ## crow
+
+???
+
+[time] 17 ; 47
 
 ---
 
@@ -68,6 +74,10 @@ template: title
 
 # 60%
 
+???
+
+[time] 0 ; 3
+
 ---
 
 .left-column[
@@ -92,7 +102,7 @@ template: title
 
 * big enter
 * short left shift with key between it and 'z'
-* one extra key
+* 50% - 48 keys
 
 ---
 
@@ -116,8 +126,10 @@ template: title
 
 ???
 
+* one key less than ISO
 * smaller enter
 * longer left shift
+* 50% - 47 keys
 
 ---
 
@@ -128,8 +140,9 @@ template: title
   - key
 ]
 .right-column[.center.middle[
+## ISO
 ![ISO 60%](res/iso/60.svg)
-## ISO vs ANSI
+## ANSI
 ![ANSI 60%](res/ansi/60.svg)
 ]]
 
@@ -146,8 +159,9 @@ what are the differences?
   - key
 ]
 .right-column[.center.middle[
+## ISO
 ![ISO 60%](res/iso/60_R.svg)
-## ISO vs ANSI
+## ANSI
 ![ANSI 60%](res/ansi/60_R.svg)
 ]]
 
@@ -164,8 +178,9 @@ enter island
   - key
 ]
 .right-column[.center.middle[
+## ISO
 ![ISO 60%](res/iso/60_L.svg)
-## ISO vs ANSI
+## ANSI
 ![ANSI 60%](res/ansi/60_L.svg)
 ]]
 
@@ -192,17 +207,21 @@ enter island
 
 ???
 
-differet key sizes
+differet key sizes, arbitrary unit
 
 * all letters are box 1x1
 * progression is with 0.25
-* longest is spacebar (but shortest i have seen is 3!)
+* longest is spacebar (shortest I have seen was 3!), for me minimum 5
 
 ---
 
 template: title
 
 # Black
+
+???
+
+[time] 8 ; 11
 
 ---
 
@@ -318,12 +337,18 @@ different shapes, now with 3d-printing gets very popular
 
 * rows are marked, from bottom (spacebar row)
 * makes it more 'ergonomic'
+* taken from cherry mx documentation
+
 
 ---
 
 template: title
 
 # Mechanical
+
+???
+
+[time] 6 ; 17
 
 ---
 
@@ -379,7 +404,7 @@ those are for cherry, but it is quite a standard thing
   - wiring
 ]
 .right-column[
-  ![Red](res/switch/red.gif) ![Brown](res/switch/brown.gif) ![Blue](res/switch/blue.gif) ![Black](res/switch/black.gif)
+  ![Red](res/switch/red.gif) ![Brown](res/switch/brown.gif) ![Black](res/switch/black.gif) ![Blue](res/switch/blue.gif)
 ]
 
 ???
@@ -389,6 +414,21 @@ section
 
 work
 * depending on the little hook the feel and sound is different
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - .active[switches]
+  - wiring
+]
+.right-column[
+  o'rings
+
+  ![o'rings](res/switch/orings.jpg)
+]
 
 ---
 
@@ -724,10 +764,128 @@ we assume pull-up resistor to be in microcontoller
 
 ---
 
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/17.svg" />
+]
+
+???
+
+matrix
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/18.svg" />
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  ### N rows
+  ### M columns
+  ### N * M keys
+  ### N + M pins
+  ### #pins = 2 * log(#keys)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/19.svg" />
+]
+
+???
+
+one key - OK
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/20.svg" />
+]
+
+???
+
+more - OK
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/21.svg" />
+]
+
+???
+
+until...
+
+shadowing
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### .active[mechanical]
+  - switches
+  - .active[wiring]
+]
+.right-column[
+  <object type="image/svg+xml" data="res/wiring/17.svg" />
+]
+
+.ribbon[?]
+
+---
+
 template: title
 
 # Keyboard
 
+???
+
+[time] 13 ; 30
 
 ---
 
@@ -736,21 +894,169 @@ template: title
   ### black
   ### mechanical
   ### .active[keyboard]
-  ### crow
 ]
 .right-column[
-  arduigno
-
-  c++14
-  lambdas
-
-  loop
-
-  usb report
-  - keyboard, 8byte standard
-  - mouse
-  - customer
+  ### arduino micro - USB support
+  ### C++11
 ]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Flow](res/keyboard/activity.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/executor.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/l1.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/l2.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/l3.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/defines.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboard.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboardraw.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboardset.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/send.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Flow](res/keyboard/activity.png)
+]
+
+.ribbon[?]
 
 ---
 
@@ -790,6 +1096,11 @@ class: title
 ## images: [falbatech](http://falbatech.pl) and [internet](http://google.com)
 
     </textarea>
+
+    <script type="text/javascript" src="js/highlight.min.js" ></script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
 
     <script type="text/javascript" src="js/remark.min.js" ></script>
     <script type="text/javascript">
