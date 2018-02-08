@@ -425,10 +425,14 @@ work
   - wiring
 ]
 .right-column[
-  o'rings
-
   ![o'rings](res/switch/orings.jpg)
 ]
+
+???
+
+rubbers on keycaps
+
+noise reduse
 
 ---
 
@@ -877,6 +881,11 @@ shadowing
 
 .ribbon[?]
 
+???
+
+questions
+(why ribbon is not visible?)
+
 ---
 
 template: title
@@ -912,6 +921,10 @@ template: title
   ![Flow](res/keyboard/activity.png)
 ]
 
+???
+
+general flow
+
 ---
 
 .left-column[
@@ -924,6 +937,26 @@ template: title
   ![Loop](res/keyboard/loop.png)
 ]
 
+???
+
+flow in c++
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_a.png)
+]
+
+???
+
+for each row: get current and previous state
+
 ---
 
 .left-column[
@@ -934,6 +967,236 @@ template: title
 ]
 .right-column[
   ![Loop](res/keyboard/getrow.png)
+]
+
+???
+
+get row
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow_a.png)
+]
+
+???
+
+Rows and Cols are just arrays
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow_b.png)
+]
+
+???
+
+set row 'active'
+
+wait some time to stabilize
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow_c.png)
+]
+
+???
+
+for each pin in row: read pin state and store it
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow_d.png)
+]
+
+???
+
+disable row
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/getrow_e.png)
+]
+
+???
+
+return
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_a.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_b.png)
+]
+
+???
+
+for each column: get current and previous bit state
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_c.png)
+]
+
+???
+
+if state changed: execute update
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/executor.png)
+]
+
+???
+
+user row and col to index array
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/l1.png)
+]
+
+???
+
+just a big array of function pointers
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/defines.png)
+]
+
+???
+
+user stateless lambda as a function
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/executor.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_c.png)
+]
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_d.png)
+]
+
+???
+
+store new row value
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/loop_e.png)
 ]
 
 ---
@@ -957,56 +1220,85 @@ template: title
   ### .active[keyboard]
 ]
 .right-column[
-  ![Loop](res/keyboard/l1.png)
-]
-
----
-
-.left-column[
-  ### 60%
-  ### black
-  ### mechanical
-  ### .active[keyboard]
-]
-.right-column[
-  ![Loop](res/keyboard/l2.png)
-]
-
----
-
-.left-column[
-  ### 60%
-  ### black
-  ### mechanical
-  ### .active[keyboard]
-]
-.right-column[
-  ![Loop](res/keyboard/l3.png)
-]
-
----
-
-.left-column[
-  ### 60%
-  ### black
-  ### mechanical
-  ### .active[keyboard]
-]
-.right-column[
-  ![Loop](res/keyboard/defines.png)
-]
-
----
-
-.left-column[
-  ### 60%
-  ### black
-  ### mechanical
-  ### .active[keyboard]
-]
-.right-column[
   ![Loop](res/keyboard/keyboard.png)
 ]
+
+???
+
+hid description, standard one (8 bytes) to work under bios
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboard_a.png)
+]
+
+???
+
+header
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboard_b.png)
+]
+
+???
+
+first byte - modifiers
+* ctrl
+* alt
+* shift
+* 'GUI' (a.ka. Windows key)
+* times 2: left and right
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboard_c.png)
+]
+
+???
+
+reserved
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboard_d.png)
+]
+
+???
+
+6 bytes for keys
+
+not ASCII
+
+limits max keys number
 
 ---
 
@@ -1020,6 +1312,11 @@ template: title
   ![Loop](res/keyboard/keyboardraw.png)
 ]
 
+???
+
+in c++
+
+
 ---
 
 .left-column[
@@ -1032,6 +1329,64 @@ template: title
   ![Loop](res/keyboard/keyboardset.png)
 ]
 
+???
+
+updating state
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboardset_a.png)
+]
+
+???
+
+check all 6 keys slots
+
+if pressed - return
+
+look for first empty slot
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboardset_b.png)
+]
+
+???
+
+remove from keys if pressed
+
+don't need to colapse empty in the middle
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### .active[keyboard]
+]
+.right-column[
+  ![Loop](res/keyboard/keyboardset_c.png)
+]
+
+???
+
+modifiers are just bit mask - set or unset
+
 ---
 
 .left-column[
@@ -1043,6 +1398,12 @@ template: title
 .right-column[
   ![Loop](res/keyboard/send.png)
 ]
+
+???
+
+send report (with arduinos HID class)
+
+it is just a raw data
 
 ---
 
@@ -1079,6 +1440,109 @@ template: title
   ![Crow 2](res/crow/2.png)
 ]
 
+???
+
+layers - like function keys
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### keyboard
+  ### .active[crow]
+]
+.right-column[
+  ![Crow 0](res/crow/0_a.png)
+  ![Crow 1](res/crow/1.png)
+  ![Crow 2](res/crow/2.png)
+]
+
+???
+
+layers keys instead of ctrls
+
+ctrl instead of capslock
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### keyboard
+  ### .active[crow]
+]
+.right-column[
+  ![Crow 0](res/crow/0.png)
+  ![Crow 1](res/crow/1_a.png)
+  ![Crow 2](res/crow/2.png)
+]
+
+???
+
+vim hjkl
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### keyboard
+  ### .active[crow]
+]
+.right-column[
+  ![Crow 0](res/crow/0.png)
+  ![Crow 1](res/crow/1_b.png)
+  ![Crow 2](res/crow/2.png)
+]
+
+???
+
+* End - A
+* Del - x
+* Insert - R
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### keyboard
+  ### .active[crow]
+]
+.right-column[
+  ![Crow 0](res/crow/0.png)
+  ![Crow 1](res/crow/1.png)
+  ![Crow 2](res/crow/2_a.png)
+]
+
+???
+
+mouse
+
+---
+
+.left-column[
+  ### 60%
+  ### black
+  ### mechanical
+  ### keyboard
+  ### .active[crow]
+]
+.right-column[
+  ![Crow 0](res/crow/0.png)
+  ![Crow 1](res/crow/1.png)
+  ![Crow 2](res/crow/2_b.png)
+]
+
+???
+
+customer report (media)
+
 ---
 
 class: middle, center, title
@@ -1089,6 +1553,12 @@ class: middle, center, title
 
 ---
 
+template: title
+
+# Thanks
+
+---
+
 class: title
 
 ## colors: [gruvbox](http://github.com/morhetz/gruvbox)
@@ -1096,11 +1566,6 @@ class: title
 ## images: [falbatech](http://falbatech.pl) and [internet](http://google.com)
 
     </textarea>
-
-    <script type="text/javascript" src="js/highlight.min.js" ></script>
-    <script type="text/javascript">
-      hljs.initHighlightingOnLoad();
-    </script>
 
     <script type="text/javascript" src="js/remark.min.js" ></script>
     <script type="text/javascript">
