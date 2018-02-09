@@ -4,8 +4,6 @@
 
 #include "firmware.hpp"
 
-Crow::Firmware firmware;
-
 Crow::Index const Rows[Crow::RowsCount] = {15, 18, 19, 20, 21};
 Crow::Index const Cols[Crow::ColsCount]
   = {14, 16, 10, 9, 8, 7, 6, 5, 4, 3, 2, 0, 1};
@@ -44,6 +42,8 @@ void SetLayerCallback(Crow::Index const id) {
   }
 }
 
+Crow::Firmware firmware{GetRow, SendReport, SetLayerCallback};
+
 void setup() {
   TXLED0;
   RXLED0;
@@ -70,8 +70,6 @@ void setup() {
   for (Crow::Index i = 0; i < Crow::ColsCount; ++i) {
     pinMode(Cols[i], INPUT_PULLUP);
   }
-
-  firmware.setup(GetRow, SendReport, SetLayerCallback);
 }
 
 void loop() {

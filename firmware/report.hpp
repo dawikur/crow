@@ -15,9 +15,7 @@ class Report {
   using SendImpl
     = void (*)(Index const id, void const *const data, Index const size);
 
-  Report() : sendImpl{nullptr}, keyboard{} {}
-
-  void setup(SendImpl const newSendImpl) { sendImpl = newSendImpl; }
+  Report(SendImpl const newSendImpl) : sendImpl{nullptr}, keyboard{} {}
 
   void send() {
     send(customer);

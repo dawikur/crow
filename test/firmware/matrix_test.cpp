@@ -26,13 +26,3 @@ TEST(matrix_test, set_row_will_be_remembered) {
 
   ASSERT_EQ(Crow::Row{178}, matrix[3]);
 }
-
-TEST(matrix_test, will_pass_get_row_impl_data) {
-  Crow::Matrix matrix;
-
-  matrix.setup([](Crow::Index const i) {
-    return Crow::Row{static_cast<Crow::Index>(i * 3 + 4)};
-  });
-
-  ASSERT_EQ(Crow::Row{13}, matrix(3));
-}

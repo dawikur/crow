@@ -12,16 +12,12 @@ namespace Crow {
 
 class Executor {
  public:
-  Executor() : report{}, layer{} {}
+  Executor(Report::SendImpl const       sendReportImpl,
+           Layer::Raw const *const      newLayers,
+           Layer::SetCallbackImpl const setCallbackImpl)
+    : report{sendReportImpl}, layer{newLayers, setCallbackImpl} {}
 
   Executor(Executor const &) = delete;
-
-  void setup(Report::SendImpl const       sendReportImpl,
-             Layer::Raw const *const      newLayers,
-             Layer::SetCallbackImpl const setCallbackImpl) {
-    report.setup(sendReportImpl);
-    layer.setup(newLayers, setCallbackImpl);
-  }
 
   void operator()(Event const event) {
     layer[event.row][event.col](report, layer, event.wasPressed);

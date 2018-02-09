@@ -11,16 +11,18 @@ namespace Crow {
 
 class Firmware {
  public:
-  void setup(Matrix::GetRowImpl const     getRowImpl,
-             Report::SendImpl const       sendReportImpl,
-             Layer::SetCallbackImpl const setCallbackImpl) {
-    matrix.setup(getRowImpl);
-    execute.setup(sendReportImpl, Crow::Layers, setCallbackImpl);
-  }
+  using GetRowImpl = Row (*)(Index const);
+
+  Firmware(GetRowImpl const             getRowImpl,
+           Report::SendImpl const       sendReportImpl,
+           Layer::SetCallbackImpl const setCallbackImpl)
+    : getRow{getRowImpl}
+    , matrix{}
+    , execute{sendReportImpl, Crow::Layers, setCallbackImpl} {}
 
   void loop() {
     for (Crow::Index i = 0; i < matrix.rows(); ++i) {
-      auto const row      = matrix(i);
+      auto const row      = getRow(i);
       auto const prev_row = matrix[i];
 
       for (Crow::Index j = 0; j < matrix.cols(); ++j) {
@@ -38,8 +40,9 @@ class Firmware {
   }
 
  private:
-  Matrix   matrix;
-  Executor execute;
+  GetRowImpl getRow;
+  Matrix     matrix;
+  Executor   execute;
 };
 
 }  // namespace Crow

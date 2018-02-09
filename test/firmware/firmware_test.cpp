@@ -46,12 +46,13 @@ void setLayer(Crow::Index const) {}
 
 class firmware_test : public ::testing::Test {
  protected:
+  firmware_test()
+    : firmware{Functions::getRow, Functions::sendReport, Functions::setLayer} {}
+
   void SetUp() override {
     Functions::_hardware = &hardware;
     Functions::_usbHid = &usbHid;
 
-    firmware.setup(
-      Functions::getRow, Functions::sendReport, Functions::setLayer);
   }
 
   void TearDown() override {
