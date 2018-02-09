@@ -16,4 +16,4 @@ before_script:
   - make CXX=g++-6
 
 script:
-  - make run
+  - make CXX=g++-6 run
