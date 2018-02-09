@@ -11,32 +11,31 @@
 
 namespace Crow {
 
-#define Nop()                                                                   \
-  [](Crow::Report &, Crow::Layer &, bool const) {}
+#define Nop() [](Report &, Layer &, bool const) {}
 
 // Key
 #define K(in_key)                                                              \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.key(Crow::Keymap::Key_##in_key, wasPressed);                        \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.key(Keymap::Key_##in_key, wasPressed);                              \
   }
 
 // Modifier
 #define M(in_key)                                                              \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.modifier(Crow::Keymap::Modifier_##in_key, wasPressed);              \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.modifier(Keymap::Modifier_##in_key, wasPressed);                    \
   }
 
 // Modifier Lock
 #define ML(in_key)                                                             \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
     if (wasPressed) {                                                          \
-      report.toggleModifierLock(Crow::Keymap::Modifier_##in_key);              \
+      report.toggleModifierLock(Keymap::Modifier_##in_key);                    \
     }                                                                          \
   }
 
 // Layer
 #define L(in_from, in_to)                                                      \
-  [](Crow::Report &report, Crow::Layer &layer, bool const wasPressed) {        \
+  [](Report &report, Layer &layer, bool const wasPressed) {                    \
     report.clear();                                                            \
     if (wasPressed) {                                                          \
       layer.change(in_from, in_to);                                            \
@@ -47,7 +46,7 @@ namespace Crow {
 
 // Layer Lock
 #define LL()                                                                   \
-  [](Crow::Report &, Crow::Layer &layer, bool const wasPressed) {              \
+  [](Report &, Layer &layer, bool const wasPressed) {                          \
     if (wasPressed) {                                                          \
       layer.toggleLock();                                                      \
     }                                                                          \
@@ -55,24 +54,24 @@ namespace Crow {
 
 // Customer Media
 #define C(in_key)                                                              \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.media(Crow::Keymap::Media_##in_key, wasPressed);                    \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.media(Keymap::Media_##in_key, wasPressed);                          \
   }
 
 // Pointer
 #define P(in_id)                                                               \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.move(Crow::Keymap::Pointer_Move##in_id, wasPressed);                \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.move(Keymap::Pointer_Move##in_id, wasPressed);                      \
   }
 
 #define PS(in_id)                                                              \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.scroll(Crow::Keymap::Pointer_Scroll##in_id, wasPressed);            \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.scroll(Keymap::Pointer_Scroll##in_id, wasPressed);                  \
   }
 
 #define PC(in_button)                                                          \
-  [](Crow::Report &report, Crow::Layer &, bool const wasPressed) {             \
-    report.click(Crow::Keymap::Pointer_Button##in_button, wasPressed);         \
+  [](Report &report, Layer &, bool const wasPressed) {                         \
+    report.click(Keymap::Pointer_Button##in_button, wasPressed);               \
   }
 
 }  // namespace Crow

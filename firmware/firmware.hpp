@@ -18,14 +18,14 @@ class Firmware {
            Layer::SetCallbackImpl const setCallbackImpl)
     : getRow{getRowImpl}
     , matrix{}
-    , execute{sendReportImpl, Crow::Layers, setCallbackImpl} {}
+    , execute{sendReportImpl, Layers, setCallbackImpl} {}
 
   void loop() {
-    for (Crow::Index i = 0; i < matrix.rows(); ++i) {
+    for (Index i = 0; i < matrix.rows(); ++i) {
       auto const row      = getRow(i);
       auto const prev_row = matrix[i];
 
-      for (Crow::Index j = 0; j < matrix.cols(); ++j) {
+      for (Index j = 0; j < matrix.cols(); ++j) {
         auto const bit      = row[j];
         auto const prev_bit = prev_row[j];
 
