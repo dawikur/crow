@@ -20,6 +20,8 @@ class Firmware {
     , matrix{}
     , execute{sendReportImpl, Layers, setCallbackImpl} {}
 
+  Firmware() = delete;
+
   void loop() {
     for (Index i = 0; i < matrix.rows(); ++i) {
       auto const row      = getRow(i);

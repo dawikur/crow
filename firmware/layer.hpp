@@ -16,10 +16,14 @@ class Layer {
 
   constexpr static Index Base = 0;
 
-  Layer(Layer const &) = delete;
-
   Layer(Raw const *const newRaw, SetCallbackImpl const newSetCallbackImpl)
-    : raw{nullptr}, setCallbackImpl{nullptr}, current{0}, isLocked{false} {}
+    : raw{newRaw}
+    , setCallbackImpl{newSetCallbackImpl}
+    , current{0}
+    , isLocked{false} {}
+
+  Layer()              = delete;
+  Layer(Layer const &) = delete;
 
   auto operator[](Index const index) -> Function const * {
     return raw[current][index];

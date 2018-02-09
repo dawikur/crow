@@ -17,6 +17,7 @@ class Executor {
            Layer::SetCallbackImpl const setCallbackImpl)
     : report{sendReportImpl}, layer{newLayers, setCallbackImpl} {}
 
+  Executor()                 = delete;
   Executor(Executor const &) = delete;
 
   void operator()(Event const event) {
