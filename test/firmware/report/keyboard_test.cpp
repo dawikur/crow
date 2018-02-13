@@ -85,7 +85,7 @@ TEST(keyboard_test, second_of_two_keys_can_be_released) {
   ASSERT_EQ(0, memcmp(raw, report.data(), 8));
 }
 
-TEST(keyboard_test, first_oftwo_key_can_be_replaced_by_another) {
+TEST(keyboard_test, first_of_two_keys_can_be_replaced_by_another) {
   Crow::Reports::Keyboard report;
   report.key('d', true);
   report.key('e', true);
@@ -134,6 +134,17 @@ TEST(keyboard_test, one_of_two_modifiers_can_be_set) {
   report.modifier(0x08, true);
 
   report.modifier(0x02, false);
+
+  uint8_t raw[8] = {0x08, 0};
+  ASSERT_EQ(0, memcmp(raw, report.data(), 8));
+}
+
+TEST(keyboard_test, modifier_can_be_changed) {
+  Crow::Reports::Keyboard report;
+  report.modifier(0x02, true);
+
+  report.modifier(0x02, false);
+  report.modifier(0x08, true);
 
   uint8_t raw[8] = {0x08, 0};
   ASSERT_EQ(0, memcmp(raw, report.data(), 8));
