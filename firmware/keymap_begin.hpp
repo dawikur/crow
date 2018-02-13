@@ -7,8 +7,6 @@
 #include "layer.hpp"
 #include "report.hpp"
 
-#include "keymap_keys.hpp"
-
 namespace Crow {
 
 #define Nop() [](Report &, Layer &, bool const) {}

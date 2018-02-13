@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_MATRIX_HPP_
 #define FIRMWARE_MATRIX_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 #include "row.hpp"
 
 namespace Crow {
@@ -20,7 +20,7 @@ class Matrix {
   Row &operator[](Index const i) { return row[i]; }
 
  private:
-  Row        row[RowsCount];
+  Row row[RowsCount];
 };
 
 }  // namespace Crow

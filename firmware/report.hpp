@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_REPORT_HPP_
 #define FIRMWARE_REPORT_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 #include "report_customer.hpp"
 #include "report_keyboard.hpp"
 #include "report_pointer.hpp"

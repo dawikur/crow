@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_KEYMAP_KEYS_HPP_
 #define FIRMWARE_KEYMAP_KEYS_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 
 namespace Crow {
 namespace Keymap {

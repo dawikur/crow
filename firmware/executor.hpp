@@ -3,7 +3,6 @@
 #ifndef FIRMWARE_EXECUTOR_HPP_
 #define FIRMWARE_EXECUTOR_HPP_
 
-#include "config.hpp"
 #include "event.hpp"
 #include "layer.hpp"
 #include "report.hpp"
@@ -28,7 +27,6 @@ class Executor {
 
  private:
   Report report;
-
   Layer layer;
 };
 

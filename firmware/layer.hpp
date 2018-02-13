@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_LAYER_HPP_
 #define FIRMWARE_LAYER_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 #include "report.hpp"
 
 namespace Crow {

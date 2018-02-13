@@ -2,8 +2,6 @@
 
 #include "event.hpp"
 
-#include <iostream>
-
 #include "gtest/gtest.h"
 
 TEST(event_test, event_initialization_works) {

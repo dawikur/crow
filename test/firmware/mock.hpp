@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include "config.hpp"
+#include "types.hpp"
 
 #include "gmock/gmock.h"
 

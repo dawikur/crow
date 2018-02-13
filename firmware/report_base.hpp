@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_REPORT_BASE_HPP_
 #define FIRMWARE_REPORT_BASE_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 
 namespace Crow {
 namespace Reports {

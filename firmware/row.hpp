@@ -3,7 +3,7 @@
 #ifndef FIRMWARE_ROW_HPP_
 #define FIRMWARE_ROW_HPP_
 
-#include "config.hpp"
+#include "types.hpp"
 
 namespace Crow {
 

@@ -3,6 +3,8 @@
 #ifndef FIRMWARE_KEYMAP_END_HPP_
 #define FIRMWARE_KEYMAP_END_HPP_
 
+#undef Nop
+
 #undef K   // Key
 
 #undef M   // Modifier
