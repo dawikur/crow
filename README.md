@@ -1,5 +1,5 @@
 # :bird: crow
-## Custom 60% keyboard
+## 60% black mechanical keyboard
 
 [![Language](https://img.shields.io/badge/language-C++14-blue.svg?style=flat-square)](https://isocpp.org)
 [![GitHub release](https://img.shields.io/github/release/dawikur/crow.svg?style=flat-square)](https://github.com/dawikur/crow/releases)
