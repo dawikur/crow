@@ -12,7 +12,7 @@ TEST(types_test, data_type_is_big_for_whole_row) {
   ASSERT_LE(Crow::ColsCount, sizeof(Crow::RawRow) * 8);
 }
 
-TEST(types_test, data_type_is_big_for_whole_event) {
+TEST(types_test, data_type_is_big_for_whole_compressed_event) {
   ASSERT_LE(Crow::ColsBits + Crow::RowsBits + 1,
             sizeof(Crow::RawCompressEvent) * 8);
 }

@@ -11,14 +11,12 @@ namespace Crow {
 
 class Firmware {
  public:
-  using GetRowImpl = Row (*)(Index const);
+  using GetRow = Row (*)(Index const);
 
-  Firmware(GetRowImpl const             getRowImpl,
-           Report::SendImpl const       sendReportImpl,
-           Layer::SetCallbackImpl const setCallbackImpl)
-    : getRow{getRowImpl}
-    , matrix{}
-    , execute{sendReportImpl, Layers, setCallbackImpl} {}
+  Firmware(GetRow const            getRow,
+           Report::Send const      sendReport,
+           Layer::SetCurrent const setCurrent)
+    : getRow{getRow}, matrix{}, execute{sendReport, Layers, setCurrent} {}
 
   Firmware() = delete;
 
@@ -42,9 +40,9 @@ class Firmware {
   }
 
  private:
-  GetRowImpl getRow;
-  Matrix     matrix;
-  Executor   execute;
+  GetRow   getRow;
+  Matrix   matrix;
+  Executor execute;
 };
 
 }  // namespace Crow

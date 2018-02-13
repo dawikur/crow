@@ -11,14 +11,6 @@ namespace Reports {
 union PointerRaw {
   PointerRaw() : _{0} {}
 
-  struct Button {
-    static constexpr int8_t Left    = 0x1 << 0;
-    static constexpr int8_t Right   = 0x1 << 1;
-    static constexpr int8_t Middle  = 0x1 << 2;
-    static constexpr int8_t Back    = 0x1 << 3;
-    static constexpr int8_t Forward = 0x1 << 4;
-  };
-
   struct {
     int8_t buttons;
     int8_t X;

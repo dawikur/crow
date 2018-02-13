@@ -10,15 +10,15 @@ namespace Crow {
 
 class Layer {
  public:
-  using Function        = void (*)(Report &, Layer &, bool const);
-  using Raw             = const Function[RowsCount][ColsCount];
-  using SetCallbackImpl = void (*)(Index const);
+  using Function   = void (*)(Report &, Layer &, bool const);
+  using Raw        = const Function[RowsCount][ColsCount];
+  using SetCurrent = void (*)(Index const);
 
   constexpr static Index Base = 0;
 
-  Layer(Raw const *const newRaw, SetCallbackImpl const newSetCallbackImpl)
-    : raw{newRaw}
-    , setCallbackImpl{newSetCallbackImpl}
+  Layer(Raw const *const raw, SetCurrent const setCurrent)
+    : raw{raw}
+    , setCurrent{setCurrent}
     , current{0}
     , isLocked{false} {}
 
@@ -31,16 +31,16 @@ class Layer {
 
   void change(Index const from, Index const to) {
     current = isLocked ? from : to;
-    setCallbackImpl(current);
+    setCurrent(current);
   }
 
   void toggleLock() { isLocked = !isLocked; }
 
  private:
-  Raw *           raw;
-  SetCallbackImpl setCallbackImpl;
-  Index           current;
-  bool            isLocked;
+  Raw *      raw;
+  SetCurrent setCurrent;
+  Index      current;
+  bool       isLocked;
 };
 
 }  // namespace Crow

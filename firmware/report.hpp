@@ -12,10 +12,10 @@ namespace Crow {
 
 class Report {
  public:
-  using SendImpl
+  using Send
     = void (*)(Index const id, void const *const data, Index const size);
 
-  Report(SendImpl const newSendImpl) : sendImpl{newSendImpl}, keyboard{} {}
+  Report(Send const sendImpl) : sendImpl{sendImpl}, keyboard{} {}
 
   Report() = delete;
 
@@ -65,7 +65,7 @@ class Report {
     }
   }
 
-  SendImpl sendImpl;
+  Send sendImpl;
 
   Reports::Customer customer;
   Reports::Keyboard keyboard;

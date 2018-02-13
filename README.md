@@ -13,10 +13,10 @@ Layout
 ======
 
 ![Keyboard](resources/keyboard-layout.png)
-![Keyboard Layer 1](resources/keyboard-layout%20(1).png)
-![Keyboard Layer 2](resources/keyboard-layout%20(2).png)
+![Keyboard Layer 1](resources/keyboard-layout-1.png)
+![Keyboard Layer 2](resources/keyboard-layout-2.png)
 
-I am Vim user, so many keys (```Insert```, ```Page Up```, etc) are placed as commands in Vim.
+I'm Vim user, so many keys (```Insert```, ```Page Up```, etc) are placed as commands in Vim.
 
 Firmware
 ========
