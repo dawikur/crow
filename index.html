@@ -148,7 +148,7 @@ template: title
 
 ???
 
-what are the differences?
+What are the differences?
 
 ---
 
@@ -235,10 +235,6 @@ template: title
   .fill[![KeyCaps](res/keycaps/0.png)]
 ]
 
-???
-
-plastic, thing that is actually touched
-
 ---
 
 .left-column[
@@ -317,7 +313,7 @@ printed on the side (my favorite!)
 
 ???
 
-different shapes, now with 3d-printing gets very popular
+Different shapes, now with 3d-printing gets very popular.
 
 ---
 
@@ -365,7 +361,7 @@ template: title
 
 ???
 
-switch is not very complicated:
+Switch is not very complicated:
 * plastic frame
 * spring
 * cross, plastic pin which is moving
@@ -386,13 +382,13 @@ switch is not very complicated:
 
 ???
 
-those are for cherry, but it is quite a standard thing
+Those are for cherry, but it is quite a standard thing.
 * colors normally means sound level and 'feel'
 * red is soft but does not provide 'feeled' click on activation
 * blue is soft as red, but does have 'click' on 'activation' (both feel and sound)
 * brown has only 'feel'
 * green is 'hardest' to press
-* there is also a difference in force neede to press
+* there is also a difference in force needed to press
 
 ---
 
@@ -430,9 +426,7 @@ work
 
 ???
 
-rubbers on keycaps
-
-noise reduse
+Rubbers on keycaps mounted for noise reduction.
 
 ---
 
@@ -448,7 +442,7 @@ noise reduse
 
 ???
 
-let us create some setup
+Let us create some setup!
 
 ---
 
@@ -516,7 +510,7 @@ power and ground
 
 ???
 
-wiring up with "pull-up" resistor
+wiring with "pull-up" resistor
 
 ---
 
@@ -550,7 +544,7 @@ all done
 
 ???
 
-inactive state: currency goes from VCC to GND
+inactive state: Currency goes from VCC to GND.
 
 ---
 
@@ -567,7 +561,7 @@ inactive state: currency goes from VCC to GND
 
 ???
 
-active state: currency goes from PIN to GND
+active state: Currency goes from PIN to GND.
 
 ---
 
@@ -703,16 +697,17 @@ all ...
 
 ???
 
-a lot of switches and pins
+That is a lot of switches and pins.
 
-number of switches cannot be reduced:
+Number of switches cannot be reduced.
 * it is physical limitation, to have 62 keys we need 62 switches
 
-number of pins can:
+Number of pins can be reduced:
 * we can use matrix to reduce number of pins
 * control both ends of wire
 
-ISO
+Layout:
+* ISO
 
 ---
 
@@ -747,7 +742,7 @@ step first:
 
 ???
 
-does it still work?
+Does it still work?
 
 ---
 
@@ -764,7 +759,7 @@ does it still work?
 
 ???
 
-we assume pull-up resistor to be in microcontoller
+We assume pull-up resistor to be in microcontoller.
 
 ---
 
@@ -862,9 +857,7 @@ more - OK
 
 ???
 
-until...
-
-shadowing
+until... shadowing
 
 ---
 
@@ -884,7 +877,8 @@ shadowing
 ???
 
 questions
-(why ribbon is not visible?)
+
+(Why ribbon is not visible?)
 
 ---
 
@@ -955,7 +949,7 @@ flow in c++
 
 ???
 
-for each row: get current and previous state
+for each row: Get current and previous state.
 
 ---
 
@@ -987,7 +981,7 @@ get row
 
 ???
 
-Rows and Cols are just arrays
+Rows and Cols are just arrays.
 
 ---
 
@@ -1003,9 +997,9 @@ Rows and Cols are just arrays
 
 ???
 
-set row 'active'
+Set row 'active'.
 
-wait some time to stabilize
+Wait some time to stabilize.
 
 ---
 
@@ -1021,7 +1015,7 @@ wait some time to stabilize
 
 ???
 
-for each pin in row: read pin state and store it
+for each pin in row: Read pin state and store it.
 
 ---
 
@@ -1037,7 +1031,7 @@ for each pin in row: read pin state and store it
 
 ???
 
-disable row
+Disable row.
 
 ---
 
@@ -1081,7 +1075,7 @@ return
 
 ???
 
-for each column: get current and previous bit state
+for each column: Get current and previous bit state.
 
 ---
 
@@ -1097,7 +1091,7 @@ for each column: get current and previous bit state
 
 ???
 
-if state changed: execute update
+If state changed: execute update.
 
 ---
 
@@ -1113,7 +1107,7 @@ if state changed: execute update
 
 ???
 
-user row and col to index array
+User row and col to index array.
 
 ---
 
@@ -1129,7 +1123,7 @@ user row and col to index array
 
 ???
 
-just a big array of function pointers
+Just a big array of function pointers.
 
 ---
 
@@ -1145,7 +1139,7 @@ just a big array of function pointers
 
 ???
 
-user stateless lambda as a function
+User stateless lambda as a function.
 
 ---
 
@@ -1185,7 +1179,7 @@ user stateless lambda as a function
 
 ???
 
-store new row value
+Store new row value.
 
 ---
 
@@ -1225,7 +1219,7 @@ store new row value
 
 ???
 
-hid description, standard one (8 bytes) to work under bios
+HID description, standard one (8 bytes) to work under bios.
 
 ---
 
@@ -1316,7 +1310,6 @@ limits max keys number
 
 in c++
 
-
 ---
 
 .left-column[
@@ -1331,7 +1324,7 @@ in c++
 
 ???
 
-updating state
+Updating state.
 
 ---
 
@@ -1347,11 +1340,11 @@ updating state
 
 ???
 
-check all 6 keys slots
+Check all 6 keys slots.
 
-if pressed - return
+If pressed - return.
 
-look for first empty slot
+Look for first empty slot.
 
 ---
 
@@ -1367,9 +1360,9 @@ look for first empty slot
 
 ???
 
-remove from keys if pressed
+Remove from keys if pressed.
 
-don't need to colapse empty in the middle
+Don't need to colapse empty in the middle.
 
 ---
 
@@ -1385,7 +1378,7 @@ don't need to colapse empty in the middle
 
 ???
 
-modifiers are just bit mask - set or unset
+Modifiers are just bit mask - set or unset.
 
 ---
 
@@ -1401,9 +1394,9 @@ modifiers are just bit mask - set or unset
 
 ???
 
-send report (with arduinos HID class)
+Send report (with arduinos HID class).
 
-it is just a raw data
+It is just a raw data.
 
 ---
 
@@ -1461,9 +1454,8 @@ layers - like function keys
 
 ???
 
-layers keys instead of ctrls
-
-ctrl instead of capslock
+Layers keys instead of ctrls.
+Ctrl instead of capslock.
 
 ---
 
