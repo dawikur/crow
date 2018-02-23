@@ -21,7 +21,6 @@ run: one
 all: clean
 all: run
 
-
 .PHONY: clean
 
 clean:

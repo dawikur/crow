@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(customer_test, by_default_customer_report_is_not_modified) {
+TEST(customer_test, by_default_report_is_not_modified) {
   Crow::Reports::Customer report;
 
   ASSERT_FALSE(report);

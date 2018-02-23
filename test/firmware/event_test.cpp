@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(event_test, event_initialization_works) {
+TEST(event_test, initialization_works) {
   Crow::Event const event{4, 7, true};
 
   ASSERT_EQ(4, event.row);
@@ -12,7 +12,7 @@ TEST(event_test, event_initialization_works) {
   ASSERT_TRUE(event.wasPressed);
 }
 
-TEST(event_test, event_expand_gives_same_event_as_before_compression) {
+TEST(event_test, expand_gives_same_event_as_before_compression) {
   Crow::Event const event{5, 13, true};
 
   auto const compressed = event.compress();

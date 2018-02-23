@@ -47,7 +47,7 @@ TEST(pointer_test, clicking_two_button_will_set_both_of_them) {
   ASSERT_EQ(0, memcmp(raw, report.data(), 4));
 }
 
-TEST(pointer_test, releasing_one_button_releasis_only_this_one) {
+TEST(pointer_test, releasing_one_button_release_only_this_one) {
   Crow::Reports::Pointer report;
 
   report.click(0x1, true);
@@ -58,7 +58,7 @@ TEST(pointer_test, releasing_one_button_releasis_only_this_one) {
   ASSERT_EQ(0, memcmp(raw, report.data(), 4));
 }
 
-TEST(pointer_test, moving__will_set_report) {
+TEST(pointer_test, moving_will_set_report) {
   Crow::Reports::Pointer report;
 
   report.move('+' ^ 'X', true);

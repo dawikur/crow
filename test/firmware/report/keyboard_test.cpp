@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(keyboard_test, by_default_keyboard_report_is_not_modified) {
+TEST(keyboard_test, by_default_report_is_not_modified) {
   Crow::Reports::Keyboard report;
 
   ASSERT_FALSE(report);
@@ -27,7 +27,6 @@ TEST(keyboard_test, setting_key_will_success) {
   Crow::Reports::Keyboard report;
 
   report.key('a', true);
-
 
   uint8_t raw[8] = {0, 0, 'a', 0};
   ASSERT_EQ(0, memcmp(raw, report.data(), 8));
@@ -97,7 +96,7 @@ TEST(keyboard_test, first_of_two_keys_can_be_replaced_by_another) {
   ASSERT_EQ(0, memcmp(raw, report.data(), 8));
 }
 
-TEST(keyboard_test, second_oftwo_key_can_be_replaced_by_another) {
+TEST(keyboard_test, second_of_two_key_can_be_replaced_by_another) {
   Crow::Reports::Keyboard report;
   report.key('d', true);
   report.key('e', true);
