@@ -11,28 +11,28 @@ struct Event;
 struct CompressedEvent;
 
 struct Event {
-  inline CompressedEvent compress() const;
+    inline CompressedEvent compress() const;
 
-  Index const row;
-  Index const col;
-  bool const  wasPressed;
+    Index const row;
+    Index const col;
+    bool const  wasPressed;
 };
 
 struct CompressedEvent {
-  inline Event expand() const;
+    inline Event expand() const;
 
-  RawCompressEvent const raw;
+    RawCompressEvent const raw;
 };
 
 CompressedEvent Event::compress() const {
-  return {static_cast<RawCompressEvent>((((row << ColsBits) | col) << 1)
-                                        | static_cast<Index>(wasPressed))};
+    return {static_cast<RawCompressEvent>((((row << ColsBits) | col) << 1)
+                                          | static_cast<Index>(wasPressed))};
 }
 
 Event CompressedEvent::expand() const {
-  return {static_cast<Index>(raw >> (ColsBits + 1)),
-          static_cast<Index>((raw >> 1) & ((1 << ColsBits) - 1)),
-          static_cast<bool>(raw & 0x01)};
+    return {static_cast<Index>(raw >> (ColsBits + 1)),
+            static_cast<Index>((raw >> 1) & ((1 << ColsBits) - 1)),
+            static_cast<bool>(raw & 0x01)};
 }
 
 }  // namespace Crow

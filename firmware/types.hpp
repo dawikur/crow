@@ -60,25 +60,25 @@ constexpr Index ColsBits = COLS_BITS;
 #define BITS_COUNT (ROWS_BITS + COLS_BITS + 1)
 
 #if COLS_COUNT <= 8
-  using RawRow = uint8_t;
+    using RawRow = uint8_t;
 #elif COLS_COUNT <= 16
-  using RawRow = uint16_t;
+    using RawRow = uint16_t;
 #elif COLS_COUNT <= 32
-  using RawRow = uint32_t;
+    using RawRow = uint32_t;
 #elif COLS_COUNT <= 64
-  using RawRow = uint64_t;
+    using RawRow = uint64_t;
 #else
 # error "Unsupported row count."
 #endif
 
 #if BITS_COUNT <= 8
-  using RawCompressEvent = uint8_t;
+    using RawCompressEvent = uint8_t;
 #elif BITS_COUNT <= 16
-  using RawCompressEvent = uint16_t;
+    using RawCompressEvent = uint16_t;
 #elif BITS_COUNT <= 32
-  using RawCompressEvent = uint32_t;
+    using RawCompressEvent = uint32_t;
 #elif BITS_COUNT <= 64
-  using RawCompressEvent = uint64_t;
+    using RawCompressEvent = uint64_t;
 #else
 # error "Unsupported matrix"
 #endif

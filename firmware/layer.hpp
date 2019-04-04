@@ -9,38 +9,38 @@
 namespace Crow {
 
 class Layer {
- public:
-  using Function   = void (*)(Report &, Layer &, bool const);
-  using Raw        = const Function[RowsCount][ColsCount];
-  using SetCurrent = void (*)(Index const);
+  public:
+    using Function   = void (*)(Report &, Layer &, bool const);
+    using Raw        = const Function[RowsCount][ColsCount];
+    using SetCurrent = void (*)(Index const);
 
-  constexpr static Index Base = 0;
+    constexpr static Index Base = 0;
 
-  Layer(Raw const *const raw, SetCurrent const setCurrent)
-    : raw{raw}
-    , setCurrent{setCurrent}
-    , current{0}
-    , isLocked{false} {}
+    Layer(Raw const *const raw, SetCurrent const setCurrent)
+        : raw{raw}
+        , setCurrent{setCurrent}
+        , current{0}
+        , isLocked{false} {}
 
-  Layer()              = delete;
-  Layer(Layer const &) = delete;
+    Layer()              = delete;
+    Layer(Layer const &) = delete;
 
-  auto operator[](Index const index) -> Function const * {
-    return raw[current][index];
-  }
+    auto operator[](Index const index) -> Function const * {
+        return raw[current][index];
+    }
 
-  void change(Index const from, Index const to) {
-    current = isLocked ? from : to;
-    setCurrent(current);
-  }
+    void change(Index const from, Index const to) {
+        current = isLocked ? from : to;
+        setCurrent(current);
+    }
 
-  void toggleLock() { isLocked = !isLocked; }
+    void toggleLock() { isLocked = !isLocked; }
 
- private:
-  Raw *      raw;
-  SetCurrent setCurrent;
-  Index      current;
-  bool       isLocked;
+  private:
+    Raw *      raw;
+    SetCurrent setCurrent;
+    Index      current;
+    bool       isLocked;
 };
 
 }  // namespace Crow

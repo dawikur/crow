@@ -11,7 +11,7 @@ namespace Crow {
 #define CROW_KEYMAP_
 
 Layer::Function const Layers[][RowsCount][ColsCount] =
-  #include "config.hpp"
+    #include "config.hpp"
 ;
 
 #undef CROW_KEYMAP_

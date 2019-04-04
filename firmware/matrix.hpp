@@ -9,18 +9,18 @@
 namespace Crow {
 
 class Matrix {
- public:
-  Matrix()               = default;
-  Matrix(Matrix const &) = delete;
+  public:
+    Matrix()               = default;
+    Matrix(Matrix const &) = delete;
 
-  static Index rows() { return RowsCount; }
-  static Index cols() { return ColsCount; }
+    static Index rows() { return RowsCount; }
+    static Index cols() { return ColsCount; }
 
-  Row operator[](Index const i) const { return row[i]; }
-  Row &operator[](Index const i) { return row[i]; }
+    Row operator[](Index const i) const { return row[i]; }
+    Row &operator[](Index const i) { return row[i]; }
 
- private:
-  Row row[RowsCount];
+  private:
+    Row row[RowsCount];
 };
 
 }  // namespace Crow

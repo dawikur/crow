@@ -13,32 +13,32 @@ namespace Crow {
 
 class Hardware {
  public:
-  ~Hardware() = default;
+    ~Hardware() = default;
 
-  virtual Row getRow(Index const i) = 0;
+    virtual Row getRow(Index const i) = 0;
 };
 
 class USBHid {
  public:
-  ~USBHid() = default;
+    ~USBHid() = default;
 
-  virtual int sendReport(std::vector<uint8_t> const &) = 0;
+    virtual int sendReport(std::vector<uint8_t> const &) = 0;
 };
 
 namespace Mock {
 
 class Hardware : public ::Crow::Hardware {
  public:
-  MOCK_METHOD1(getRow, Row(Index const));
+    MOCK_METHOD1(getRow, Row(Index const));
 };
 
 class USBHid : public ::Crow::USBHid {
  public:
-  MOCK_METHOD1(sendReport, int(std::vector<uint8_t> const &));
+    MOCK_METHOD1(sendReport, int(std::vector<uint8_t> const &));
 };
 
-}  // namespace Mock
+}    // namespace Mock
 
-}  // namespace Crow
+}    // namespace Crow
 
-#endif  // TEST_FIRMWARE_MOCK_HPP_
+#endif    // TEST_FIRMWARE_MOCK_HPP_

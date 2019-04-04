@@ -10,24 +10,24 @@
 namespace Crow {
 
 class Executor {
- public:
-  Executor(Report::Send const      sendReport,
-           Layer::Raw const *const layers,
-           Layer::SetCurrent const setCurrent)
-    : report{sendReport}, layer{layers, setCurrent} {}
+  public:
+    Executor(Report::Send const      sendReport,
+             Layer::Raw const *const layers,
+             Layer::SetCurrent const setCurrent)
+        : report{sendReport}, layer{layers, setCurrent} {}
 
-  Executor()                 = delete;
-  Executor(Executor const &) = delete;
+    Executor()                 = delete;
+    Executor(Executor const &) = delete;
 
-  void operator()(Event const event) {
-    layer[event.row][event.col](report, layer, event.wasPressed);
-  }
+    void operator()(Event const event) {
+        layer[event.row][event.col](report, layer, event.wasPressed);
+    }
 
-  void operator()() { report.send(); }
+    void operator()() { report.send(); }
 
- private:
-  Report report;
-  Layer layer;
+  private:
+    Report report;
+    Layer layer;
 };
 
 }  // namespace Crow

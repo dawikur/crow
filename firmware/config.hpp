@@ -31,13 +31,13 @@
 // | 1   |     |     |                               |     |     |     | 2   |
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
-  {
-    { K(Aqute)       , K(1)           , K(2)           , K(3)           , K(4)           , K(5)           , K(6)           , K(7)           , K(8)           , K(9)           , K(0)           , K(Minus)       , K(Equal)         },
-    { K(Tab)         , K(Q)           , K(W)           , K(E)           , K(R)           , K(T)           , K(Y)           , K(U)           , K(I)           , K(O)           , K(P)           , K(OpenBracket) , K(CloseBracket)  },
-    { M(CtrlL)       , K(A)           , K(S)           , K(D)           , K(F)           , K(G)           , K(H)           , K(J)           , K(K)           , K(L)           , K(Semicolon)   , K(Apostrophe)  , K(Enter)         },
-    { M(ShiftL)      , K(Z)           , K(X)           , K(C)           , K(V)           , K(B)           , K(N)           , K(M)           , K(Comma)       , K(Dot)         , K(ForwardSlash), M(ShiftR)      , K(Slash)         },
-    { L(0, 1)        , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(0, 2)        , K(BackSpace)     }
-  },
+    {
+        { K(Aqute)  , K(1)    , K(2)    , K(3)  , K(4)  , K(5)        , K(6)  , K(7)  , K(8)     , K(9)    , K(0)            , K(Minus)       , K(Equal)        },
+        { K(Tab)    , K(Q)    , K(W)    , K(E)  , K(R)  , K(T)        , K(Y)  , K(U)  , K(I)     , K(O)    , K(P)            , K(OpenBracket) , K(CloseBracket) },
+        { M(CtrlL)  , K(A)    , K(S)    , K(D)  , K(F)  , K(G)        , K(H)  , K(J)  , K(K)     , K(L)    , K(Semicolon)    , K(Apostrophe)  , K(Enter)        },
+        { M(ShiftL) , K(Z)    , K(X)    , K(C)  , K(V)  , K(B)        , K(N)  , K(M)  , K(Comma) , K(Dot)  , K(ForwardSlash) , M(ShiftR)      , K(Slash)        },
+        { L(0, 1)   , M(GUIL) , M(AltL) , Nop() , Nop() , K(SpaceBar) , Nop() , Nop() , M(AltR)  , M(GUIR) , K(Application)  , L(0, 2)        , K(BackSpace)    }
+    },
 
 //
 // Layer 1
@@ -59,13 +59,13 @@
 // |#1###|     |     |                               |     |     |     |     |
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
-  {
-    { K(Esc)         , K(F1)          , K(F2)          , K(F3)      , K(F4)              , K(F5)          , K(F6)          , K(F7)          , K(F8)          , K(F9)          , K(F10)         , K(F11)         , K(F12)          },
-    { LL()           , Nop()          , K(Pause)       , Nop()      , K(Ins)             , Nop()          , Nop()          , Nop()          , K(Home)        , Nop()          , K(Up)          , K(Left)        , K(Right)        },
-    { M(CtrlL)       , K(End)         , K(PrtSc)       , Nop()      , K(PgDn)            , Nop()          , K(Left)        , K(Down)        , K(Up)          , K(Right)       , Nop()          , Nop()          , K(Enter)        },
-    { M(ShiftL)      , Nop()          , K(Delete)      , Nop()      , Nop()              , K(PgUp)        , K(Down)        , Nop()          , Nop()          , Nop()          , Nop()          , ML(ShiftR)     , Nop()           },
-    { L(0, 1)        , M(GUIL)        , M(AltL)        , Nop()      , Nop()              , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , M(CtrlR)       , K(Delete)       }
-  },
+    {
+        { K(Esc)    , K(F1)   , K(F2)     , K(F3) , K(F4)   , K(F5)       , K(F6)   , K(F7)   , K(F8)   , K(F9)    , K(F10)         , K(F11)     , K(F12)    },
+        { LL()      , Nop()   , K(Pause)  , Nop() , K(Ins)  , Nop()       , Nop()   , Nop()   , K(Home) , Nop()    , K(Up)          , K(Left)    , K(Right)  },
+        { M(CtrlL)  , K(End)  , K(PrtSc)  , Nop() , K(PgDn) , Nop()       , K(Left) , K(Down) , K(Up)   , K(Right) , Nop()          , Nop()      , K(Enter)  },
+        { M(ShiftL) , Nop()   , K(Delete) , Nop() , Nop()   , K(PgUp)     , K(Down) , Nop()   , Nop()   , Nop()    , Nop()          , ML(ShiftR) , Nop()     },
+        { L(0, 1)   , M(GUIL) , M(AltL)   , Nop() , Nop()   , K(SpaceBar) , Nop()   , Nop()   , M(AltR) , M(GUIR)  , K(Application) , M(CtrlR)   , K(Delete) }
+    },
 
 //
 // Layer 2
@@ -87,13 +87,13 @@
 // |     |     |     |                               |     |     |     |#2###|
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
-  {
-    { K(Esc)         , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()          , Nop()            },
-    { LL()           , Nop()          , P(Up)          , Nop()          , PC(Backward)   , PS(Up)         , Nop()          , Nop()          , Nop()          , C(Play_Pause)  , C(Stop)        , C(PrevTrack)   , C(NextTrack)     },
-    { Nop()          , P(Left)        , P(Down)        , P(Right)       , PS(Left)       , PS(Down)       , PS(Right)      , Nop()          , Nop()          , C(Mute)        , C(VolumeDown)  , C(VolumeUp)    , K(Enter)         },
-    { ML(ShiftL)     , PC(Left)       , PC(Middle)     , PC(Right)      , PC(Forward)    , Nop()          , Nop()          , Nop()          , C(BrightDown)  , C(BrightUp)    , Nop()          , ML(ShiftR)     , Nop()            },
-    { M(CtrlL)       , M(GUIL)        , M(AltL)        , Nop()          , Nop()          , K(SpaceBar)    , Nop()          , Nop()          , M(AltR)        , M(GUIR)        , K(Application) , L(0, 2)        , K(BackSpace)     }
-  }
+    {
+        { K(Esc)     , Nop()    , Nop()      , Nop()     , Nop()        , Nop()       , Nop()     , Nop() , Nop()         , Nop()         , Nop()          , Nop()        , Nop()        },
+        { LL()       , Nop()    , P(Up)      , Nop()     , PC(Backward) , PS(Up)      , Nop()     , Nop() , Nop()         , C(Play_Pause) , C(Stop)        , C(PrevTrack) , C(NextTrack) },
+        { Nop()      , P(Left)  , P(Down)    , P(Right)  , PS(Left)     , PS(Down)    , PS(Right) , Nop() , Nop()         , C(Mute)       , C(VolumeDown)  , C(VolumeUp)  , K(Enter)     },
+        { ML(ShiftL) , PC(Left) , PC(Middle) , PC(Right) , PC(Forward)  , Nop()       , Nop()     , Nop() , C(BrightDown) , C(BrightUp)   , Nop()          , ML(ShiftR)   , Nop()        },
+        { M(CtrlL)   , M(GUIL)  , M(AltL)    , Nop()     , Nop()        , K(SpaceBar) , Nop()     , Nop() , M(AltR)       , M(GUIR)       , K(Application) , L(0, 2)      , K(BackSpace) }
+    }
 }
 
 #endif  // CROW_KEYMAP_
