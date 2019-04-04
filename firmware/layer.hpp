@@ -31,7 +31,14 @@ class Layer {
         current = isLocked ? from : to;
     }
 
-    void toggleLock() { isLocked = !isLocked; }
+    void toggleLock(Index const from) {
+        if (isLocked) {
+            isLocked = false;
+            current = from;
+        } else {
+            isLocked = true;
+        }
+    }
 
   private:
     Raw *      raw;

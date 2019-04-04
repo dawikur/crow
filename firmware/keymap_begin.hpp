@@ -43,10 +43,10 @@ namespace Crow {
     }
 
 // Layer Lock
-#define LL()                                                                   \
+#define LL(in_from)                                                            \
     [](Report &, Layer &layer, bool const wasPressed) {                        \
         if (wasPressed) {                                                      \
-            layer.toggleLock();                                                \
+            layer.toggleLock(in_from);                                         \
         }                                                                      \
     }
 

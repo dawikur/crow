@@ -61,7 +61,7 @@
 
     {
         { K(Esc)    , K(F1)   , K(F2)     , K(F3) , K(F4)   , K(F5)       , K(F6)   , K(F7)   , K(F8)   , K(F9)    , K(F10)         , K(F11)     , K(F12)    },
-        { LL()      , Nop()   , K(Pause)  , Nop() , K(Ins)  , Nop()       , Nop()   , Nop()   , K(Home) , Nop()    , K(Up)          , K(Left)    , K(Right)  },
+        { LL(0)     , Nop()   , K(Pause)  , Nop() , K(Ins)  , Nop()       , Nop()   , Nop()   , K(Home) , Nop()    , K(Up)          , K(Left)    , K(Right)  },
         { M(CtrlL)  , K(End)  , K(PrtSc)  , Nop() , K(PgDn) , Nop()       , K(Left) , K(Down) , K(Up)   , K(Right) , Nop()          , Nop()      , K(Enter)  },
         { M(ShiftL) , Nop()   , K(Delete) , Nop() , Nop()   , K(PgUp)     , K(Down) , Nop()   , Nop()   , Nop()    , Nop()          , ML(ShiftR) , Nop()     },
         { L(0, 1)   , M(GUIL) , M(AltL)   , Nop() , Nop()   , K(SpaceBar) , Nop()   , Nop()   , M(AltR) , M(GUIR)  , K(Application) , M(CtrlR)   , K(Delete) }
@@ -89,7 +89,7 @@
 
     {
         { K(Esc)     , Nop()    , Nop()      , Nop()     , Nop()        , Nop()       , Nop()       , Nop() , Nop()         , Nop()         , Nop()          , Nop()        , Nop()        },
-        { LL()       , Nop()    , P(Up)      , Nop()     , PB(Backward) , PS(Up)      , PB(Forward) , Nop() , Nop()         , C(Play_Pause) , C(Stop)        , C(PrevTrack) , C(NextTrack) },
+        { LL(0)      , Nop()    , P(Up)      , Nop()     , PB(Backward) , PS(Up)      , PB(Forward) , Nop() , Nop()         , C(Play_Pause) , C(Stop)        , C(PrevTrack) , C(NextTrack) },
         { Nop()      , P(Left)  , P(Down)    , P(Right)  , PS(Left)     , PS(Down)    , PS(Right)   , Nop() , Nop()         , C(Mute)       , C(VolumeDown)  , C(VolumeUp)  , K(Enter)     },
         { ML(ShiftL) , PB(Left) , PB(Middle) , PB(Right) , Nop()        , Nop()       , Nop()       , Nop() , C(BrightDown) , C(BrightUp)   , Nop()          , ML(ShiftR)   , Nop()        },
         { M(CtrlL)   , M(GUIL)  , M(AltL)    , Nop()     , Nop()        , K(SpaceBar) , Nop()       , Nop() , M(AltR)       , M(GUIR)       , K(Application) , L(0, 2)      , K(BackSpace) }
