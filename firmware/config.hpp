@@ -74,13 +74,13 @@
 // |Esc | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |10  |11  |12  |BackSp  |
 // |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,____,____,____,____,____,____,____,____,____,______;
-// |Layer |Mac | ^  |    | B  |Scr |    |    |    |Play|Stop|Prev|Next|      |
+// |Layer |Mac | ^  |    | B  |Scr | F  |    |    |Play|Stop|Prev|Next|      |
 // | Lock | Rec| ^  |    |    | U  |    |    |    |    |    |    |    |      |
 // ;_______,____,____,____,____,____,____,____,____,____,____,____,__________;
 // |       |    | V  |    |Scr |Scr |Scr |    |    |Mute|Vol-|Vol+|Enter     |
 // |       | << | V  | >> | L  | D  | R  |    |    |    |    |    |          |
 // ;_________,____,____,____,____,____,____,____,____,____,____,_____________;
-// |ShiftL   | L  | M  | R  | F  |    |    |    |-Bri|+Bri|    |ShiftR       |
+// |ShiftL   | L  | M  | R  |    |    |    |    |-Bri|+Bri|    |ShiftR       |
 // | Lock    |    |    |    |    |    |    |    | gth| gth|    | Lock        |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |CtrlL|GUIL |AltL |                               |AltR |GUIR |Menu |Layer|
@@ -88,11 +88,11 @@
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
     {
-        { K(Esc)     , Nop()    , Nop()      , Nop()     , Nop()        , Nop()       , Nop()     , Nop() , Nop()         , Nop()         , Nop()          , Nop()        , Nop()        },
-        { LL()       , Nop()    , P(Up)      , Nop()     , PC(Backward) , PS(Up)      , Nop()     , Nop() , Nop()         , C(Play_Pause) , C(Stop)        , C(PrevTrack) , C(NextTrack) },
-        { Nop()      , P(Left)  , P(Down)    , P(Right)  , PS(Left)     , PS(Down)    , PS(Right) , Nop() , Nop()         , C(Mute)       , C(VolumeDown)  , C(VolumeUp)  , K(Enter)     },
-        { ML(ShiftL) , PC(Left) , PC(Middle) , PC(Right) , PC(Forward)  , Nop()       , Nop()     , Nop() , C(BrightDown) , C(BrightUp)   , Nop()          , ML(ShiftR)   , Nop()        },
-        { M(CtrlL)   , M(GUIL)  , M(AltL)    , Nop()     , Nop()        , K(SpaceBar) , Nop()     , Nop() , M(AltR)       , M(GUIR)       , K(Application) , L(0, 2)      , K(BackSpace) }
+        { K(Esc)     , Nop()    , Nop()      , Nop()     , Nop()        , Nop()       , Nop()       , Nop() , Nop()         , Nop()         , Nop()          , Nop()        , Nop()        },
+        { LL()       , Nop()    , P(Up)      , Nop()     , PB(Backward) , PS(Up)      , PB(Forward) , Nop() , Nop()         , C(Play_Pause) , C(Stop)        , C(PrevTrack) , C(NextTrack) },
+        { Nop()      , P(Left)  , P(Down)    , P(Right)  , PS(Left)     , PS(Down)    , PS(Right)   , Nop() , Nop()         , C(Mute)       , C(VolumeDown)  , C(VolumeUp)  , K(Enter)     },
+        { ML(ShiftL) , PB(Left) , PB(Middle) , PB(Right) , Nop()        , Nop()       , Nop()       , Nop() , C(BrightDown) , C(BrightUp)   , Nop()          , ML(ShiftR)   , Nop()        },
+        { M(CtrlL)   , M(GUIL)  , M(AltL)    , Nop()     , Nop()        , K(SpaceBar) , Nop()       , Nop() , M(AltR)       , M(GUIR)       , K(Application) , L(0, 2)      , K(BackSpace) }
     }
 }
 
