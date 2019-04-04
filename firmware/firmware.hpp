@@ -14,9 +14,8 @@ class Firmware {
     using GetRow = Row (*)(Index const);
 
     Firmware(GetRow const            getRow,
-             Report::Send const      sendReport,
-             Layer::SetCurrent const setCurrent)
-        : getRow{getRow}, matrix{}, execute{sendReport, Layers, setCurrent} {}
+             Report::Send const      sendReport)
+        : getRow{getRow}, matrix{}, execute{sendReport, Layers} {}
 
     Firmware() = delete;
 

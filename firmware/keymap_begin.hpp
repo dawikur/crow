@@ -67,7 +67,7 @@ namespace Crow {
         report.scroll(Keymap::Pointer_Scroll##in_id, wasPressed);              \
     }
 
-#define PC(in_button)                                                          \
+#define PB(in_button)                                                          \
     [](Report &report, Layer &, bool const wasPressed) {                       \
         report.click(Keymap::Pointer_Button##in_button, wasPressed);           \
     }

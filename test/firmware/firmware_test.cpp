@@ -49,14 +49,12 @@ void sendReport(Crow::Index const id,
     _usbHid->sendReport(buffor);
 }
 
-void setLayer(Crow::Index const) {}
-
 }  // namespace Functions
 
 class firmware_test : public ::testing::Test {
   protected:
     firmware_test()
-        : firmware{Functions::getRow, Functions::sendReport, Functions::setLayer} {}
+        : firmware{Functions::getRow, Functions::sendReport} {}
 
     void SetUp() override {
         Functions::_hardware = &hardware;

@@ -16,6 +16,6 @@
 
 #undef P   // Pointer
 #undef PS  // Pointer Scroll
-#undef PC  // Pointer Click
+#undef PB  // Pointer Button
 
 #endif  // FIRMWARE_KEYMAP_END_HPP_

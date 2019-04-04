@@ -30,20 +30,7 @@ void SendReport(Crow::Index const id,
     HID().SendReport(id, data, size);
 }
 
-void SetLayer(Crow::Index const id) {
-    if (id == 0) {
-        TXLED0;
-        RXLED0;
-    } else if (id == 1) {
-        TXLED0;
-        RXLED1;
-    } else {
-        TXLED1;
-        RXLED0;
-    }
-}
-
-Crow::Firmware firmware{GetRow, SendReport, SetLayer};
+Crow::Firmware firmware{GetRow, SendReport};
 
 void setup() {
     TXLED0;

@@ -12,9 +12,8 @@ namespace Crow {
 class Executor {
   public:
     Executor(Report::Send const      sendReport,
-             Layer::Raw const *const layers,
-             Layer::SetCurrent const setCurrent)
-        : report{sendReport}, layer{layers, setCurrent} {}
+             Layer::Raw const *const layers)
+        : report{sendReport}, layer{layers} {}
 
     Executor()                 = delete;
     Executor(Executor const &) = delete;

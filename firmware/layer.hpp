@@ -12,13 +12,11 @@ class Layer {
   public:
     using Function   = void (*)(Report &, Layer &, bool const);
     using Raw        = const Function[RowsCount][ColsCount];
-    using SetCurrent = void (*)(Index const);
 
     constexpr static Index Base = 0;
 
-    Layer(Raw const *const raw, SetCurrent const setCurrent)
+    Layer(Raw const *const raw)
         : raw{raw}
-        , setCurrent{setCurrent}
         , current{0}
         , isLocked{false} {}
 
@@ -31,14 +29,12 @@ class Layer {
 
     void change(Index const from, Index const to) {
         current = isLocked ? from : to;
-        setCurrent(current);
     }
 
     void toggleLock() { isLocked = !isLocked; }
 
   private:
     Raw *      raw;
-    SetCurrent setCurrent;
     Index      current;
     bool       isLocked;
 };
