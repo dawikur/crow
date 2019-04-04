@@ -8,16 +8,17 @@
 namespace Crow {
 namespace Reports {
 
-union PointerRaw {
-    PointerRaw() : _{0} {}
+struct PointerRaw {
+    PointerRaw()
+        : buttons{0}
+        , X{0}
+        , Y{0}
+        , V{0} {}
 
-    struct {
-        int8_t buttons;
-        int8_t X;
-        int8_t Y;
-        int8_t V;
-    };
-    int8_t _[4];
+    int8_t buttons;
+    int8_t X;
+    int8_t Y;
+    int8_t V;
 };
 
 class Pointer : public Base<1, PointerRaw> {
