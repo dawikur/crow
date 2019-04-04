@@ -46,25 +46,25 @@
 // |Esc |F1  |F2  |F3  |F4  |F5  |F6  |F7  |F8  |F9  |F10 |F11 |F12 |Delete  |
 // |    |    |    |    |    |    |    |    |    |    |    |    |    |        |
 // ;______,____,____,____,____,____,____,____,____,____,____,____,____,______;
-// |Layer |    |Pau-|    |Ins |    |    |    |Home|    | ^  |<-- |--> |      |
-// | Lock |    | se |    | CP |    |    |    |    |    | |  |    |    |      |
+// |Layer |    |Pau-|    |Ins |    |    |PgUp|Home|    |    |    |    |      |
+// | Lock |    | se |    | CP |    |    |    |    |    |    |    |    |      |
 // ;_______,____,____,____,____,____,____,____,____,____,____,____,__________;
-// |CtrlL  |End |Prt-|    |PgDn|Home|<-- | |  | ^  |--> |    |    |Enter     |
+// |CtrlL  |End |Prt-|PgDn|    |    |<-- | |  | ^  |--> |    |    |Enter     |
 // |       |    | Sc |    |    |    |    | V  | |  |    |    |    |          |
 // ;_________,____,____,____,____,____,____,____,____,____,____,_____________;
-// |ShiftL   |    |Del |    |    |PgUp|    | |  |    |    |    |ShiftR       |
-// |         |    |    |    |    |    |    | V  |    |    |    |             |
+// |ShiftL   |    |Del |    |    |    |    |    |    |    |    |ShiftR       |
+// |         |    |    |    |    |    |    |    |    |    |    |             |
 // ;_____,_____,_____ ,______________________________,_____,_____,_____,_____,
 // |Layer|GUIL |AltL |                               |AltR |GUIR |Menu |CtrlR|
 // |#1###|     |     |                               |     |     |     |     |
 // `-----`-----`-----`-------------------------------`-----`-----`-----`-----`
 
     {
-        { K(Esc)    , K(F1)   , K(F2)     , K(F3) , K(F4)   , K(F5)       , K(F6)   , K(F7)   , K(F8)   , K(F9)    , K(F10)         , K(F11)     , K(F12)    },
-        { LL(0)     , Nop()   , K(Pause)  , Nop() , K(Ins)  , Nop()       , Nop()   , Nop()   , K(Home) , Nop()    , K(Up)          , K(Left)    , K(Right)  },
-        { M(CtrlL)  , K(End)  , K(PrtSc)  , Nop() , K(PgDn) , Nop()       , K(Left) , K(Down) , K(Up)   , K(Right) , Nop()          , Nop()      , K(Enter)  },
-        { M(ShiftL) , Nop()   , K(Delete) , Nop() , Nop()   , K(PgUp)     , K(Down) , Nop()   , Nop()   , Nop()    , Nop()          , ML(ShiftR) , Nop()     },
-        { L(0, 1)   , M(GUIL) , M(AltL)   , Nop() , Nop()   , K(SpaceBar) , Nop()   , Nop()   , M(AltR) , M(GUIR)  , K(Application) , M(CtrlR)   , K(Delete) }
+        { K(Esc)    , K(F1)   , K(F2)     , K(F3)   , K(F4)  , K(F5)       , K(F6)   , K(F7)   , K(F8)   , K(F9)    , K(F10)         , K(F11)     , K(F12)    },
+        { LL(0)     , Nop()   , K(Pause)  , Nop()   , K(Ins) , Nop()       , Nop()   , K(PgUp) , K(Home) , Nop()    , Nop()          , Nop()      , Nop()     },
+        { M(CtrlL)  , K(End)  , K(PrtSc)  , K(PgDn) , Nop()  , Nop()       , K(Left) , K(Down) , K(Up)   , K(Right) , Nop()          , Nop()      , K(Enter)  },
+        { M(ShiftL) , Nop()   , K(Delete) , Nop()   , Nop()  , Nop()       , Nop()   , Nop()   , Nop()   , Nop()    , Nop()          , ML(ShiftR) , Nop()     },
+        { L(0, 1)   , M(GUIL) , M(AltL)   , Nop()   , Nop()  , K(SpaceBar) , Nop()   , Nop()   , M(AltR) , M(GUIR)  , K(Application) , M(CtrlR)   , K(Delete) }
     },
 
 //
