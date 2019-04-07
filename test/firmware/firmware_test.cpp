@@ -257,7 +257,7 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_2) {
     loop();
 
     set_rows(0, 0, 0, 0, 0);                                                   // - Layer2 ShiftLock
-    expect_report({0, 0, 0, 0, 0, 0, 0, 0});
+    expect_report({Modifier_ShiftR, 0, 0, 0, 0, 0, 0, 0});
 
     loop();
 

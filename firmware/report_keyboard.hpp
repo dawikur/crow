@@ -24,6 +24,11 @@ class Keyboard : public Base<3, KeyboardRaw> {
   public:
     Keyboard() : Base{}, lockedModifiers{0} {}
 
+    void clear() {
+        Base::clear();
+        raw.modifiers = lockedModifiers;
+    }
+
     void key(Index const key, bool const wasPressed) {
         wasPressed ? process_key_press(key) : process_key_release(key);
         markChanged();
