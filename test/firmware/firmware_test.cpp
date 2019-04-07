@@ -119,6 +119,13 @@ TEST_F(firmware_test, pressed_modifier_will_be_send) {
     loop();
 }
 
+TEST_F(firmware_test, can_sent_altr) {
+    set_rows(0, 0, 0, 0, 256);                                                 // + AltR
+    expect_report({Modifier_AltR, 0, 0, 0, 0, 0, 0, 0});                       // ? AltR
+
+    loop();
+}
+
 TEST_F(firmware_test, pressed_multiple_modifiers_will_be_send) {
     set_rows(0, 0, 1, 1, 0);                                                   // + CtrlL ShiftL
     expect_report({Modifier_CtrlL | Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});    // ? CtrlL ShiftL
@@ -250,6 +257,7 @@ TEST_F(firmware_test, shift_locking_and_unlocking_works_on_layer_2) {
     loop();
 
     set_rows(0, 0, 0, 0, 0);                                                   // - Layer2 ShiftLock
+    expect_report({0, 0, 0, 0, 0, 0, 0, 0});
 
     loop();
 
@@ -301,22 +309,6 @@ TEST_F(firmware_test, when_changing_layer_all_keys_are_cleared) {
 
     set_rows(1, 0, 0, 0, 0);                                                   // - Layer1
     expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                   // ! Esc
-
-    loop();
-}
-
-TEST_F(firmware_test, when_changing_layer_modifier_keys_are_not_cleared) {
-    set_rows(0, 0, 0, 1, 1);                                                   // + Layer1 ShiftL
-    expect_report({Modifier_ShiftL, 0, 0, 0, 0, 0, 0, 0});                     // ? ShiftL
-
-    loop();
-
-    set_rows(0, 0, 0, 1, 0);                                                   // - Layer1
-
-    loop();
-
-    set_rows(0, 0, 0, 0, 0);                                                   // - ShiftL
-    expect_report({0, 0, 0, 0, 0, 0, 0, 0});                                   // ! ShiftL
 
     loop();
 }
