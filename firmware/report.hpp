@@ -26,7 +26,8 @@ class Report {
     }
 
     void clear() {
-        keyboard.keysClear();
+        customer.clear();
+        keyboard.clear();
         pointer.clear();
     }
 

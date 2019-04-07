@@ -29,15 +29,6 @@ class Keyboard : public Base<3, KeyboardRaw> {
         markChanged();
     }
 
-    void keysClear() {
-        for (int i = 0; i < KeyboardRaw::KeysCount; ++i) {
-            if (raw.keys[i] != 0) {
-                raw.keys[i] = 0;
-                markChanged();
-            }
-        }
-    }
-
     void modifier(Index const key, bool const wasPressed) {
         wasPressed ? process_modifier_press(key) : process_modifier_release(key);
         markChanged();

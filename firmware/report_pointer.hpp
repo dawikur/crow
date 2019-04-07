@@ -57,13 +57,6 @@ class Pointer : public Base<1, PointerRaw> {
 
 #undef do_commit
 
-    void clear() {
-        raw.buttons = 0;
-        raw.X       = 0;
-        raw.Y       = 0;
-        raw.V       = 0;
-    }
-
     void move(Index const id, bool const wasPressed) {
         wasPressed ? process_move_begin(id) : process_move_end(id);
         markChanged();

@@ -10,24 +10,36 @@ namespace Reports {
 
 template <Index Id, class RawReport>
 class Base {
- public:
-  Base() : raw{}, changed{false} {}
+  public:
+    Base() : raw{}, changed{false} {}
 
-  virtual explicit operator bool() const { return changed; }
+    virtual explicit operator bool() const { return changed; }
 
-  void commit() { changed = false; }
+    void commit() { changed = false; }
 
-  static Index constexpr id() { return Id; }
-  void const *data() const { return &raw; }
-  Index       size() const { return sizeof(raw); }
+    void clear() {
+        for (uint8_t *ptr = (uint8_t*)(void*)&raw,
+                     *end = ptr + sizeof (raw);
+             ptr != end;
+             ++ptr) {
+            if (*ptr != 0) {
+                *ptr = 0;
+                markChanged();
+            }
+        }
+    }
 
- protected:
-  void markChanged() { changed = true; }
+    static Index constexpr id() { return Id; }
+    void const *data() const { return &raw; }
+    Index       size() const { return sizeof(raw); }
 
-  RawReport raw;
-
- private:
-  bool changed;
+  protected:
+    void markChanged() { changed = true; }
+  
+    RawReport raw;
+  
+  private:
+    bool changed;
 };
 
 }  // namespace Reports
